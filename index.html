@@ -5,11 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/images/icon.png" type="image/png" />
     <title>Laboratório Virtual de Física</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/home.css">
   </head>
   <body>
-    <h1>Laboratório Virtual de Física</h1>
-    <a href="10-classe/cinematica/MRU.html" class="getStarted">Começar</a>
+    <div id="root">
+      <header class="header">
+        <div class="logo">
+          <div class="abbreviation_logo">LVF</div>
+          <div class="extension_logo">
+            Lab Virtual <br />
+            De Física
+          </div>
+        </div>
+
+        <div class="logotype">
+          <img
+            src="/assets/images/icon.png"
+            alt=""
+            width="32"
+            class="logotype_img"
+          />
+        </div>
+
+        <div class="right_nav">
+          <select name="simulations" id="simulations" class="simulations">
+            <option value="default">Simulações</option>
+            <option value="grade_10">10ª Classe</option>
+            <option value="grade_11">11ª Classe</option>
+            <option value="grade_12">12ª Classe</option>
+          </select>
+
+          <nav id="main-nav" class="sidebar">
+            <a href="/" onclick="route()">Home</a>
+            <a href="/about" onclick="route()">About</a>
+            <a href="/lorem" onclick="route()">Lorem</a>
+          </nav>
+        </div>
+      </header>
+
+      <section id="main-page"></section>
+    </div>
+
+    <script src="js/router.js"></script>
   </body>
 </html>
