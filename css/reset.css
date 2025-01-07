@@ -1,0 +1,72 @@
+/* Normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document settings */
+html {
+    line-height: 1.15; /* Improve readability in browsers */
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS */
+    -moz-tab-size: 4; /* Improve layout consistency */
+    tab-size: 4;
+  }
+  
+  /* Remove default margin */
+  body {
+    margin: 0;
+  }
+  
+  /* HTML5 elements in older browsers */
+  article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+  }
+  
+  /* Set consistent font size in all browsers */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    font-family: sans-serif, Arial, Helvetica, 'Segoe UI', sans-serif; /* Add your preferred font stack */
+  }
+  
+  /* Reset list styling */
+  ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  /* Remove default blockquote padding */
+  blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Normalize link appearance */
+  a {
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  /* Addressing issues with table element */
+  table {
+    border-collapse: collapse;
+  }
+  
+  /* Improve accessibility of images */
+  img {
+    border-style: none;
+    max-width: 100%; /* Prevent image overflow */
+    height: auto;
+  }
+  
+  /* Reset input styles */
+  input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  /* Address issues with focus in some browsers */
+  *:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  
