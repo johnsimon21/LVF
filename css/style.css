@@ -120,6 +120,7 @@ select.simulations {
 @media (max-width: 948px) {
     header.header {
         height: 4.7rem;
+        padding: 1.5rem;
     }
     a.logo {
         visibility: hidden;

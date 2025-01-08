@@ -1,4 +1,45 @@
-.home-container, .home-container img {
+.home-container {
     width: 100%;
-    height: auto;
+    height: calc(100vh - 5.7rem);
+
+    background-image: url('../assets/images/space.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+
+    padding: 2rem 2rem 4rem;
+}
+
+.text-setion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+h1.title {
+    font: 700 3.5rem 'Roboto', sans-serif;
+
+    display: flex;
+
+}
+
+p.motto {
+    text-align: left;
+    text-indent: 0;
+    font: normal .8rem 'Roboto', sans-serif;
+    line-height: 1.2rem;
+}
+
+.developer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    justify-self: end;
+    align-self: start;
 }
