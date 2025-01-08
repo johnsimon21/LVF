@@ -12,21 +12,7 @@
   <body>
     <div id="root">
       <header class="header">
-        <div class="humburger">
-          <svg
-            class="humburger_svg"
-            data-name="Layer 1"
-            id="Layer_1"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title />
-            <line class="cls-1" x1="1" x2="47" y1="10" y2="10" />
-            <line class="cls-1" x1="1" x2="47" y1="24" y2="24" />
-            <line class="cls-1" x1="1" x2="47" y1="38" y2="38" />
-          </svg>
-        </div>
-
+      
         <a href="/" class="logo">
           <div class="abbreviation_logo">LVF</div>
           <img src="./assets/images/line_logo.png" alt="" class="line" />
@@ -35,6 +21,32 @@
             De Física
           </div>
         </a>
+
+        <div class="dropdown-setion">
+          <div class="humburger">
+            <svg
+              onclick="handleToggleDropdown()"
+              class="humburger_svg"
+              data-name="Layer 1"
+              id="Layer_1"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title />
+              <line class="cls-1" x1="1" x2="47" y1="10" y2="10" />
+              <line class="cls-1" x1="1" x2="47" y1="24" y2="24" />
+              <line class="cls-1" x1="1" x2="47" y1="38" y2="38" />
+            </svg>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-content">
+              <a href="/" class="menu-item">Home</a>
+              <a href="/about" class="menu-item">Sobre</a>
+              <a href="/lorem" class="menu-item">Contacto</a>
+            </div>
+          </div>
+
+        </div>
 
         <div class="logotype">
           <img
@@ -53,7 +65,7 @@
             <option value="grade_12">12ª Classe</option>
           </select>
 
-          <nav id="main-nav" class="sidebar">
+          <nav id="main-nav" class="main-nav">
             <a href="/" onclick="route()" class="menu-item">Home</a>
             <a href="/about" onclick="route()" class="menu-item">Sobre</a>
             <a href="/lorem" onclick="route()" class="menu-item">Contacto</a>
@@ -64,6 +76,7 @@
       <section id="main-page"></section>
     </div>
 
+    <script src="js/main.js"></script>
     <script src="js/router.js"></script>
   </body>
 </html>

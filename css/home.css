@@ -1,6 +1,6 @@
 .home-container {
     width: 100%;
-    height: calc(100vh - 5.7rem);
+    height: calc(100vh - 8.7rem);
 
     background-image: url('../assets/images/space.webp');
     background-repeat: no-repeat;
@@ -21,17 +21,20 @@
     flex-grow: 1;
 }
 h1.title {
-    font: 700 3.5rem 'Roboto', sans-serif;
+    font: 700 6.4rem 'Roboto', sans-serif;
 
     display: flex;
-
+    max-width: 80rem;
 }
 
 p.motto {
     text-align: left;
     text-indent: 0;
-    font: normal .8rem 'Roboto', sans-serif;
-    line-height: 1.2rem;
+    font: normal 1.5rem 'Roboto', sans-serif;
+    line-height: 2.5rem;
+    color: #e4e4e4;
+
+    margin-top: -4rem;
 }
 
 .developer-container {
@@ -42,4 +45,6 @@ p.motto {
 
     justify-self: end;
     align-self: start;
+
+    font-size: 1.5rem;
 }
