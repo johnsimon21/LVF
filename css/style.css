@@ -1,8 +1,7 @@
-
 body {
     font-family: 'Roboto', sans-serif;
-    width: 100%; 
-    height: 100vh; 
+    width: 100%;
+    height: 100vh;
 }
 
 #root {
@@ -23,11 +22,12 @@ header.header {
     justify-content: space-between;
     align-items: center;
 
-    background-color: #000000;
+    background-color: #0a0a0a;
     color: #ffffff;
     padding: 2rem;
 
     position: relative;
+    transition: all 0.5s ease;
 }
 
 a.logo {
@@ -42,19 +42,22 @@ a.logo {
 .abbreviation_logo {
     font: 700 1.8rem 'Roboto', sans-serif;
 }
+
 .logo img.line {
     height: 1.7rem;
     margin-inline: .1rem;
 }
+
 .extension_logo {
     font: normal .71rem 'Roboto', sans-serif;
     color: #ffffff;
     text-align: justify;
 }
+
 .logotype {
     left: 0;
     right: 0;
-    
+
     position: absolute;
     text-align: center;
 }
@@ -63,19 +66,20 @@ a.logo {
     width: 40px;
     height: 40px;
 
-    animation: spin 4000ms linear infinite;
+    animation: spin 8s linear infinite;
 }
 
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
 
-.right_nav {
+.right-nav {
     display: flex;
     align-items: center;
 
@@ -83,11 +87,54 @@ a.logo {
 }
 
 select.simulations {
-    background-color: #000000;
+    background-color: #0a0a0a;
     color: white;
     border: none;
     padding: 0.5rem;
-    margin-right: 1rem;
+    cursor: pointer;
+}
+.cls-1 {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
+  .humburger {
+    visibility: hidden;
+    display: none;
+    align-items: center;
+    justify-content: start;
+    
+    z-index: 4;
+  }
+
+.humburger_svg {    
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    fill: #ffffff;
+    cursor: pointer;
+}
+
+@media (max-width: 948px) {
+    header.header {
+        height: 4.7rem;
+    }
+    a.logo {
+        visibility: hidden;
+        display: none;
+    }
+
+    .right-nav {
+        visibility: hidden;
+    }
+
+    .humburger {
+        visibility: visible;
+        display: flex;
+    }
+
 }
 
 .sidebar {
