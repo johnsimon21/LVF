@@ -91,13 +91,34 @@ a.logo {
     z-index: 4;
 }
 
-select.simulations {
+.select-simulation {
+    position: relative;
+}
+
+.dropdown-simulations {
+    display: none;
+    visibility: hidden;
+
+    position: absolute;
+}
+.dropdown-simulations .dropdown-content {
+    width: 22rem;
+    position: absolute;
+    right: 0;
+
+}
+.simulation-title {
     font-size: 1.6rem;
-    background-color: #0a0a0a;
-    color: white;
-    border: none;
-    padding: 0.5rem;
+    font-weight: bolder;
+    text-align: center;
+    padding: 1.5rem;
+    color: #ffffff;
+    padding: 1rem;
     cursor: pointer;
+}
+
+.grade:hover {
+    text-decoration: underline;
 }
 
 .cls-1 {
@@ -162,10 +183,12 @@ select.simulations {
     margin-left: 2rem;
 }
 
-.main-nav>a {
-    margin: 0 1rem;
+.main-nav>.menu-item {
+    margin: 0 1.5rem;
     color: #ffffff;
     font-size: 1.6rem;
+
+    cursor: pointer;
 }
 
 .dropdown {
@@ -198,7 +221,7 @@ select.simulations {
 }
 
 
-.dropdown.is-active {
+.is-active {
     display: block;
     visibility: visible;
 }

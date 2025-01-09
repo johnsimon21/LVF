@@ -19,10 +19,10 @@
     flex-direction: column;
     color: #ffffff;
 
-    padding: 2rem 2rem 4rem;
+    padding: 4rem;
 }
 
-.text-setion {
+.text-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
