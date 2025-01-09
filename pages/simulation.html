@@ -7,24 +7,27 @@
     <title>Laboratório Virtual de Física</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/simulation.css" />
     <link rel="stylesheet" href="../css/home.css" />
   </head>
   <body>
     <div id="root">
       <header class="header">
-        <a href="/" class="logo">
-          <div class="abbreviation_logo">LVF</div>
-          <img src="./assets/images/line_logo.png" alt="" class="line" />
-          <div class="extension_logo">
-            Lab Virtual <br />
-            De Física
-          </div>
-        </a>
+        <div class="logo-setion">
+          <a href="/" class="logo">
+            <div class="abbreviation_logo">LVF</div>
+            <img src="../assets/images/line_logo.png" alt="" class="line" />
+            <div class="extension_logo">
+              Lab Virtual <br />
+              De Física
+            </div>
+          </a>
+        </div>
 
         <div class="dropdown-setion">
-          <div class="humburger">
+          <div class="simulation-humburger">
             <svg
-              onclick="handleToggleDropdown('#dropdown1')"
+              onclick="handleDropdown()"
               class="humburger_svg"
               data-name="Layer 1"
               id="Layer_1"
@@ -37,47 +40,16 @@
               <line class="cls-1" x1="1" x2="47" y1="38" y2="38" />
             </svg>
           </div>
-          <div id="dropdown1" class="dropdown">
-            <div class="dropdown-content">
-              <a href="/" class="menu-item">Home</a>
-              <a href="/about" class="menu-item">Sobre</a>
-              <a href="/lorem" class="menu-item">Contacto</a>
-            </div>
-          </div>
         </div>
-
-        <div class="logotype">
-          <img
-            src="/assets/images/icon.png"
-            alt=""
-            width="32"
-            class="logotype_img"
-          />
-        </div>
-
-        <div class="right-nav">
-          <nav id="main-nav" class="main-nav">
-            <div class="menu-item select-simulation">
-              <span onclick="handleToggleDropdown('#dropdown2')">
-                Simulações
-              </span>
-              <div id="dropdown2" class="dropdown dropdown-simulations">
-                <div class="dropdown-content">
-                  <div class="simulation-title">Simulações</div>
-                  <a href="/pages/simulation.html" class="grade">10ª Classe</a>
-                  <a href="/pages/simulation.html" class="grade">11ª Classe</a>
-                  <a href="/pages/simulation.html" class="grade">12ª Classe</a>
-                </div>
-              </div>
-            </div>
-            <a href="/" onclick="route()" class="menu-item">Home</a>
-            <a href="/about" onclick="route()" class="menu-item">Sobre</a>
-            <a href="/lorem" onclick="route()" class="menu-item">Contacto</a>
-          </nav>
-        </div>
+        <a href="/" class="home">Home</a>
       </header>
+      <main>
+        <div class="sidebar"></div>
 
-      <section id="main-page"></section>
+        <section class="simulation-container">
+          <div id="scene" class="scene"></div>
+        </section>
+      </main>
     </div>
 
     <script src="js/main.js"></script>

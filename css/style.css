@@ -183,7 +183,7 @@ a.logo {
     margin-left: 2rem;
 }
 
-.main-nav>.menu-item {
+.main-nav>.menu-item, .home {
     margin: 0 1.5rem;
     color: #ffffff;
     font-size: 1.6rem;
