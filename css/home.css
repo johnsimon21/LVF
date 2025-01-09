@@ -33,8 +33,6 @@ p.motto {
     font: normal 1.5rem 'Roboto', sans-serif;
     line-height: 2.5rem;
     color: #e4e4e4;
-
-    margin-top: -4rem;
 }
 
 .developer-container {
@@ -47,4 +45,14 @@ p.motto {
     align-self: start;
 
     font-size: 1.5rem;
+}
+
+/* Media query */
+
+
+@media (max-width: 580px) {
+    h1.title {
+        font-size: 4.5rem;
+    }
+
 }
