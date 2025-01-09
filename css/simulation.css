@@ -99,4 +99,11 @@ main .sidebar .units-group {
 
 main .sidebar .units-group .unit {
     padding: 2rem 3.8rem;
+    cursor: pointer;
+
+    transition: background-color .3s;
+}
+
+main .sidebar .units-group .unit:hover {
+    background-color: #1D1D1D;
 }
