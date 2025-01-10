@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,10 +24,14 @@
           </a>
         </div>
 
-        <div class="dropdown-setion">
+        <div class="dropdown-setion" onclick="handleSidebar()">
           <div class="simulation-humburger">
+            <img
+              src="../assets/images/close.svg"
+              alt="ícone de fechar"
+              class="icon-close show"
+            />
             <svg
-              onclick="handleDropdown()"
               class="humburger_svg"
               data-name="Layer 1"
               id="Layer_1"
@@ -44,7 +48,7 @@
         <a href="/" class="home">Home</a>
       </header>
       <main>
-        <div class="sidebar">
+        <div id="sidebar" class="sidebar">
           <div class="header">
             <div class="_grade">10ª Classe</div>
             <div class="_grade">11ª Classe</div>
@@ -67,5 +71,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/router.js"></script>
+    <script src="../js/simulation.js"></script>
   </body>
 </html>
