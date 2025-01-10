@@ -136,7 +136,7 @@ main .sidebar .units-group .unit {
     padding: 2rem 3.8rem;
     cursor: pointer;
 
-    transition: background-color .3s;
+    transition: all .5s;
 }
 
 main .sidebar .units-group .unit:hover {
@@ -145,9 +145,12 @@ main .sidebar .units-group .unit:hover {
 
 main .sidebar .units-group  ul.topic-list  {
     width: 100%;
+
+    display: none;
     
     background-color: #131313;
     padding: 1rem 3rem;
+    
 }
 
 main .sidebar .units-group ul.topic-list li.topic {    
@@ -164,4 +167,11 @@ main .sidebar .units-group ul.topic-list li.topic {
 
 main .sidebar .units-group ul.topic-list li.topic:hover {
     color: #c2c2c2;
+}
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.unit .dropdown-arrow-open{
+    transform: rotate(90deg);
 }

@@ -57,11 +57,19 @@
 
           <div class="units-group">
             <div>
-              <div class="unit">
+              <div
+                onclick="handleTopicDropdown('#dropdownArrow1', '#topicList1')"
+                class="unit"
+              >
                 <span>Cinemática</span>
-                <img src="../assets/images/dropdown_arrow.svg" alt="dropdown icon" class="dropdown_arraw">
+                <img
+                  src="../assets/images/dropdown_arrow.svg"
+                  alt="dropdown icon"
+                  id="dropdownArrow1"
+                  class="dropdown-arrow"
+                />
               </div>
-              <ul class="topic-list">
+              <ul id="topicList1" class="topic-list">
                 <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
                 <li class="topic">
                   Movimento Retilíneo Uniforme Variado (MRUV)
@@ -72,9 +80,81 @@
                 </li>
               </ul>
             </div>
-            <div class="unit">Dinâmica</div>
-            <div class="unit">Trabalho e Energia</div>
-            <div class="unit">Estática</div>
+
+            <div>
+              <div
+                onclick="handleTopicDropdown('#dropdownArrow2', '#topicList2')"
+                class="unit"
+              >
+                <span>Dinâmica</span>
+                <img
+                  src="../assets/images/dropdown_arrow.svg"
+                  alt="dropdown icon"
+                  id="dropdownArrow2"
+                  class="dropdown-arrow"
+                />
+              </div>
+              <ul id="topicList2" class="topic-list">
+                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
+                <li class="topic">
+                  Movimento Retilíneo Uniforme Variado (MRUV)
+                </li>
+                <li class="topic">Movimento Circular Uniforme (MCU)</li>
+                <li class="topic">
+                  Movimento Circular Uniformemente Variado (MCUV)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div
+                onclick="handleTopicDropdown('#dropdownArrow3', '#topicList3')"
+                class="unit"
+              >
+                <span>Energia e Trabalho</span>
+                <img
+                  src="../assets/images/dropdown_arrow.svg"
+                  alt="dropdown icon"
+                  id="dropdownArrow3"
+                  class="dropdown-arrow"
+                />
+              </div>
+              <ul id="topicList3" class="topic-list">
+                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
+                <li class="topic">
+                  Movimento Retilíneo Uniforme Variado (MRUV)
+                </li>
+                <li class="topic">Movimento Circular Uniforme (MCU)</li>
+                <li class="topic">
+                  Movimento Circular Uniformemente Variado (MCUV)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div
+                onclick="handleTopicDropdown('#dropdownArrow4', '#topicList4')"
+                class="unit"
+              >
+                <span>Estática</span>
+                <img
+                  src="../assets/images/dropdown_arrow.svg"
+                  alt="dropdown icon"
+                  id="dropdownArrow4"
+                  class="dropdown-arrow"
+                />
+              </div>
+              <ul id="topicList4" class="topic-list">
+                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
+                <li class="topic">
+                  Movimento Retilíneo Uniforme Variado (MRUV)
+                </li>
+                <li class="topic">Movimento Circular Uniforme (MCU)</li>
+                <li class="topic">
+                  Movimento Circular Uniformemente Variado (MCUV)
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
