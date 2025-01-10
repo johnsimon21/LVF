@@ -118,6 +118,9 @@ main .sidebar .header ._grade:hover {
 }
 
 main .sidebar .units-group {
+    display: flex;
+    flex-direction: column;
+
     font-size: 2rem;
     font-weight: bolder;
     color: #ffffff;
@@ -126,6 +129,10 @@ main .sidebar .units-group {
 }
 
 main .sidebar .units-group .unit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     padding: 2rem 3.8rem;
     cursor: pointer;
 
@@ -134,4 +141,27 @@ main .sidebar .units-group .unit {
 
 main .sidebar .units-group .unit:hover {
     background-color: #1D1D1D;
+}
+
+main .sidebar .units-group  ul.topic-list  {
+    width: 100%;
+    
+    background-color: #131313;
+    padding: 1rem 3rem;
+}
+
+main .sidebar .units-group ul.topic-list li.topic {    
+    font-size: 1.5rem;
+    font-weight: normal;
+    
+    color: #979798;
+    cursor: pointer;
+
+    padding: 2rem 2rem 1rem;
+
+    transition: background-color .3s;
+}
+
+main .sidebar .units-group ul.topic-list li.topic:hover {
+    color: #c2c2c2;
 }
