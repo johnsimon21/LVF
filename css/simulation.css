@@ -61,20 +61,24 @@ main {
     position: relative;
 }
 
+:root{
+    --max-width-sidebar: 30rem;
+}
+
 main .sidebar {
     background-color: #0C0C0C;
     display: flex;
     flex-direction: column;
     flex: 1 1 20%;
 
-    max-width: 40rem;
+    max-width: var(--max-width-sidebar);
     width: 100%;
     height: 100%;
 
     position: absolute;
     left: 0;
 
-    transition: left .6s;
+    transition: left .6s ease; 
 }
 
 .close-sidebar {
@@ -83,13 +87,21 @@ main .sidebar {
 
 main section.simulation-container {
     display: flex;
+    flex-direction: column;
     flex: 1 1 80%;
-
+    position: absolute;
+    right: 0;
+    max-width: 100%;
     width: 100%;
     height: 100%;
+    padding: 1rem 3rem;
+    transition: all .6s ease;
 }
 
-
+/* When sidebar is visible */
+.sidebar:not(.close-sidebar) + section.simulation-container {
+    max-width: calc(100% - var(--max-width-sidebar));
+}
 main .sidebar .header {
     width: 100%;
 
@@ -174,4 +186,96 @@ main .sidebar .units-group ul.topic-list li.topic:hover {
 
 .unit .dropdown-arrow-open{
     transform: rotate(90deg);
+    
+}
+
+/* Simulation-container */
+
+section.simulation-container .guideline{
+    width: 100%;
+    height: fit-content;
+    max-height: 50rem;
+    
+    background-color: #F9F9F9;
+    border-radius: .5rem;
+    padding: 8px 14px 10px;
+    margin-bottom: .8rem;
+
+    display: flex;
+    flex-direction: column;
+
+}
+section.simulation-container .guideline .guideline-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+section.simulation-container .guideline .guideline-header-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+section.simulation-container .guideline .guideline-icon-info{
+    margin-right: 10px;
+}
+section.simulation-container .guideline .guideline-icon-collapse{
+    display: flex;    
+    cursor: pointer;
+}
+
+section.simulation-container .scene{
+    width: 100%;
+    height: 100%;
+    
+    background-color: #F3F3F3;
+    font-size: 3rem;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b2bcc5;
+    
+}
+
+.guideline-content {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.guideline-content.collapsed {
+    max-height: 0;
+}
+
+.guideline-icon-collapse.rotate {
+    transform: rotate(180deg);
+}
+
+/* Cody */
+
+.simulation-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.simulation-canvas {
+    width: 100%;
+    height: 80%;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    font-size: 24px;
+    color: #666;
+}
+
+._grade.active {
+    background-color: #303030 !important;
+    font-weight: bold;
 }

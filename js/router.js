@@ -10,8 +10,12 @@ const routes = {
     "/": "/pages/index.html",
     "/about": "/pages/about.html",
     "/lorem": "/pages/lorem.html",
+    "/simulations/grade_10/mru": "/pages/simulations/grade_10/mru.html",
+    "/simulations/grade_10/mruv": "/pages/simulations/grade_10/mruv.html",
+    "/simulations/grade_11/mcu": "/pages/simulations/grade_11/mcu.html",
+    "/simulations/grade_11/mcuv": "/pages/simulations/grade_11/mcuv.html",
+    "/simulations/grade_12/mhs": "/pages/simulations/grade_12/mhs.html"
 };
-
 const handleLocation = async () => {
     const path = window.location.pathname;
     const route = routes[path] || routes[404];

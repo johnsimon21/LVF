@@ -50,9 +50,9 @@
       <main>
         <div id="sidebar" class="sidebar">
           <div class="header">
-            <div class="_grade">10ª Classe</div>
-            <div class="_grade">11ª Classe</div>
-            <div class="_grade">12ª Classe</div>
+            <div class="_grade" data-grade="10" onclick="switchGrade(10)">10ª Classe</div>
+            <div class="_grade" data-grade="11" onclick="switchGrade(11)">11ª Classe</div>
+            <div class="_grade" data-grade="12" onclick="switchGrade(12)">12ª Classe</div>
           </div>
 
           <div class="units-group">
@@ -70,17 +70,12 @@
                 />
               </div>
               <ul id="topicList1" class="topic-list">
-                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
-                <li class="topic">
-                  Movimento Retilíneo Uniforme Variado (MRUV)
-                </li>
-                <li class="topic">Movimento Circular Uniforme (MCU)</li>
-                <li class="topic">
-                  Movimento Circular Uniformemente Variado (MCUV)
-                </li>
-              </ul>
+                <li class="topic" onclick="loadSimulation(10, 'mru')">Movimento Retilíneo Uniforme (MRU)</li>
+                <li class="topic" onclick="loadSimulation(10, 'mruv')">Movimento Retilíneo Uniforme Variado (MRUV)</li>
+                <li class="topic" onclick="loadSimulation(11, 'mcu')">Movimento Circular Uniforme (MCU)</li>
+                <li class="topic" onclick="loadSimulation(11, 'mcuv')">Movimento Circular Uniformemente Variado (MCUV)</li>
+            </ul>            
             </div>
-
             <div>
               <div
                 onclick="handleTopicDropdown('#dropdownArrow2', '#topicList2')"
@@ -159,13 +154,58 @@
         </div>
 
         <section class="simulation-container">
-          <div id="scene" class="scene"></div>
+          <div class="guideline" id="guideline">
+            <div class="guideline-header">
+              <div class="guideline-header-title">
+                <svg
+                  class="bi bi-info-circle-fill guideline-icon-info"
+                  fill="#207ED4"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                  />
+                </svg>
+                <h2 id="guideline-title" class="guideline-title">
+                  Movimento Retilíneo Uniforme (MRU)
+                </h2>
+              </div>
+              <svg
+                class="guideline-icon-collapse"
+                height="15px"
+                id="Layer_1"
+                style="enable-background: new 0 0 512 512"
+                version="1.1"
+                viewBox="0 0 512 512"
+                width="15px"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                onclick="handleGuidelineCollapse()"
+              >
+                <polygon
+                  points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "
+                />
+              </svg>
+            </div>
+            <div id="guideline-content" class="guideline-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
+                iure fugiat inventore! Voluptatum ea rem possimus et illum
+                eveniet facilis nostrum, quam odit repudiandae. Modi deserunt
+                nemo praesentium quidem accusamus.
+              </p>
+            </div>
+          </div>
+          <div id="scene" class="scene">Cena da Simulação</div>
         </section>
       </main>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/router.js"></script>
+    <script src="../js/router.js"></script>
     <script src="../js/simulation.js"></script>
   </body>
 </html>
