@@ -1,0 +1,243 @@
+
+.flex {
+    display: flex;
+}
+
+li {
+    max-width: 100%;
+    padding: 10px;
+}
+
+.title {
+    background-color: rgb(52, 100, 197);
+    color: #fff;
+    font-size: 1.6rem;
+
+    padding: 5px;
+    margin: 10px;
+}
+
+
+main {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.base {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(88, 79, 37);
+    position: absolute;
+    bottom: 0;
+    cursor: grab;
+    z-index: 2 !important;
+}
+
+.controllers {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.letter {
+    color: brown;
+    font-size: 1.2rem;
+
+    position: inherit;
+    top: -20px;
+    right: 20px;
+}
+
+.arrow-letter {
+    width: 10px;
+    height: 1px;
+
+    background-color: rgb(55, 183, 16);
+
+    position: inherit;
+    top: -1px;
+}
+
+.forward {
+    width: 10px;
+
+    position: absolute;
+    top: -4px;
+}
+
+.go {
+    right: -4px;
+    transform: rotateZ(0deg);
+}
+
+.back {
+    left: -4px;
+    transform: rotateZ(180deg);
+}
+
+
+
+/* Display Varaibles at screen */
+
+.display-variables {
+    font-family: cursive;
+    background-color: rgba(202, 202, 202, 0.557);
+    color: rgb(26, 26, 35);
+
+    padding: 8px;
+    border-radius: 4px;
+
+    position: absolute;
+    right: 10px;
+    top: 50px;
+}
+
+.graphic {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+#draggable {
+    width: 450px;
+    height: auto;
+    margin-left: 5px;
+    background-color: #ffffffce;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+    top: 165px;
+    cursor: grab;    
+}
+
+.draggable {
+    width: 450px;
+    height: auto;
+    margin-left: 5px;
+    background-color: #ffffffce;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+    top: 165px;
+    cursor: grab;    
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: min-content
+}
+
+input[type=button],
+input[type=submit] {
+    padding: 2px;
+    margin-left: 2px;
+    width: 100px;
+}
+
+input[type=number] {
+    padding: 2px;
+    margin-left: 2px;
+    width: fit-content;
+    height: fit-content;
+}
+
+label {
+    color: #253232;
+    font-size: .9rem;
+    padding-inline: 4px;
+    text-wrap: nowrap;
+}
+
+/* CSS para tela cheia */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+}
+
+.fullscreen #nav,
+.fullscreen .fixed-left {
+    display: none;
+}
+
+.fullscreen .animation {
+    width: 100%;
+    height: 100%;
+}
+
+
+.full-controllers {
+    /* flex-direction: column; */
+    position: absolute;
+    z-index: 1002;
+
+    top: 10px;
+    left: 10px;
+    color: #fff;
+}
+
+#draggable {
+    display: block; 
+    z-index: 1001;
+  }
+
+.resize-secreen {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(0, 149, 213);
+    color: #d7eff3;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: .7rem;
+    transition: 360ms;
+
+    z-index: 9999;
+}
+
+.resize-secreen:hover{
+    background-color: rgb(8, 50, 77);
+    color: #fff;
+}
+
+
+.summary-name {
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgb(17, 10, 10);
+}
+
+.separator {
+    border-top: 1.4px dashed black;
+    width: 100%;
+}
+
+.hand {
+    background-image: url("../assets/images/hand.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100px;
+    height: 80px;
+    
+    transform: rotate(90deg);
+
+    position: inherit;
+    top: -35px;
+    right: -80px;
+
+}

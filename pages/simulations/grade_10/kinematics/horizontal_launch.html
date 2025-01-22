@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/css/hor_launch.css" />
+<div class="simulation-content">
+  <div class="background-plane">
+    <div class="plane"></div>
+    <div class="cannon"></div>
+    <div class="cannon-base">
+      <div class="stick1"></div>
+      <div class="stick2"></div>
+    </div>
+    <div id="animationContainer" class="border-0 bg-info main"></div>
+    <div class="display-variables">
+      <span>
+        <div>-Equações</div>
+        <div class="expressions">
+          <p class="equation">
+            <span class="summary-name">Movimento Horizontal (x):</span>
+            x = v<sub>ox</sub>.t
+          </p>
+          <p class="equation">
+            <span class="summary-name">Movimento Vertical (y):</span>
+            y = &frac12;.g.t²
+          </p>
+        </div>
+      </span>
+      <div class="separator"></div>
+      <p class="">Tempo: <span id="tempo">0.00</span> s</p>
+      <p class="">
+        Movimento Horizontal:
+        <span id="movimentoHorizontal">0.00</span> m
+      </p>
+      <p>Movimento Vertical: <span id="movimentoVertical">0.00</span> m</p>
+    </div>
+  </div>
+
+  <form id="inputForm" class="d-flex mt-2">
+    <fieldset class="d-flex align-items-center">
+      <label for="altura">Altura (H) em metros</label>
+      <input
+        type="number"
+        id="altura"
+        name="altura"
+        step="0.1"
+        value="0"
+        class="form-control"
+        required
+      />
+    </fieldset>
+    <fieldset class="d-flex align-items-center mx-1">
+      <label for="velocidade">Velocidade Inicial (V0x) em m/s</label>
+      <input
+        type="number"
+        id="velocidade"
+        name="velocidade"
+        step="0.1"
+        value="0"
+        class="form-control"
+        required
+      />
+    </fieldset>
+
+    <div class="controllers d-flex pt-3">
+      <button type="button" class="btn btn-success">Iniciar</button>
+      <button type="button" id="pauseButton" class="btn btn-secondary mx-1" disabled>
+        Pausar
+      </button>
+      <button type="button" id="restartButton" class="btn btn-primary" disabled>
+        Reiniciar
+      </button>
+    </div>
+  </form>
+</div>
+<script src="/js/grade_10/hor_launch.js"></script>

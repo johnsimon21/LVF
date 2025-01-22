@@ -1,0 +1,82 @@
+<div class="simulation-content">
+  <div class="background-plane">
+    <div id="animationContainer" class="bg-info"></div>
+    <span>
+      <div class="cannon cannon-30deg"></div>
+      <div class="anyObject"></div>
+      <div class="cannon-base"></div>
+    </span>
+    <div class="display-variables display-variables-lancObliq">
+      <span>
+        <div>-Equações</div>
+        <div class="expressions">
+          <p class="equation">
+            <span class="summary-name">Movimento Horizontal (x):</span>
+            x<sub>(t)</sub> = v<sub>ox</sub>.t
+          </p>
+          <p class="equation">
+            <span class="summary-name">Movimento Vertical (y):</span>
+            y<sub>(t)</sub> = v<sub>oy</sub>.t - &frac12;.g.t²
+          </p>
+          <p class="equation">
+            <span class="summary-name">Altura Máxima (H):</span>
+            H = (v²<sub>oy</sub>)/2g
+          </p>
+        </div>
+      </span>
+      <div class="separator"></div>
+      <p>Tempo: <span id="tempo">0.00</span> s</p>
+      <p>
+        Movimento Horizontal:
+        <span id="movimentoHorizontal">0.00</span> m
+      </p>
+      <p>Movimento Vertical: <span id="movimentoVertical">0.00</span> m</p>
+      <p>Altura Máxima: <span id="alturaMaxima">0</span> m</p>
+    </div>
+  </div>
+
+  <form id="inputForm" class="d-flex mt-2">
+    <fieldset class="d-flex align-items-center d-none">
+      <label for="altura">Altura (H) em metros</label>
+      <input
+        type="number"
+        id="altura"
+        name="altura"
+        step="0.1"
+        value="0"
+        class="form-control"
+        required
+      />
+    </fieldset>
+    <fieldset class="d-flex align-items-center">
+      <label for="velocidade">Velocidade Inicial (V0) em m/s</label>
+      <input
+        type="number"
+        id="velocidade"
+        name="velocidade"
+        step="0.1"
+        value="0"
+        class="form-control"
+        required
+      />
+    </fieldset>
+    <fieldset class="d-flex align-items-center">
+      <label for="angle">Ângulo (θ) em graus</label>
+      <select id="angle" name="angle" class="form-control" required>
+        <option value="30">30°</option>
+        <option value="45">45°</option>
+        <option value="60">60°</option>
+      </select>
+    </fieldset>
+
+    <div class="controllers ms-2 d-flex pt-3">
+      <button type="submit" class="btn btn-success">Iniciar</button>
+      <button id="pauseButton" class="btn btn-secondary mx-1" disabled>
+        Pausar
+      </button>
+      <button id="restartButton" class="btn btn-primary" disabled>
+        Reiniciar
+      </button>
+    </div>
+  </form>
+</div>

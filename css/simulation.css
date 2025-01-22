@@ -52,7 +52,7 @@
     z-index: 2;
 }
 
-main {
+.section-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,7 @@ main {
     --max-width-sidebar: 30rem;
 }
 
-main .sidebar {
+.section-container .sidebar {
     background-color: #0C0C0C;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@ main .sidebar {
     left: -100% !important;
 }
 
-main section.simulation-container {
+.section-container section.simulation-container {
     display: flex;
     flex-direction: column;
     flex: 1 1 80%;
@@ -102,7 +102,7 @@ main section.simulation-container {
 .sidebar:not(.close-sidebar) + section.simulation-container {
     max-width: calc(100% - var(--max-width-sidebar));
 }
-main .sidebar .header {
+.section-container .sidebar .header {
     width: 100%;
 
     display: flex;
@@ -112,7 +112,7 @@ main .sidebar .header {
     font-size: bold;
 }
 
-main .sidebar .header ._grade {
+.section-container .sidebar .header ._grade {
     display: flex;
     justify-content: center;
     flex: 1 1 100%;
@@ -125,11 +125,11 @@ main .sidebar .header ._grade {
     transition: background-color .3s;
 }
 
-main .sidebar .header ._grade:hover {
+.section-container .sidebar .header ._grade:hover {
     background-color: #303030;
 }
 
-main .sidebar .units-group {
+.section-container .sidebar .units-group {
     display: flex;
     flex-direction: column;
 
@@ -140,7 +140,7 @@ main .sidebar .units-group {
     margin-top: 3.6rem
 }
 
-main .sidebar .units-group .unit {
+.section-container .sidebar .units-group .unit {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -151,11 +151,11 @@ main .sidebar .units-group .unit {
     transition: all .5s;
 }
 
-main .sidebar .units-group .unit:hover {
+.section-container .sidebar .units-group .unit:hover {
     background-color: #1D1D1D;
 }
 
-main .sidebar .units-group  ul.topic-list  {
+.section-container .sidebar .units-group  ul.topic-list  {
     width: 100%;
 
     display: none;
@@ -165,7 +165,7 @@ main .sidebar .units-group  ul.topic-list  {
     
 }
 
-main .sidebar .units-group ul.topic-list li.topic {    
+.section-container .sidebar .units-group ul.topic-list li.topic {    
     font-size: 1.5rem;
     font-weight: normal;
     
@@ -177,7 +177,7 @@ main .sidebar .units-group ul.topic-list li.topic {
     transition: background-color .3s;
 }
 
-main .sidebar .units-group ul.topic-list li.topic:hover {
+.section-container .sidebar .units-group ul.topic-list li.topic:hover {
     color: #c2c2c2;
 }
 .dropdown-arrow {
@@ -230,12 +230,7 @@ section.simulation-container .scene{
     background-color: #F3F3F3;
     font-size: 3rem;
     font-weight: bold;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #b2bcc5;
-    
+   
 }
 
 .guideline-content {
@@ -257,7 +252,6 @@ section.simulation-container .scene{
 .simulation-content {
     width: 100%;
     height: 100%;
-    padding: 20px;
 }
 
 .simulation-canvas {

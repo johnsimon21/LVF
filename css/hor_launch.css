@@ -1,0 +1,129 @@
+
+#inputForm {
+  margin-bottom: 20px;
+}
+
+.background-plane {
+  background-color: blueviolet;
+  position: relative;
+  overflow: hidden;
+}
+
+.cannon {
+  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/cannon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  top: -3px;
+  left: 10px;
+
+  transform: rotate(29deg);
+
+  z-index: 99;
+}
+
+.cannon-base {
+  background-color: #979797;
+  width: 90px;
+  height: 100px;
+
+  position: absolute;
+  top: 81px;
+  left: 10px;
+
+  z-index: 9;
+}
+
+.stick1, .stick2 {
+  background-color: rgb(75, 27, 27);
+  width: 10px;
+  height: 8px;
+
+  position: absolute;
+  left: -10px;
+
+}
+
+.stick1 {
+  top: 15px;
+}
+
+.stick2 {
+  bottom: 15px;
+}
+
+#animationContainer {
+  border: 1px solid #000;
+  padding-left: 100px;
+  padding-top: 40px;
+  position: relative;
+  width: 1080px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.plane {
+  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/plane.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 45px;
+
+  transform: rotateY(180deg);
+
+  position: absolute;
+  top: 10px;
+  left: -130px;
+  z-index: 99;
+}
+
+.object {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.ponto {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: blue;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.linha {
+  position: absolute;
+  height: 2px;
+  background-color: green;
+  z-index: 0;
+}
+
+#info {
+  font-family: cursive;
+  background-color: rgba(202, 202, 202, 0.557);
+  color: rgb(26, 26, 35);
+
+  padding: 8px;
+  border-radius: 4px;
+
+  margin-top: 20px;
+  margin-right: 8px;
+  text-align: left;
+  position: absolute;
+  top: 115px;
+  right: 15px;
+}
+
+#info p {
+  margin: 5px 0;
+}

@@ -1,0 +1,130 @@
+#animationContainer {
+
+  /* border: 1px solid #000; */
+  position: relative;
+  width: 1080px;
+  height: 500px;
+  /* overflow: hidden; */
+}
+
+.background-plane {
+  background-color: blueviolet;
+  position: relative;
+  overflow: hidden;
+}
+
+.display-variables-lancObliq {
+  top: 10px;
+}
+
+.object {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.ponto {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: blue;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.pontoMaximo {
+  background-color: red;
+  width: 5px;
+  height: 5px;
+}
+
+
+.linha {
+  position: absolute;
+  height: 2px;
+  background-color: green;
+  z-index: 0;
+}
+
+.linhaVertical {
+  position: absolute;
+  width: 2px;
+  background-color: green;
+  z-index: 2;
+}
+
+.alturaText {
+  position: absolute;
+  background-color: white;
+  padding: 2px 5px;
+  font-size: 12px;
+  z-index: 2;
+}
+
+.pontoMaximo {
+  background-color: red;
+}
+
+.cannon {
+  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/cannon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  bottom: -20px;
+  left: 8px;
+
+  z-index: 99;
+}
+
+
+.cannon-30deg {
+  transform: rotate(15deg);
+}
+
+.cannon-45deg {
+  transform: rotate(-26deg);
+}
+
+.cannon-60deg {
+  left: -15px !important;
+  transform: rotate(-33deg);
+}
+
+
+.anyObject{
+  background-color: #0DCAF0;
+  width: 100px;
+  height: 50px;
+
+  position: absolute;
+  bottom: 2px;
+
+  z-index: 9;
+}
+
+#info {
+  font-family: cursive;
+  background-color: rgba(202, 202, 202, 0.557);
+  color: rgb(26, 26, 35);
+
+  padding: 8px;
+  border-radius: 4px;
+
+  margin-top: 20px;
+  margin-right: 8px;
+  position: absolute;
+  top: 135px;
+  right: 15px;
+}
+
+#info p {
+  margin: 5px 0;
+}

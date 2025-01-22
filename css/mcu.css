@@ -1,0 +1,163 @@
+main {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/night_sky.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-color: rgb(177, 248, 224);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-variables {
+    color: #fff !important;
+}
+
+.orbit {
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  
+    width: 350px;
+    height: 350px;
+    
+    border: 4px dotted #ccc;
+    border-radius: 50%;
+
+    transform: rotate(-180deg);
+}
+
+.radius-fixed {
+    top: 175px;
+    width: 1px;
+    height: 175px;
+    background-color: rgb(213, 19, 19);
+
+    z-index: 2;
+}
+
+.radius-letter {
+    transform: rotate(90deg);
+    font-size: 1.5rem;
+
+    position: inherit;
+    top: 40%;
+    left: 8px;
+}
+
+.trajectory {
+    position: absolute;
+    left: 170px;
+    /* bottom: 170px; */
+    width: 2px;
+    height: 178px;
+    background-color: rgb(22, 36, 113);
+    transform-origin: top center;
+
+    color: #ccc;
+}
+
+.earth {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/earth.png');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+
+    position: absolute;
+    left: 130px;
+    top: 130px;
+}
+
+.angular-velocity-stick {
+    width: 50px;
+    height: 50px;
+
+    border-top: 2px solid rgb(248, 248, 248);
+    border-top-left-radius: 50px;
+
+    transform: rotate(180deg);
+
+    position: inherit;
+    left: 4px;
+
+}
+
+.forward-angular-velocity {
+    position: inherit;
+    right: -4px;
+    top: -5px !important;
+}
+
+.angular-velocity-letter {
+    font-size: 1.3rem;
+
+    position: inherit;
+    top: -12px;
+}
+
+.sattelite {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/sattelite.png');
+    background-size: contain;
+    width: 45px;
+    height: 45px;
+    border-radius: 20px;
+
+    position: absolute;
+    left: -20px;
+    bottom: -20px;
+
+    transform: rotateZ(-132deg);
+}
+
+.velocity-stick {
+    background-color: red;
+    width: 80px;
+    height: 1.5px;
+
+    position: absolute;
+    top: -10px;
+    right: -48px;
+
+    transform: rotateZ(132deg);
+}
+
+.velocity-letter-rotate {
+    transform: rotateX(180deg);
+}
+
+.angular-velocity-letter-rotate {
+    transform: rotateX(180deg);
+    left: -51px;
+}
+
+.forward-velocity {
+    transform: rotate(180deg);
+    left: -4px;
+}
+
+.velocity-stick .letter {
+    position: inherit;
+    top: 10px;
+}
+
+.velocity-stick .letter .forward-letter {
+    position: absolute;
+    right: -3px;
+}
+
+.letter {
+    transform: rotateZ(180deg);
+
+    position: absolute;
+    right: 50%;
+}
+
+.graphic {
+    width: 600px;
+    height: 200px;
+    margin-top: 10px;
+}

@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/simulation.css" />
     <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/grade.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="root">
@@ -47,110 +51,21 @@
         </div>
         <a href="/" class="home">Home</a>
       </header>
-      <main>
+      <div class="section-container">
         <div id="sidebar" class="sidebar">
           <div class="header">
-            <div class="_grade" data-grade="10" onclick="switchGrade(10)">10ª Classe</div>
-            <div class="_grade" data-grade="11" onclick="switchGrade(11)">11ª Classe</div>
-            <div class="_grade" data-grade="12" onclick="switchGrade(12)">12ª Classe</div>
-          </div>
-
-          <div class="units-group">
-            <div>
-              <div
-                onclick="handleTopicDropdown('#dropdownArrow1', '#topicList1')"
-                class="unit"
-              >
-                <span>Cinemática</span>
-                <img
-                  src="../assets/images/dropdown_arrow.svg"
-                  alt="dropdown icon"
-                  id="dropdownArrow1"
-                  class="dropdown-arrow"
-                />
-              </div>
-              <ul id="topicList1" class="topic-list">
-                <li class="topic" onclick="loadSimulation(10, 'mru')">Movimento Retilíneo Uniforme (MRU)</li>
-                <li class="topic" onclick="loadSimulation(10, 'mruv')">Movimento Retilíneo Uniforme Variado (MRUV)</li>
-                <li class="topic" onclick="loadSimulation(11, 'mcu')">Movimento Circular Uniforme (MCU)</li>
-                <li class="topic" onclick="loadSimulation(11, 'mcuv')">Movimento Circular Uniformemente Variado (MCUV)</li>
-            </ul>            
+            <div class="_grade" data-grade="10" onclick="switchGrade(10)">
+              10ª Classe
             </div>
-            <div>
-              <div
-                onclick="handleTopicDropdown('#dropdownArrow2', '#topicList2')"
-                class="unit"
-              >
-                <span>Dinâmica</span>
-                <img
-                  src="../assets/images/dropdown_arrow.svg"
-                  alt="dropdown icon"
-                  id="dropdownArrow2"
-                  class="dropdown-arrow"
-                />
-              </div>
-              <ul id="topicList2" class="topic-list">
-                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
-                <li class="topic">
-                  Movimento Retilíneo Uniforme Variado (MRUV)
-                </li>
-                <li class="topic">Movimento Circular Uniforme (MCU)</li>
-                <li class="topic">
-                  Movimento Circular Uniformemente Variado (MCUV)
-                </li>
-              </ul>
+            <div class="_grade" data-grade="11" onclick="switchGrade(11)">
+              11ª Classe
             </div>
-
-            <div>
-              <div
-                onclick="handleTopicDropdown('#dropdownArrow3', '#topicList3')"
-                class="unit"
-              >
-                <span>Energia e Trabalho</span>
-                <img
-                  src="../assets/images/dropdown_arrow.svg"
-                  alt="dropdown icon"
-                  id="dropdownArrow3"
-                  class="dropdown-arrow"
-                />
-              </div>
-              <ul id="topicList3" class="topic-list">
-                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
-                <li class="topic">
-                  Movimento Retilíneo Uniforme Variado (MRUV)
-                </li>
-                <li class="topic">Movimento Circular Uniforme (MCU)</li>
-                <li class="topic">
-                  Movimento Circular Uniformemente Variado (MCUV)
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <div
-                onclick="handleTopicDropdown('#dropdownArrow4', '#topicList4')"
-                class="unit"
-              >
-                <span>Estática</span>
-                <img
-                  src="../assets/images/dropdown_arrow.svg"
-                  alt="dropdown icon"
-                  id="dropdownArrow4"
-                  class="dropdown-arrow"
-                />
-              </div>
-              <ul id="topicList4" class="topic-list">
-                <li class="topic">Movimento Retilíneo Uniforme (MRU)</li>
-                <li class="topic">
-                  Movimento Retilíneo Uniforme Variado (MRUV)
-                </li>
-                <li class="topic">Movimento Circular Uniforme (MCU)</li>
-                <li class="topic">
-                  Movimento Circular Uniformemente Variado (MCUV)
-                </li>
-              </ul>
+            <div class="_grade" data-grade="12" onclick="switchGrade(12)">
+              12ª Classe
             </div>
           </div>
+
+          <div class="units-group"></div>
         </div>
 
         <section class="simulation-container">
@@ -202,9 +117,11 @@
           </div>
           <div id="scene" class="scene">Cena da Simulação</div>
         </section>
-      </main>
+      </div>
     </div>
 
+    <script src="../js/main.js"></script>
+    <script src="../js/grade_10/uniform_motion.js"></script>
     <script src="../js/router.js"></script>
     <script src="../js/simulation.js"></script>
   </body>

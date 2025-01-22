@@ -25,7 +25,7 @@ function handleTopicDropdown(dropdown_arrow_selector, topic_list_selector) {
     // Use the passed selectors to query the elements
     const dropdown_arrow = document.querySelector(dropdown_arrow_selector);
     const topic_list = document.querySelector(topic_list_selector);
-    
+
     // Select all dropdown arrows and topic lists
     const all_dropdown_arrows = document.querySelectorAll(".dropdown-arrow");
     const all_topic_lists = document.querySelectorAll(".topic-list");
@@ -55,29 +55,31 @@ function handleTopicDropdown(dropdown_arrow_selector, topic_list_selector) {
 function handleGuidelineCollapse() {
     const guidelineContent = document.querySelector('#guideline-content');
     const collapseIcon = document.querySelector('.guideline-icon-collapse');
-    
+
     guidelineContent.classList.toggle('collapsed');
     collapseIcon.classList.toggle('rotate');
 }
 
-function loadSimulation(grade, simulationType) {
+function loadSimulation(grade, simulationType, category) {
     const scene = document.querySelector('#scene');
     const guidelineTitle = document.querySelector('#guideline-title');
-    
-    fetch(`/pages/simulations/grade_${grade}/${simulationType}.html`)
+
+    fetch(`/pages/simulations/grade_${grade}/${category}/${simulationType}.html`)
         .then(response => response.text())
         .then(html => {
             scene.innerHTML = html;
             guidelineTitle.textContent = getSimulationTitle(simulationType);
-            window.history.pushState({}, "", `/simulations/grade_${grade}/${simulationType}`);
+            // window.history.pushState({}, "", `/simulations/grade_${grade}/${category}/${simulationType}`);
         });
 }
+
+
 function getSimulationTitle(type) {
     const titles = {
-        'mru': 'Movimento Retilíneo Uniforme (MRU)',
-        'mruv': 'Movimento Retilíneo Uniforme Variado (MRUV)',
-        'mcu': 'Movimento Circular Uniforme (MCU)',
-        'mcuv': 'Movimento Circular Uniformemente Variado (MCUV)'
+        'uniform_motion': 'Movimento Retilíneo Uniforme (MRU)',
+        'accelerated_motion': 'Movimento Retilíneo Uniforme Variado (MRUV)',
+        'circular_motion': 'Movimento Circular Uniforme (MCU)',
+        'accelerated_circular': 'Movimento Circular Uniformemente Variado (MCUV)'
     };
     return titles[type];
 }
@@ -85,86 +87,88 @@ function getSimulationTitle(type) {
 const gradeContent = {
     10: {
         units: [
-            { id: 'cinematica', title: 'Cinemática Básica' },
-            { id: 'dinamica', title: 'Dinâmica Fundamental' },
-            { id: 'energia', title: 'Energia Mecânica' },
-            { id: 'estatica', title: 'Estática Básica' }
+            { id: 'kinematics', title: 'Cinemática' },
+            { id: 'dynamics', title: 'Dinâmica' },
+            { id: 'energy', title: 'Energia e Trabalho' },
+            { id: 'statics', title: 'Estática' }
         ],
         topics: {
-            cinematica: [
-                { id: 'mru', title: 'Movimento Retilíneo Uniforme (MRU)' },
-                { id: 'mruv', title: 'Movimento Retilíneo Uniforme Variado (MRUV)' }
+            kinematics: [
+                { id: 'uniform_motion', title: 'Movimento Retilíneo Uniforme (MRU)' },
+                { id: 'accelerated_motion', title: 'Movimento Retilíneo Uniformemente Variado (MRUV)' },
+                { id: 'circular_motion', title: 'Movimento Circular Uniforme (MCU)' },
+                { id: 'accelerated_circular', title: 'Movimento Circular Uniformemente Variado (MCUV)' },
+                { id: 'horizontal_launch', title: 'Lançamento Horizontal' },
+                { id: 'oblique_launch', title: 'Lançamento Obliquo' },
             ],
-            dinamica: [
-                { id: 'newton', title: 'Leis de Newton' },
-                { id: 'forca', title: 'Força e Movimento' }
+            dynamics: [
+                { id: 'rope_tension', title: 'Força de Tensão em Cordas' },
+                { id: 'inclined_plane', title: 'Plano Inclinado' },
+                { id: 'newton_second', title: '2ª Lei de Newton ou Lei de Causa e Efeito' },
+                { id: 'newton_third', title: '3ª Lei de Newton ou Lei de Ação e Reação' },
+                { id: 'pulley_tension', title: 'Força de Tensão Com Polias' },
             ],
-            energia: [
-                { id: 'energia_cinetica', title: 'Energia Cinética' },
-                { id: 'energia_potencial', title: 'Energia Potencial' }
+            energy: [
+                { id: 'kinetic_energy', title: 'Energia Cinética' },
+                { id: 'potential_energy', title: 'Energia Potencial' },
+                { id: 'mechanical_energy', title: 'Energia Mecânica' },
+                { id: 'elastic_energy', title: 'Energia Potencial Elástica' },
             ],
-            estatica: [
-                { id: 'equilibrio', title: 'Equilíbrio' },
-                { id: 'momento', title: 'Momento' }
+            statics: [
+                { id: 'simple_machines', title: 'Máquinas Simples' },
             ]
         }
     },
     11: {
         units: [
-            { id: 'cinematica', title: 'Cinemática Avançada' },
-            { id: 'dinamica', title: 'Dinâmica Rotacional' },
-            { id: 'energia', title: 'Trabalho e Energia' },
-            { id: 'estatica', title: 'Estática Rotacional' }
+            { id: 'thermology', title: 'Termologia' },
+            { id: 'fluid_mechanics', title: 'Mecânica dos Fluidos' },
+            { id: 'optics', title: 'Óptica' },
         ],
         topics: {
-            cinematica: [
-                { id: 'mcu', title: 'Movimento Circular Uniforme (MCU)' },
-                { id: 'mcuv', title: 'Movimento Circular Uniformemente Variado (MCUV)' }
+            thermology: [
+                { id: 'linear_expansion', title: 'Dilatação Linear' },
+                { id: 'surface_expansion', title: 'Dilatação Superficial' },
+                { id: 'volume_expansion', title: 'Dilatação Volumétrica' },
             ],
-            dinamica: [
-                { id: 'impulso', title: 'Impulso' },
-                { id: 'quantidade_movimento', title: 'Quantidade de Movimento' }
+            fluid_mechanics: [
+                { id: 'density', title: 'Densidade' },
+                { id: 'hydraulic_press', title: 'Princípio de Pascal e Prensa Hidráulica' }
             ],
-            energia: [
-                { id: 'trabalho', title: 'Trabalho' },
-                { id: 'potencia', title: 'Potência' }
-            ],
-            estatica: [
-                { id: 'centro_massa', title: 'Centro de Massa' },
-                { id: 'torque', title: 'Torque' }
+            optics: [
+                { id: 'flat_mirrors', title: 'Espelhos planos' },
             ]
         }
     },
     12: {
         units: [
-            { id: 'cinematica', title: 'Oscilações e Ondas' },
-            { id: 'dinamica', title: 'Dinâmica Avançada' },
-            { id: 'energia', title: 'Conservação de Energia' },
-            { id: 'estatica', title: 'Mecânica dos Fluidos' }
+            { id: 'waves', title: 'Oscilações e Ondas' },
+            { id: 'advanced_dynamics', title: 'Dinâmica Avançada' },
+            { id: 'energy_conservation', title: 'Conservação de Energia' },
+            { id: 'fluid_mechanics', title: 'Mecânica dos Fluidos' }
         ],
         topics: {
-            cinematica: [
-                { id: 'mhs', title: 'Movimento Harmônico Simples' },
-                { id: 'ondas', title: 'Ondas' }
+            waves: [
+                { id: 'simple_harmonic', title: 'Movimento Harmônico Simples' },
+                { id: 'waves', title: 'Ondas' }
             ],
-            dinamica: [
-                { id: 'colisoes', title: 'Colisões' },
-                { id: 'gravitacao', title: 'Gravitação' }
+            advanced_dynamics: [
+                { id: 'collisions', title: 'Colisões' },
+                { id: 'gravitation', title: 'Gravitação' }
             ],
-            energia: [
-                { id: 'conservacao', title: 'Conservação de Energia' },
-                { id: 'dissipacao', title: 'Dissipação de Energia' }
+            energy_conservation: [
+                { id: 'conservation', title: 'Conservação de Energia' },
+                { id: 'dissipation', title: 'Dissipação de Energia' }
             ],
-            estatica: [
-                { id: 'elasticidade', title: 'Elasticidade' },
-                { id: 'fluidos', title: 'Fluidos' }
+            fluid_mechanics: [
+                { id: 'elasticity', title: 'Elasticidade' },
+                { id: 'fluids', title: 'Fluidos' }
             ]
         }
     }
 };
 
 function switchGrade(grade) {
-    // Update active grade visual state
     document.querySelectorAll('._grade').forEach(el => {
         el.classList.remove('active');
         if (el.dataset.grade == grade) {
@@ -174,8 +178,7 @@ function switchGrade(grade) {
 
     const content = gradeContent[grade];
     const unitsGroup = document.querySelector('.units-group');
-    
-    // Generate new units and topics HTML
+
     unitsGroup.innerHTML = content.units.map((unit, index) => `
         <div>
             <div onclick="handleTopicDropdown('#dropdownArrow${index + 1}', '#topicList${index + 1}')" class="unit">
@@ -183,13 +186,12 @@ function switchGrade(grade) {
                 <img src="../assets/images/dropdown_arrow.svg" alt="dropdown icon" id="dropdownArrow${index + 1}" class="dropdown-arrow"/>
             </div>
             <ul id="topicList${index + 1}" class="topic-list">
-                ${content.topics[unit.id].map(topic => 
-                    `<li class="topic" onclick="loadSimulation(${grade}, '${topic.id}')">${topic.title}</li>`
-                ).join('')}
+                ${content.topics[unit.id].map(topic =>
+        `<li class="topic" onclick="loadSimulation(${grade}, '${topic.id}', '${unit.id}')">${topic.title}</li>`
+    ).join('')}
             </ul>
         </div>
     `).join('');
 }
 
-// Set 10th grade as default active on page load
 switchGrade(10);
