@@ -13,8 +13,9 @@ const routes = {
     
     // Grade 10 routes
     // Kinematics
-    "/simulations/grade_10/kinematics/uniform_motion": "/pages/simulations/grade_10/kinematics/uniform_motion.html",
-    "/simulations/grade_10/kinematics/accelerated_motion": "/pages/simulations/grade_10/kinematics/accelerated_motion.html",
+    "/simulations/grade_10/kinematics/uniform_motion": "/scenes/uniform_motion_scene.html",
+    "/simulations/grade_10/kinematics/accelerated_motion": "/scenes/accelerated_motion_scene.html",
+
     "/simulations/grade_10/kinematics/circular_motion": "/pages/simulations/grade_10/kinematics/circular_motion.html",
     "/simulations/grade_10/kinematics/accelerated_circular": "/pages/simulations/grade_10/kinematics/accelerated_circular.html",
     "/simulations/grade_10/kinematics/horizontal_launch": "/pages/simulations/grade_10/kinematics/horizontal_launch.html",
@@ -67,11 +68,19 @@ const routes = {
     "/simulations/grade_12/fluid_mechanics/fluids": "/pages/simulations/grade_12/fluid_mechanics/fluids.html"
 };
 
+
 const handleLocation = async () => {
     const path = window.location.pathname;
-    const route = routes[path] || routes[404];
-    const html = await fetch(route).then((data) => data.text());
-    document.getElementById("main-page").innerHTML = html;
+    const route = routes[path];
+    
+    if (route && route.includes('/scenes/')) {
+        // Load scene into iframe
+        document.getElementById('simulation-frame').src = route;
+    } else {
+        // Handle regular page loads
+        const html = await fetch(route || routes[404]).then((data) => data.text());
+        document.getElementById("main-page").innerHTML = html;
+    }
 };
 
 window.onpopstate = handleLocation;

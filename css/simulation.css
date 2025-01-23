@@ -25,11 +25,11 @@
 
     cursor: pointer;
     z-index: 2;
-        
+
 }
 
-.dropdown-setion .humburger_svg, 
-.dropdown-setion .icon-close {    
+.dropdown-setion .humburger_svg,
+.dropdown-setion .icon-close {
     width: 1.4rem;
 }
 
@@ -44,10 +44,12 @@
     display: none;
     visibility: hidden;
 }
+
 .show {
     display: block;
     visibility: visible;
 }
+
 .home {
     z-index: 2;
 }
@@ -61,7 +63,7 @@
     position: relative;
 }
 
-:root{
+:root {
     --max-width-sidebar: 30rem;
 }
 
@@ -78,7 +80,9 @@
     position: absolute;
     left: 0;
 
-    transition: left .6s ease; 
+    overflow-y: auto;
+
+    transition: left .6s ease;
 }
 
 .close-sidebar {
@@ -95,21 +99,25 @@
     width: 100%;
     height: 100%;
     padding: 1rem 3rem;
-    transition: all .6s ease;
+    transition: all .6s ease;    
 }
 
 /* When sidebar is visible */
-.sidebar:not(.close-sidebar) + section.simulation-container {
+.sidebar:not(.close-sidebar)+section.simulation-container {
     max-width: calc(100% - var(--max-width-sidebar));
 }
+
 .section-container .sidebar .header {
     width: 100%;
-
+    position: sticky;
+    top: 0;
     display: flex;
-
     color: #ffffff;
-    font-size: 1.5rem;
-    font-size: bold;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #0C0C0C;
+    z-index: 10;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .section-container .sidebar .header ._grade {
@@ -122,6 +130,9 @@
     cursor: pointer;
     padding: 1.2rem;
 
+.section-container .sidebar .units-group {
+    margin-top: 1rem;
+}
     transition: background-color .3s;
 }
 
@@ -133,7 +144,7 @@
     display: flex;
     flex-direction: column;
 
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     color: #ffffff;
 
@@ -155,20 +166,20 @@
     background-color: #1D1D1D;
 }
 
-.section-container .sidebar .units-group  ul.topic-list  {
+.section-container .sidebar .units-group ul.topic-list {
     width: 100%;
 
     display: none;
-    
+
     background-color: #131313;
     padding: 1rem 3rem;
-    
+
 }
 
-.section-container .sidebar .units-group ul.topic-list li.topic {    
+.section-container .sidebar .units-group ul.topic-list li.topic {
     font-size: 1.5rem;
     font-weight: normal;
-    
+
     color: #979798;
     cursor: pointer;
 
@@ -180,22 +191,41 @@
 .section-container .sidebar .units-group ul.topic-list li.topic:hover {
     color: #c2c2c2;
 }
+
 .dropdown-arrow {
     transition: transform 0.3s ease;
 }
 
-.unit .dropdown-arrow-open{
+.unit .dropdown-arrow-open {
     transform: rotate(90deg);
-    
+
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #6b6b6b;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #444;
 }
 
 /* Simulation-container */
 
-section.simulation-container .guideline{
+section.simulation-container .guideline {
     width: 100%;
     height: fit-content;
     max-height: 50rem;
-    
+
     background-color: #F9F9F9;
     border-radius: .5rem;
     padding: 8px 14px 10px;
@@ -205,32 +235,41 @@ section.simulation-container .guideline{
     flex-direction: column;
 
 }
-section.simulation-container .guideline .guideline-header{
+
+section.simulation-container .guideline .guideline-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-section.simulation-container .guideline .guideline-header-title{
+
+section.simulation-container .guideline .guideline-header-title {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-section.simulation-container .guideline .guideline-icon-info{
+
+section.simulation-container .guideline .guideline-icon-info {
     margin-right: 10px;
 }
-section.simulation-container .guideline .guideline-icon-collapse{
-    display: flex;    
+
+section.simulation-container .guideline .guideline-icon-collapse {
+    display: flex;
     cursor: pointer;
 }
 
-section.simulation-container .scene{
+iframe:focus {
+    outline: none;
+}
+
+iframe[seamless] {
+    display: block;
+}
+
+.scene {
     width: 100%;
-    height: 100%;
-    
+    height: 100%;    
+
     background-color: #F3F3F3;
-    font-size: 3rem;
-    font-weight: bold;
-   
 }
 
 .guideline-content {

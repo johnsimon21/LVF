@@ -91,9 +91,9 @@ function resizeAnimationCene() {
 
 }
 
-
 resizeAnimationCene()
 draggableGraphic()
+
 
 // Add event listener for resize events
 window.addEventListener('resize', handleScreenChange);

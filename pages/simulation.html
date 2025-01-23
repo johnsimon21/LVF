@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/simulation.css" />
     <link rel="stylesheet" href="../css/home.css" />
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/grade.css" />
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -115,13 +113,23 @@
               </p>
             </div>
           </div>
-          <div id="scene" class="scene">Cena da Simulação</div>
+          <div class="scene">
+            <iframe
+              id="simulation-frame"
+              src=""
+              frameborder="0"
+              width="100%"
+              height="100%"
+              allowfullscreen="true"
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+            ></iframe>
+          </div>
         </section>
       </div>
     </div>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/grade_10/uniform_motion.js"></script>
+    <script src="../js/main.js" defer type="module"></script>
     <script src="../js/router.js"></script>
     <script src="../js/simulation.js"></script>
   </body>

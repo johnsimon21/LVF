@@ -61,19 +61,13 @@ function handleGuidelineCollapse() {
 }
 
 function loadSimulation(grade, simulationType, category) {
-    const scene = document.querySelector('#scene');
+    const simulationFrame = document.querySelector('#simulation-frame');
     const guidelineTitle = document.querySelector('#guideline-title');
 
-    fetch(`/pages/simulations/grade_${grade}/${category}/${simulationType}.html`)
-        .then(response => response.text())
-        .then(html => {
-            scene.innerHTML = html;
-            guidelineTitle.textContent = getSimulationTitle(simulationType);
-            // window.history.pushState({}, "", `/simulations/grade_${grade}/${category}/${simulationType}`);
-        });
+    // Use the existing pages/simulations path structure
+    simulationFrame.src = `/pages/simulations/grade_${grade}/${category}/${simulationType}.html`;
+    guidelineTitle.textContent = getSimulationTitle(simulationType);
 }
-
-
 function getSimulationTitle(type) {
     const titles = {
         'uniform_motion': 'Movimento Retilíneo Uniforme (MRU)',
