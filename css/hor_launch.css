@@ -1,16 +1,12 @@
 
-#inputForm {
-  margin-bottom: 20px;
-}
-
 .background-plane {
-  background-color: blueviolet;
+  background-color: rgb(145, 233, 237);
   position: relative;
   overflow: hidden;
 }
 
 .cannon {
-  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/cannon.svg");
+  background-image: url("/assets/images/cannon.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -68,7 +64,7 @@
 }
 
 .plane {
-  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/plane.png");
+  background-image: url("/assets/images/plane.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -127,3 +123,43 @@
 #info p {
   margin: 5px 0;
 }
+
+#inputForm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  right: 15px;
+  top: 350px;
+
+  background-color: rgba(202, 202, 202, 0.557);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.controllers{
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-between;
+}
+
+fieldset {
+  display: flex;
+  align-self: start;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  width: 100%;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+

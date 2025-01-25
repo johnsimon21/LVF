@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="/css/obl_launch.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 <div class="simulation-content">
   <div class="background-plane">
     <div id="animationContainer" class="bg-info"></div>
@@ -35,7 +41,7 @@
     </div>
   </div>
 
-  <form id="inputForm" class="d-flex mt-2">
+  <form id="inputForm" class="d-flex mt-2 constrollers">
     <fieldset class="d-flex align-items-center d-none">
       <label for="altura">Altura (H) em metros</label>
       <input
@@ -69,8 +75,8 @@
       </select>
     </fieldset>
 
-    <div class="controllers ms-2 d-flex pt-3">
-      <button type="submit" class="btn btn-success">Iniciar</button>
+    <div class="controllers buttons ms-2 d-flex pt-3">
+      <button type="button" class="btn btn-success" id="startSimulation">Iniciar</button>
       <button id="pauseButton" class="btn btn-secondary mx-1" disabled>
         Pausar
       </button>
@@ -80,3 +86,8 @@
     </div>
   </form>
 </div>
+
+
+<script src="/js/grade_10/obl_launch.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>

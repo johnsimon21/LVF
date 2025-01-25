@@ -1,5 +1,5 @@
 main {
-    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/night_sky.png');
+    background-image: url('/assets/images/night_sky.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
@@ -61,7 +61,7 @@ main {
 }
 
 .earth {
-    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/earth.png');
+    background-image: url('/assets/images/earth.png');
     background-size: contain;
     width: 80px;
     height: 80px;
@@ -100,7 +100,7 @@ main {
 }
 
 .sattelite {
-    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/sattelite.png');
+    background-image: url('/assets/images/sattelite.png');
     background-size: contain;
     width: 45px;
     height: 45px;
@@ -160,4 +160,13 @@ main {
     width: 600px;
     height: 200px;
     margin-top: 10px;
+}
+
+.controllers {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+
+    display: flex;
+    flex-direction: column;
 }

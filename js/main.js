@@ -60,33 +60,33 @@ function draggableGraphic() {
 
 function resizeAnimationCene() {
   document.getElementById('toggleFullscreen').addEventListener('click', function () {
-    const mainElement = document.querySelector('main');
-    const headerElement = document.getElementById('nav');
-    const sidebarElement = document.querySelector('.fixed-left');
-    const graphicElement = document.getElementById('draggable');
-    const controllersElement = document.getElementById('full-controllers');
-    const isFullscreen = mainElement.classList.toggle('fullscreen');
+    // const mainElement = document.querySelector('main');
+    // const headerElement = document.getElementById('nav');
+    // const sidebarElement = document.querySelector('.fixed-left');
+    // const graphicElement = document.getElementById('draggable');
+    // const controllersElement = document.getElementById('full-controllers');
+    // const isFullscreen = mainElement.classList.toggle('fullscreen');
 
-    if (isFullscreen) {
-      this.textContent = 'Voltar ao Normal';
-      headerElement.style.display = 'none';
-      sidebarElement.style.display = 'none';
-      controllersElement.classList.add("full-controllers")
-      if (graphicElement !== null) {
-        graphicElement.style.left = "10px";
-        graphicElement.style.top = '90px';
-      }
-    } else {
-      this.textContent = 'Tela Cheia';
-      if (graphicElement !== null) {
-        graphicElement.classList.add("draggable")
-        graphicElement.style.left = "290px";
-        graphicElement.style.top = '165px';
-      }
-      controllersElement.classList.remove("full-controllers")
-      headerElement.style.display = 'flex';
-      sidebarElement.style.display = 'block';
-    }
+  //   if (isFullscreen) {
+  //     this.textContent = 'Voltar ao Normal';
+  //     headerElement.style.display = 'none';
+  //     sidebarElement.style.display = 'none';
+  //     controllersElement.classList.add("full-controllers")
+  //     if (graphicElement !== null) {
+  //       graphicElement.style.left = "10px";
+  //       graphicElement.style.top = '90px';
+  //     }
+  //   } else {
+  //     this.textContent = 'Tela Cheia';
+  //     if (graphicElement !== null) {
+  //       graphicElement.classList.add("draggable")
+  //       graphicElement.style.left = "290px";
+  //       graphicElement.style.top = '165px';
+  //     }
+  //     controllersElement.classList.remove("full-controllers")
+  //     headerElement.style.display = 'flex';
+  //     sidebarElement.style.display = 'block';
+  //   }
   });
 
 }

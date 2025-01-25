@@ -256,6 +256,9 @@ section.simulation-container .guideline .guideline-icon-collapse {
     display: flex;
     cursor: pointer;
 }
+iframe{
+    width: 100%;
+}
 
 iframe:focus {
     outline: none;
@@ -311,4 +314,9 @@ iframe[seamless] {
 ._grade.active {
     background-color: #303030 !important;
     font-weight: bold;
+}
+
+.simulation-with-base{
+    display: flex;
+    flex-direction: column;
 }

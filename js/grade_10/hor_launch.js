@@ -11,8 +11,8 @@ function resizeCannonBase(baseHeightValue) {
 }
 
 document
-  .getElementById("inputForm")
-  .addEventListener("submit", async function (event) {
+  .getElementById("startSimulation")
+  .addEventListener("click", async function (event) {
     event.preventDefault();
     alturaGlobal = parseFloat(document.getElementById("altura").value);
     velocidadeGlobal = parseFloat(
@@ -65,6 +65,7 @@ async function movePlane(velocidade) {
 }
 
 function iniciarSimulacao(altura, velocidade) {
+  console.log("Java Simon")
   const container = document.getElementById("animationContainer");
   container.innerHTML = ""; // Limpar a simulação anterior
   const g = 9.8; // Aceleração da gravidade (m/s²)
