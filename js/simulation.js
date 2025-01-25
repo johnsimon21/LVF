@@ -79,6 +79,7 @@ function handleGuidelineCollapse() {
 function loadSimulation(grade, simulationType, category) {
     const simulationFrame = document.querySelector('#simulation-frame');
     const guidelineTitle = document.querySelector('#guideline-title');
+    const guidelineContent = document.querySelector('#guideline-content');
 
     // Remove active class from all topics
     document.querySelectorAll('.topic').forEach(topic => {
@@ -91,8 +92,15 @@ function loadSimulation(grade, simulationType, category) {
         selectedTopic.classList.add('active');
     }
 
+    // Find the topic description from gradeContent
+    const topic = gradeContent[grade].topics[category].find(t => t.id === simulationType);
+
+    // Update simulation frame source
     simulationFrame.src = `/pages/simulations/grade_${grade}/${category}/${simulationType}.html`;
-    guidelineTitle.textContent = getSimulationTitle(simulationType);
+
+    // Update guideline title and content
+    guidelineTitle.textContent = topic.title;
+    guidelineContent.innerHTML = `<p>${topic.description}</p>`;
 }
 
 function getSimulationTitle(type) {
@@ -145,28 +153,92 @@ const gradeContent = {
         ],
         topics: {
             kinematics: [
-                { id: 'uniform_motion', title: 'Movimento Retilíneo Uniforme (MRU)' },
-                { id: 'accelerated_motion', title: 'Movimento Retilíneo Uniformemente Variado (MRUV)' },
-                { id: 'circular_motion', title: 'Movimento Circular Uniforme (MCU)' },
-                { id: 'accelerated_circular', title: 'Movimento Circular Uniformemente Variado (MCUV)' },
-                { id: 'horizontal_launch', title: 'Lançamento Horizontal' },
-                { id: 'oblique_launch', title: 'Lançamento Obliquo' },
+                {
+                    id: 'uniform_motion',
+                    title: 'Movimento Retilíneo Uniforme (MRU)',
+                    description: 'O Movimento Retilíneo Uniforme (MRU) é caracterizado por uma trajetória em linha reta com velocidade constante. A aceleração é nula e a distância percorrida é diretamente proporcional ao tempo. A equação fundamental é: S = S0 + v.t'
+                },
+                {
+                    id: 'accelerated_motion',
+                    title: 'Movimento Retilíneo Uniformemente Variado (MRUV)',
+                    description: 'No MRUV, o movimento ocorre em linha reta com aceleração constante. A velocidade varia uniformemente com o tempo. As equações principais são: v = v0 + a.t e S = S0 + v0.t + (a.t²)/2'
+                },
+                {
+                    id: 'circular_motion',
+                    title: 'Movimento Circular Uniforme (MCU)',
+                    description: 'O MCU é um movimento periódico onde um objeto descreve uma trajetória circular com velocidade angular constante. Possui aceleração centrípeta que muda apenas a direção do movimento. Principais conceitos: período, frequência e velocidade angular'
+                },
+                {
+                    id: 'accelerated_circular',
+                    title: 'Movimento Circular Uniformemente Variado (MCUV)',
+                    description: 'No MCUV, além da aceleração centrípeta, existe uma aceleração tangencial constante que altera o módulo da velocidade angular. A velocidade angular varia uniformemente com o tempo'
+                },
+                {
+                    id: 'horizontal_launch',
+                    title: 'Lançamento Horizontal',
+                    description: 'No lançamento horizontal, um objeto é lançado paralelamente ao solo com velocidade inicial horizontal. O movimento pode ser analisado em duas componentes: horizontal (MRU) e vertical (MRUV devido à gravidade)'
+                },
+                {
+                    id: 'oblique_launch',
+                    title: 'Lançamento Oblíquo',
+                    description: 'O lançamento oblíquo ocorre quando um objeto é arremessado com uma velocidade inicial que forma um ângulo com a horizontal. A trajetória é parabólica, combinando movimentos horizontal (MRU) e vertical (MRUV)'
+                }
             ],
             dynamics: [
-                { id: 'rope_tension', title: 'Força de Tensão em Cordas' },
-                { id: 'inclined_plane', title: 'Plano Inclinado' },
-                { id: 'newton_second', title: '2ª Lei de Newton ou Lei de Causa e Efeito' },
-                { id: 'newton_third', title: '3ª Lei de Newton ou Lei de Ação e Reação' },
-                { id: 'pulley_tension', title: 'Força de Tensão Com Polias' },
+                {
+                    id: 'rope_tension',
+                    title: 'Força de Tensão em Cordas',
+                    description: 'A tensão é uma força que atua ao longo de cordas, cabos ou fios. Em uma corda ideal (massa desprezível e inextensível), a tensão é igual em todos os pontos e transmite-se integralmente ao longo da corda'
+                },
+                {
+                    id: 'inclined_plane',
+                    title: 'Plano Inclinado',
+                    description: 'No plano inclinado, a força peso se decompõe em duas componentes: uma paralela e outra perpendicular ao plano. A componente paralela causa o movimento, enquanto a perpendicular é equilibrada pela força normal'
+                },
+                {
+                    id: 'newton_second',
+                    title: '2ª Lei de Newton ou Lei de Causa e Efeito',
+                    description: 'A força resultante que atua sobre um corpo é diretamente proporcional à aceleração adquirida por ele. F = m.a, onde F é a força resultante, m é a massa do corpo e a é a aceleração'
+                },
+                {
+                    id: 'newton_third',
+                    title: '3ª Lei de Newton ou Lei de Ação e Reação',
+                    description: 'Para toda força de ação existe uma força de reação, de mesma intensidade e direção, mas em sentido contrário. Estas forças sempre atuam em corpos diferentes'
+                },
+                {
+                    id: 'pulley_tension',
+                    title: 'Força de Tensão Com Polias',
+                    description: 'As polias são máquinas simples que permitem mudar a direção de aplicação de forças. Em sistemas com polias ideais, a tensão na corda é a mesma em todos os segmentos'
+                }
             ],
             energy: [
-                { id: 'kinetic_energy', title: 'Energia Cinética' },
-                { id: 'potential_energy', title: 'Energia Potencial' },
-                { id: 'mechanical_energy', title: 'Energia Mecânica' },
-                { id: 'elastic_energy', title: 'Energia Potencial Elástica' },
+                {
+                    id: 'kinetic_energy',
+                    title: 'Energia Cinética',
+                    description: 'A energia cinética é a energia associada ao movimento dos corpos. É calculada pela fórmula Ec = (m.v²)/2, onde m é a massa e v é a velocidade do corpo'
+                },
+                {
+                    id: 'potential_energy',
+                    title: 'Energia Potencial',
+                    description: 'A energia potencial gravitacional é a energia armazenada devido à posição do corpo em relação a um referencial. É calculada por Ep = m.g.h, onde m é a massa, g é a aceleração da gravidade e h é a altura'
+                },
+                {
+                    id: 'mechanical_energy',
+                    title: 'Energia Mecânica',
+                    description: 'A energia mecânica é a soma das energias cinética e potencial de um sistema. Em sistemas conservativos, a energia mecânica total permanece constante'
+                },
+                {
+                    id: 'elastic_energy',
+                    title: 'Energia Potencial Elástica',
+                    description: 'A energia potencial elástica é armazenada em objetos deformados elasticamente, como molas. É calculada por Ee = (k.x²)/2, onde k é a constante elástica e x é a deformação'
+                }
             ],
             statics: [
-                { id: 'simple_machines', title: 'Máquinas Simples' },
+                {
+                    id: 'simple_machines',
+                    title: 'Máquinas Simples',
+                    description: 'Máquinas simples são dispositivos que modificam a intensidade ou direção de uma força para facilitar a realização de trabalho. Exemplos incluem alavancas, polias, plano inclinado e engrenagens'
+                }
             ]
         }
     },
@@ -178,46 +250,99 @@ const gradeContent = {
         ],
         topics: {
             thermology: [
-                { id: 'linear_expansion', title: 'Dilatação Linear' },
-                { id: 'surface_expansion', title: 'Dilatação Superficial' },
-                { id: 'volume_expansion', title: 'Dilatação Volumétrica' },
+                {
+                    id: 'linear_expansion',
+                    title: 'Dilatação Linear',
+                    description: 'A dilatação linear ocorre quando há variação em apenas uma dimensão do corpo. A variação do comprimento é diretamente proporcional ao comprimento inicial, à variação de temperatura e ao coeficiente de dilatação linear do material'
+                },
+                {
+                    id: 'surface_expansion',
+                    title: 'Dilatação Superficial',
+                    description: 'Na dilatação superficial, há variação em duas dimensões do corpo. O coeficiente de dilatação superficial é aproximadamente o dobro do coeficiente de dilatação linear'
+                },
+                {
+                    id: 'volume_expansion',
+                    title: 'Dilatação Volumétrica',
+                    description: 'A dilatação volumétrica envolve a variação nas três dimensões do corpo. O coeficiente de dilatação volumétrica é aproximadamente o triplo do coeficiente de dilatação linear'
+                }
             ],
             fluid_mechanics: [
-                { id: 'density', title: 'Densidade' },
-                { id: 'hydraulic_press', title: 'Princípio de Pascal e Prensa Hidráulica' }
+                {
+                    id: 'density',
+                    title: 'Densidade',
+                    description: 'A densidade é a relação entre a massa e o volume de um corpo. Em fluidos, a densidade pode variar com a temperatura e a pressão. É fundamental para entender o comportamento dos fluidos e o princípio de Arquimedes'
+                },
+                {
+                    id: 'hydraulic_press',
+                    title: 'Princípio de Pascal e Prensa Hidráulica',
+                    description: 'O Princípio de Pascal estabelece que a pressão aplicada a um fluido em repouso transmite-se integralmente a todos os pontos do fluido. A prensa hidráulica utiliza este princípio para multiplicar forças'
+                }
             ],
             optics: [
-                { id: 'flat_mirrors', title: 'Espelhos planos' },
+                {
+                    id: 'flat_mirrors',
+                    title: 'Espelhos planos',
+                    description: 'Espelhos planos formam imagens virtuais, direitas e simétricas ao objeto. A distância da imagem ao espelho é igual à distância do objeto ao espelho. São fundamentais para entender reflexão da luz'
+                }
             ]
         }
     },
     12: {
         units: [
-            { id: 'waves', title: 'Oscilações e Ondas' },
-            { id: 'advanced_dynamics', title: 'Dinâmica Avançada' },
-            { id: 'energy_conservation', title: 'Conservação de Energia' },
-            { id: 'fluid_mechanics', title: 'Mecânica dos Fluidos' }
+            { id: 'mechanics', title: 'Mecânica Avançada' },
+            { id: 'waves', title: 'Ondas e Oscilações' },
+            { id: 'energy_conservation', title: 'Conservação de Energia' }
         ],
         topics: {
-            waves: [
-                { id: 'simple_harmonic', title: 'Movimento Harmônico Simples' },
-                { id: 'waves', title: 'Ondas' }
+            mechanics: [
+                {
+                    id: 'simple_harmonic',
+                    title: 'Movimento Harmônico Simples',
+                    description: 'O MHS é um movimento oscilatório periódico onde a força restauradora é proporcional ao deslocamento. Exemplos incluem pêndulos simples e sistemas massa-mola'
+                },
+                {
+                    id: 'collisions',
+                    title: 'Colisões',
+                    description: 'As colisões podem ser elásticas (conservação da energia cinética) ou inelásticas. Em todas as colisões, o momento linear total do sistema se conserva'
+                },
+                {
+                    id: 'gravitation',
+                    title: 'Gravitação',
+                    description: 'A Lei da Gravitação Universal de Newton descreve a força de atração entre massas. É fundamental para entender o movimento dos planetas e satélites'
+                }
             ],
-            advanced_dynamics: [
-                { id: 'collisions', title: 'Colisões' },
-                { id: 'gravitation', title: 'Gravitação' }
+            waves: [
+                {
+                    id: 'waves',
+                    title: 'Ondas',
+                    description: 'Ondas são perturbações que se propagam transportando energia sem transporte de matéria. Podem ser classificadas como mecânicas ou eletromagnéticas, transversais ou longitudinais'
+                }
             ],
             energy_conservation: [
-                { id: 'conservation', title: 'Conservação de Energia' },
-                { id: 'dissipation', title: 'Dissipação de Energia' }
-            ],
-            fluid_mechanics: [
-                { id: 'elasticity', title: 'Elasticidade' },
-                { id: 'fluids', title: 'Fluidos' }
+                {
+                    id: 'conservation',
+                    title: 'Conservação de Energia',
+                    description: 'O princípio da conservação da energia estabelece que a energia não pode ser criada nem destruída, apenas transformada de uma forma para outra'
+                },
+                {
+                    id: 'dissipation',
+                    title: 'Dissipação de Energia',
+                    description: 'A dissipação de energia ocorre quando parte da energia mecânica é convertida em formas não úteis, como calor devido ao atrito'
+                },
+                {
+                    id: 'elasticity',
+                    title: 'Elasticidade',
+                    description: 'A elasticidade é a propriedade dos materiais de retornarem à sua forma original após uma deformação. A Lei de Hooke descreve o comportamento de materiais elásticos'
+                },
+                {
+                    id: 'fluids',
+                    title: 'Fluidos',
+                    description: 'O estudo avançado de fluidos inclui dinâmica dos fluidos, equação de Bernoulli, viscosidade e turbulência. Fundamental para entender o comportamento de líquidos e gases em movimento'
+                }
             ]
         }
     }
-};
+}
 
 function switchGrade(grade) {
     document.querySelectorAll('._grade').forEach(el => {
@@ -251,6 +376,12 @@ function switchGrade(grade) {
         firstDropdownArrow.classList.add('dropdown-arrow-open');
         firstTopicList.style.display = 'block';
     }
+}
+
+function updateGuideline(topicId) {
+    const topic = findTopicById(topicId);
+    document.getElementById('guideline-title').textContent = topic.title;
+    document.getElementById('guideline-content').innerHTML = `<p>${topic.description}</p>`;
 }
 
 switchGrade(10);
