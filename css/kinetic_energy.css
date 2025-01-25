@@ -1,16 +1,16 @@
 main {
-    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/road.png');
-    background-size: contain;
+    background-image: url('/assets/images/road.png');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-color: rgb(177, 248, 224);
 
-    width: 1080px;
     min-width: 1000px;
+    width: 100%;
 }
 
 .car {
-    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/car.png');
+    background-image: url('/assets/images/car.png');
     background-size: contain;
     width: 150px;
     height: 150px;

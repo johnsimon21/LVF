@@ -1,3 +1,7 @@
+.simulation-content{
+    background-color: rgb(144, 216, 245);
+}
+
 main#tracaoPolias {
     min-height: 520px;
     max-height: 520px;
@@ -7,9 +11,11 @@ main#tracaoPolias {
     background-color: transparent;
 }
 
-#tracaoPolias .base {
+#tracaoPolias .base-pulley {
+    position: absolute;
     bottom: 350px;
     width: 350px !important;
+    background-color: rgb(95, 71, 40);
 }
 
 #tracaoPolias .box,
@@ -162,6 +168,10 @@ main#tracaoPolias {
     top: -15px;
 }
 
+.box, .box1 {
+    background-color: black;
+}
+
 .box1 .letter-T {
     top: -10px;
     left: 70px;
@@ -205,4 +215,10 @@ main#tracaoPolias {
     position: relative;
     top: 5px;
     left: 0;
+}
+
+.controllers-pulley{
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }

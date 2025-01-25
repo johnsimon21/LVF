@@ -6,6 +6,7 @@ time = parseInt(document.querySelector("#massValue2").value);
 let interval = null; // Variable to store interval
 
 function startSimulation() {
+  console.log("startSimulation");
   let position = parseInt(window.getComputedStyle(box).marginLeft);
   let position1 = parseInt(window.getComputedStyle(box1).marginBottom);
   let horizontalLine = parseInt(window.getComputedStyle(line).width);

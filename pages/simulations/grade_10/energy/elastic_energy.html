@@ -5,7 +5,7 @@
 
 <div class="simulation-content simulation-with-base">
   <main class="center bg-info main">
-    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+    <!-- <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button> -->
 
     <div class="horizontal-base">
       <div class="stick fixedStick">
@@ -35,36 +35,32 @@
         </div>
       </div>
     </div>
-
-    <div class="filedDatas display-variables">
-      <span>
-        <div>-Equação</div>
-        <div class="expressions">
-          <p class="equation">
-            <span class="summary-name">Posição da deformação (Δx):</span>
-            Δx = -F/k
-          </p>
-          <p class="equation">
-            <span class="summary-name">Energia Potencial Elástica (U):</span>
-            U = &frac12;.k.(Δx)²
-          </p>
-        </div>
-      </span>
-      <div class="separator"></div>
-
-      <br />
-      <span class="deformationValue"> Posição da deformação X = 0 m</span><br />
-      <span class="springEnergyValue">
-        Energia Potencial Elástica E(elas) = 0 J</span
-      >
-    </div>
   </main>
 
-  <div id="draggable" class="graphic">
-    <canvas id="positionChart"></canvas>
+  <div class="filedDatas display-variables">
+    <span>
+      <div>-Equação</div>
+      <div class="expressions">
+        <p class="equation">
+          <span class="summary-name">Posição da deformação (Δx):</span>
+          Δx = -F/k
+        </p>
+        <p class="equation">
+          <span class="summary-name">Energia Potencial Elástica (U):</span>
+          U = &frac12;.k.(Δx)²
+        </p>
+      </div>
+    </span>
+    <div class="separator"></div>
+
+    <br />
+    <span class="deformationValue"> Posição da deformação X = 0 m</span><br />
+    <span class="springEnergyValue">
+      Energia Potencial Elástica E(elas) = 0 J</span
+    >
   </div>
 
-  <div id="full-controllers" class="inputDatas d-flex m-3">
+  <div id="full-controllers" class="inputDatas controllers d-flex m-3">
     <fieldset class="d-flex align-items-center">
       <label for="force">Força aplicada (N)</label>
       <input
@@ -91,7 +87,7 @@
         <label for="position">Posição da deformação (X)</label>
         <input type="number" value="0" disabled />
       </fieldset> -->
-    <div class="controllers ms-2 d-flex pt-3">
+    <div class="controllers buttons ms-2 d-flex pt-3">
       <input
         type="button"
         value="aplicar"

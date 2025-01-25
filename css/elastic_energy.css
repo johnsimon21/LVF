@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: aliceblue;
     flex-direction: column;
 }
@@ -21,8 +21,12 @@ main {
     width: 1080px;
     min-width: 1000px;
     height: 500px;
-    background-color: #fff;
+    background-color: rgb(233, 214, 175);
     flex-direction: column;
+}
+
+.simulation-content{
+background-color: rgb(233, 214, 175);
 }
 
 .line {
@@ -176,11 +180,15 @@ main {
 
 .controllers {
     margin-bottom: 10px;
+    flex-direction: column;
 }
 
 .controllers input {
-    padding: 2px;
     cursor: pointer;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
 }
 
 /* 
@@ -190,3 +198,13 @@ main {
     height: 100%;
     background-color: blueviolet !important;
 } */
+
+.filedDatas {
+    top: 280px;
+}
+
+.inputDatas{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
