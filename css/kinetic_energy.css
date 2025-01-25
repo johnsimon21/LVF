@@ -1,0 +1,31 @@
+main {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/road.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-color: rgb(177, 248, 224);
+
+    width: 1080px;
+    min-width: 1000px;
+}
+
+.car {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/car.png');
+    background-size: contain;
+    width: 150px;
+    height: 150px;
+
+    position: absolute;
+    bottom: 20px;
+}
+
+.velocity-stick {
+    width: 100px;
+    height: 2px;
+
+    background-color: blue;
+
+    position: absolute;
+    top: 70px;
+    left: 160px;
+}

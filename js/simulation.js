@@ -63,21 +63,51 @@ function handleGuidelineCollapse() {
 function loadSimulation(grade, simulationType, category) {
     const simulationFrame = document.querySelector('#simulation-frame');
     const guidelineTitle = document.querySelector('#guideline-title');
-
-    // Use the existing pages/simulations path structure
+    
     simulationFrame.src = `/pages/simulations/grade_${grade}/${category}/${simulationType}.html`;
     guidelineTitle.textContent = getSimulationTitle(simulationType);
 }
+
 function getSimulationTitle(type) {
     const titles = {
+        // Grade 10
         'uniform_motion': 'Movimento Retilíneo Uniforme (MRU)',
         'accelerated_motion': 'Movimento Retilíneo Uniforme Variado (MRUV)',
         'circular_motion': 'Movimento Circular Uniforme (MCU)',
-        'accelerated_circular': 'Movimento Circular Uniformemente Variado (MCUV)'
-    };
-    return titles[type];
-}
+        'accelerated_circular': 'Movimento Circular Uniformemente Variado (MCUV)',
+        'horizontal_launch': 'Lançamento Horizontal',
+        'oblique_launch': 'Lançamento Obliquo',
+        'rope_tension': 'Força de Tensão em Cordas',
+        'inclined_plane': 'Plano Inclinado',
+        'newton_second': '2ª Lei de Newton',
+        'newton_third': '3ª Lei de Newton',
+        'pulley_tension': 'Força de Tensão Com Polias',
+        'kinetic_energy': 'Energia Cinética',
+        'potential_energy': 'Energia Potencial',
+        'mechanical_energy': 'Energia Mecânica',
+        'elastic_energy': 'Energia Potencial Elástica',
+        'simple_machines': 'Máquinas Simples',
 
+        // Grade 11
+        'linear_expansion': 'Dilatação Linear',
+        'surface_expansion': 'Dilatação Superficial',
+        'volume_expansion': 'Dilatação Volumétrica',
+        'density': 'Densidade',
+        'hydraulic_press': 'Princípio de Pascal e Prensa Hidráulica',
+        'flat_mirrors': 'Espelhos planos',
+
+        // Grade 12
+        'simple_harmonic': 'Movimento Harmônico Simples',
+        'waves': 'Ondas',
+        'collisions': 'Colisões',
+        'gravitation': 'Gravitação',
+        'conservation': 'Conservação de Energia',
+        'dissipation': 'Dissipação de Energia',
+        'elasticity': 'Elasticidade',
+        'fluids': 'Fluidos'
+    };
+    return titles[type] || 'Simulação';
+}
 const gradeContent = {
     10: {
         units: [

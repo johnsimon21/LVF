@@ -1,0 +1,208 @@
+main#tracaoPolias {
+    min-height: 520px;
+    max-height: 520px;
+
+    width: 1000px;
+    overflow-y: hidden;
+    background-color: transparent;
+}
+
+#tracaoPolias .base {
+    bottom: 350px;
+    width: 350px !important;
+}
+
+#tracaoPolias .box,
+#tracaoPolias .box1 {
+    width: 100px;
+    height: 100px;
+
+    transition: margin-left 0s;
+
+}
+
+#tracaoPolias .box {
+    bottom: 370px;
+    margin-left: 0;
+}
+
+#tracaoPolias .box1 {
+    justify-content: center;
+    /* bottom: 0; */
+    margin-bottom: 200px;
+    margin-left: 400px;
+}
+
+.box1-initial-place {
+    margin-bottom: 200px;
+}
+
+#tracaoPolias .box .boxLine {
+    width: 350px;
+}
+
+#tracaoPolias .box1 #verticalLine,
+#tracaoPolias .box #horizontalLine {
+    visibility: hidden;
+}
+
+#tracaoPolias .base {
+    width: 400px;
+}
+
+#tracaoPolias .poliaBase {
+    width: 80px;
+    height: 15px;
+    background-color: black;
+
+    position: absolute;
+    right: -70px;
+    top: -7px;
+    z-index: 0;
+
+    transform: rotateZ(-15deg);
+}
+
+#tracaoPolias .polia {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+
+    border-radius: 100%;
+
+    position: relative;
+    right: -369px;
+    top: 101px;
+
+    z-index: 30;
+}
+
+#tracaoPolias .box .boxDiretionRight {
+    transform: rotateZ(180deg);
+}
+
+#tracaoPolias .box .tensionArrow,
+#tracaoPolias .box .tension {
+    left: 125px;
+}
+
+#tracaoPolias .line {
+    width: 400px;
+    height: 140px;
+
+    border-style: dotted;
+    border-color: blue blue transparent transparent;
+    border-top-right-radius: 40px;
+
+    position: absolute;
+    right: 549px;
+    top: 100px;
+
+    z-index: 20;
+}
+
+#tracaoPolias .limit {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(99, 99, 99);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 4px;
+
+    margin-left: 325px;
+    margin-top: -10px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.letter-T {
+    position: absolute;
+    top: 40px;
+}
+
+.letter-g {
+    position: absolute;
+    top: 140px;
+    left: 490px;
+}
+
+.gravity>span {
+    font-size: .9rem;
+    top: -4px;
+    margin: 2px;
+
+    position: relative;
+}
+
+.sub-indice {
+    font-size: .9rem;
+
+    position: relative;
+    top: -22px;
+    left: 12px;
+}
+
+.boxDiretionRight {
+    position: absolute;
+    left: -123px;
+}
+
+.gravityArrow {
+    width: 15px;
+    left: -17px;
+    top: -28px;
+
+    position: absolute;
+}
+
+.down {
+    transform: rotateZ(90deg) !important;
+    left: 8px;
+    top: -15px;
+}
+
+.box1 .letter-T {
+    top: -10px;
+    left: 70px;
+}
+
+.box1 .directionTop {
+    transform: rotateZ(90deg);
+
+    position: absolute;
+    right: -206px;
+    top: -30px;
+}
+
+.box1 .verticalLineBottom {
+    width: 3px;
+    height: 100px;
+    background-color: blue;
+
+    position: absolute;
+    top: 50px;
+}
+
+.box1 .directionBottom {
+    transform: rotateZ(270deg);
+
+    position: absolute;
+    bottom: -61px;
+}
+
+.box1 .letter-P {
+    position: absolute;
+    top: 150px;
+    right: 18px;
+}
+
+.box1 .weightArrow {
+    left: -14px;
+}
+
+.box1 .letter-P .sub-indice {
+    position: relative;
+    top: 5px;
+    left: 0;
+}

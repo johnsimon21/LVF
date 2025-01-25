@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main id="twoBoxes" class="main bg-info">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="display-variables">
+      <div id="acelerationValue">Aceleração: 0 m/s²</div>
+    </div>
+
+    <div class="box">
+      <div class="box1">
+        <span class="mass">m1</span>
+        <div class="horizontalLine">
+          <img
+            src="/assets/images/left_arrow_icon.svg"
+            class="directionRight direction"
+          />
+        </div>
+
+        <div class="frictionalForce">
+          <!-- <img
+                src="/assets/images/arrow.svg"
+                class="tensionArrow goBackForceArrow frictionalForceArrow"
+              /> -->
+          <div class="tension goBackForceLetter frictionalForceLetter">
+            <!-- f<sub style="font-size: 1rem">a</sub> -->
+          </div>
+        </div>
+      </div>
+
+      <span class="mass">m2</span>
+      <div class="horizontalLine horizontalLinDirection">
+        <img src="/assets/images/arrow.svg" class="tensionArrow" />
+        <div class="tension">F</div>
+        <img
+          src="/assets/images/left_arrow_icon.svg"
+          class="directionLeft direction"
+        />
+        <div class="hand"></div>
+      </div>
+
+      <div class="frictionalForceLine d-none">
+        <img
+          src="/assets/images/arrow.svg"
+          class="tensionArrow frictionalForceArrow"
+        />
+        <div class="tension frictionalForceLetter">
+          f<sub style="font-size: 1rem">a</sub>
+        </div>
+
+        <img src="/assets/images/arrowRed.svg" class="frictionForceDirection" />
+      </div>
+    </div>
+  </main>
+
+  <div class="base">
+    <div id="full-controllers" class="inputDatas controllers d-flex m-3 align-items-center">
+      <fieldset>
+        <label for="tension">Força de Tensão (N)</label>
+        <input
+          type="number"
+          id="tensionValue"
+          name="tension"
+          value="0"
+          required
+          class="form-control"
+        />
+      </fieldset>
+
+      <fieldset>
+        <label for="mass">Massa 1 (kg)</label>
+        <input
+          type="number"
+          id="massValue"
+          name="mass"
+          value="0"
+          required
+          class="form-control"
+        />
+      </fieldset>
+
+      <fieldset>
+        <label for="mass2">Massa 2 (kg)</label>
+        <input
+          type="number"
+          id="massValue2"
+          name="mass2"
+          value="0"
+          required
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="frictionalForce">Força de Atrito (N)</label>
+        <input
+          type="number"
+          id="frictionalForceValue"
+          value="0"
+          required
+          class="form-control"
+        />
+      </fieldset>
+
+      <div class="controllers ms-2 d-flex pt-4">
+        <input
+          type="button"
+          class="btn btn-success"
+          value="Iniciar"
+          onclick="startSimulation()"
+          id="btnStart"
+        />
+        <input
+          type="button"
+          class="btn btn-secondary mx-1 d-none"
+          value="Pausar"
+          onclick="pauseSimulation()"
+          id="btnPause"
+        />
+        <input
+          type="button"
+          class="btn btn-primary"
+          value="Reiniciar"
+          onclick="restartSimulation()"
+          id="btnRestart"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/newton_third.js"></script>
+<script src="/js/router.js"></script>

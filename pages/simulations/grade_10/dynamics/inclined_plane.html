@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/inclined_plane.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main class="main bg-info">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="plane-base plane-base-30deg">
+      <div class="plane plane-30deg">
+        <div class="box">
+          <div class="normal-force-stick">
+            <img
+              src="/assets/images/forward.png"
+              class="forward forward-normal-force"
+            />
+            <div class="force-letter">
+              <div class="arrow-letter">
+                <img
+                  src="/assets/images/forward.png"
+                  class="forward forward-letter"
+                />
+              </div>
+              N
+            </div>
+          </div>
+
+          <div class="force-stick">
+            <img
+              src="/assets/images/forward.png"
+              class="forward forward-force"
+            />
+            <div class="force-letter">
+              <div class="arrow-letter">
+                <img
+                  src="/assets/images/forward.png"
+                  class="forward forward-letter"
+                />
+              </div>
+              F
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="base">
+    <div
+      id="full-controllers"
+      class="controllers d-flex m-3 align-items-center"
+    >
+      <fieldset class="align-items-center">
+        <label for="frictionalForce">Força de Atrito (N)</label>
+        <input
+          type="number"
+          name="frictionalForce"
+          value="0"
+          class="form-control"
+          id="frictionalForce"
+        />
+      </fieldset>
+
+      <fieldset class="d-flex align-items-center ms-1">
+        <label for="angle">Ângulo (θ) em graus</label>
+        <select id="angle" name="angle" class="form-control" required>
+          <option value="30">30°</option>
+          <option value="45">45°</option>
+          <option value="60">60°</option>
+        </select>
+      </fieldset>
+
+      <div class="buttons ms-2 d-flex pt-3">
+        <input
+          type="button"
+          value="Iniciar"
+          id="btnStart"
+          class="btn btn-success"
+          onclick="startSimulation()"
+        />
+        <input
+          type="button"
+          value="Pausar"
+          id="btnPause"
+          class="btn btn-secondary"
+          onclick="pauseSimulation()"
+        />
+        <input
+          type="button"
+          value="Reiniciar"
+          id="btnRestart"
+          class="btn btn-primary"
+          onclick="restartSimulation()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/inclined_plane.js"></script>
+<script src="/js/router.js"></script>

@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main id="oneBox" class="force-tension bg-info">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="display-variables">
+      <div>-Equações</div>
+      <div class="expressions">
+        <p class="equation">
+          <span class="summary-name">Força Resultante (F<sub>res</sub>):</span>
+          ∑F<sub>x</sub> = m.a
+        </p>
+        <p class="equation">
+          <span class="summary-name">Força Aplicada (F):</span>
+          F = m.a + f
+        </p>
+        <p class="equation">
+          <span class="summary-name">Força de Atrito (f):</span>
+          f = μmg
+        </p>
+      </div>
+      <div class="separator"></div>
+      <div id="acelerationValue">Aceleração: 0 m/s²</div>
+    </div>
+
+    <div class="box secondLay">
+      <span class="mass">m</span>
+      <img
+        src="/assets/images/pngwing.com (1).png"
+        alt=""
+        class="person"
+        id="personGostraight"
+      />
+      <img
+        src="/assets/images/pngwing.com.png"
+        class="personGoBack person"
+        id="personGoBack"
+      />
+      <div class="horizontalLine forceDiretion">
+        <img src="/assets/images/arrow.svg" class="tensionArrow forceArrow" />
+        <div class="tension force">F<sub style="font-size: 0.8rem">R</sub></div>
+
+        <img src="/assets/images/arrow.svg" class="direction" />
+      </div>
+
+      <div class="frictionalForceLine d-none">
+        <img
+          src="/assets/images/arrow.svg"
+          class="tensionArrow frictionalForceArrow"
+        />
+        <div class="tension frictionalForceLetter">
+          f<sub style="font-size: 1rem">a</sub>
+        </div>
+
+        <img src="/assets/images/arrowRed.svg" class="frictionForceDirection" />
+      </div>
+    </div>
+  </main>
+
+  <div class="base">
+    <div id="full-controllers" class="inputDatas controllers d-flex m-3 align-items-center">
+      <fieldset>
+        <label for="tension">Força (N)</label>
+        <input
+          type="number"
+          id="tensionValue"
+          name="tension"
+          required
+          class="form-control"
+          value="0"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="mass">Massa (kg)</label>
+        <input
+          type="number"
+          id="massValue"
+          name="mass"
+          required
+          class="form-control mx-1"
+          value="0"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="frictionalForce">Força de Atrito (N)</label>
+        <input
+          type="number"
+          id="frictionalForceValue"
+          required
+          class="form-control"
+          value="0"
+        />
+      </fieldset>
+
+      <div class="controllers ms-2 d-flex pt-4">
+        <input
+          type="button"
+          value="Iniciar"
+          class="btn btn-success"
+          onclick="startSimulation()"
+          id="btnStart"
+        />
+        <input
+          type="button"
+          value="Pausar"
+          class="btn btn-secondary"
+          onclick="pauseSimulation()"
+          id="btnPause"
+        />
+        <input
+          type="button"
+          value="Reiniciar"
+          class="btn btn-primary"
+          onclick="restartSimulation()"
+          id="btnRestart"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/newton_second.js"></script>
+<script src="/js/router.js"></script>

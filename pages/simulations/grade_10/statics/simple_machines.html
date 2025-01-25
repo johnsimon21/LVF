@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simple_machines.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main class="center bg-info main">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="fulcrum">
+      <div class="lever">
+        <div class="dp">dp</div>
+        <div class="dr">dr</div>
+        <div class="appliedForce-arrow">
+          <div class="force-letter">F</div>
+          <div class="appliedForce-letter">FP</div>
+        </div>
+        <div class="resultForce">
+          <div class="weightForce"></div>
+        </div>
+      </div>
+
+      <span class="fulcrum-text">Ponto de Apoio</span>
+    </div>
+  </main>
+
+  <div class="base">
+    <div id="full-controllers" class="controllers inputDatas d-flex m-3">
+      <fieldset class="d-flex align-items-center">
+        <label for="force">Força Aplicada (N)</label>
+        <input type="number" class="form-control" id="force" value="0" />
+      </fieldset>
+      <fieldset class="d-flex align-items-center">
+        <label for="resultForceValue">Força Resultante (N)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="resultForceValue"
+          value="200"
+        />
+      </fieldset>
+      <fieldset class="d-flex align-items-center">
+        <label for="distanceAF">Distância da Força Aplicada (cm)</label>
+        <input
+          type="number"
+          id="distanceAF"
+          value="299"
+          class="form-control"
+          min="0"
+          max="299"
+        />
+      </fieldset>
+      <fieldset class="display-none">
+        <label for="distanceRF">Distância da Força Resultante (cm)</label>
+        <input
+          type="number"
+          id="distanceRF"
+          value="250"
+          class="form-control"
+          min="0"
+          max="250"
+        />
+      </fieldset>
+
+      <div class="buttons ms-2 d-flex pt-3">
+        <input
+          type="button"
+          value="Aplicar"
+          class="btn btn-success"
+          id="btnStart"
+          onclick="applyForce()"
+        />
+
+        <input
+          type="button"
+          value="Soltar"
+          class="btn btn-primary"
+          id="btnLeft"
+          onclick="restartSimulation()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/simple_machines.js"></script>
+<script src="/js/router.js"></script>

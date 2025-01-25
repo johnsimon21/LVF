@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/kinetic_energy.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main class="bg-info main">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="display-variables">
+      <summary>-Equação</summary>
+      <div class="expressions">
+        <p class="equation">
+          <span class="summary-name">Energia Cinética (E<sub>c</sub> ):</span>
+          E<sub>c</sub> = &frac12;.m.v²
+        </p>
+      </div>
+      <div class="separator"></div>
+      <div class="kineticEnergy" id="kineticEnergyValue">
+        Energia Cinética = 0 (J)
+      </div>
+    </div>
+
+    <div class="car">
+      <div class="velocity-stick">
+        <img
+          src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+          class="forward forward-car"
+        />
+
+        <div class="letter">
+          <div class="arrow-letter">
+            <img
+              src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+              class="forward forward-letter go"
+            />
+          </div>
+          v
+        </div>
+      </div>
+    </div>
+
+    <div class="cartesian-plane">
+      <div class="y-axis-body">
+        <div class="ruler-y"></div>
+      </div>
+
+      <div class="x-axis-body">
+        <div class="ruler-x"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="draggable" class="graphic">
+    <canvas id="positionChart"></canvas>
+  </div>
+
+  <div class="base">
+    <div id="full-controllers" class="controllers d-flex m-3">
+      <fieldset class="d-flex align-items-center">
+        <label for="velocityValue">Velocidade (m/s)</label>
+        <input
+          type="number"
+          id="velocityValue"
+          value="0"
+          class="form-control"
+          required
+        />
+      </fieldset>
+      <fieldset class="d-flex align-items-center">
+        <label for="massValue">Massa (kg)</label>
+        <input
+          type="number"
+          id="massValue"
+          value="0"
+          class="form-control"
+          min="0"
+        />
+      </fieldset>
+
+      <div class="buttons ms-2 d-flex pt-3">
+        <input
+          type="button"
+          value="Começar"
+          id="btnStart"
+          class="btn btn-success"
+          onclick="startSimulation()"
+        />
+        <input
+          type="button"
+          value="Pausar"
+          id="btnPause"
+          class="btn btn-secondary"
+          onclick="pauseSimulation()"
+        />
+        <input
+          type="button"
+          value="Reiniciar"
+          id="btnRestart"
+          class="btn btn-primary"
+          onclick="restartSimulation()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/kinetic_energy.js"></script>
+<script src="/js/router.js"></script>

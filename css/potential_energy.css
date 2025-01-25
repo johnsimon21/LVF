@@ -1,0 +1,71 @@
+.ball {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 100px;
+
+    position: absolute;
+    bottom: 20px;
+    left: 47.5%;
+}
+.dropping {
+    box-shadow: 0.5px -10px 4px rgba(23, 4, 4, 0.358);
+}
+
+.mass {    
+    color: #fff;    
+    margin: 8px;
+}
+
+.ball-position {
+    width: 75px;
+    border-top: 1.7px dotted black;
+
+    position: absolute;
+    top: 25px;
+}
+
+.ball-arrow {
+    background-color: rgb(36, 126, 229);
+    width: 1.5px;
+    height: 80px;
+
+    position: absolute;
+    top: 25px;
+    left: 25px;
+
+    z-index: 999;
+}
+
+.finalVelocity {
+    color: rgb(36, 126, 229);
+    margin-left: -30px;
+
+    position: absolute;
+    top: 50px;
+}
+
+.height-stick {
+    background-color: black;
+
+    width: 1.5px;
+    height: 25px;
+
+    position: absolute;
+    bottom: 20px;
+    right: 45%;
+}
+
+.initialVelocity {
+    text-wrap: nowrap;
+    margin-left: 20px;
+    margin-top: -8px;
+}
+
+.height-letter {
+    margin-left: 20px;
+
+    position: absolute;
+    top: 48%;
+}

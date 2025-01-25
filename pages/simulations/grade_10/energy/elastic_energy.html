@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/elastic_energy.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content simulation-with-base">
+  <main class="center bg-info main">
+    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+    <div class="horizontal-base">
+      <div class="stick fixedStick">
+        <div class="deformationStick">x</div>
+      </div>
+      <div class="vertical-base"></div>
+      <div class="circle main-circle center">
+        <div class="circle circle-shild center">
+          <div class="circle circle-shild center">
+            <div class="circle circle-shild center">
+              <div class="circle circle-shild center">
+                <div class="circle circle-shild center">
+                  <div class="circle circle-shild center">
+                    <div class="circle circle-shild center">
+                      <img
+                        src="../dinamica/ForcaTensaoCordas&&LeisNewton/assets/arrow.svg"
+                        class="arrow"
+                      />
+
+                      <div class="stick springStick"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filedDatas display-variables">
+      <span>
+        <div>-Equação</div>
+        <div class="expressions">
+          <p class="equation">
+            <span class="summary-name">Posição da deformação (Δx):</span>
+            Δx = -F/k
+          </p>
+          <p class="equation">
+            <span class="summary-name">Energia Potencial Elástica (U):</span>
+            U = &frac12;.k.(Δx)²
+          </p>
+        </div>
+      </span>
+      <div class="separator"></div>
+
+      <br />
+      <span class="deformationValue"> Posição da deformação X = 0 m</span><br />
+      <span class="springEnergyValue">
+        Energia Potencial Elástica E(elas) = 0 J</span
+      >
+    </div>
+  </main>
+
+  <div id="draggable" class="graphic">
+    <canvas id="positionChart"></canvas>
+  </div>
+
+  <div id="full-controllers" class="inputDatas d-flex m-3">
+    <fieldset class="d-flex align-items-center">
+      <label for="force">Força aplicada (N)</label>
+      <input
+        type="number"
+        value="0"
+        class="form-control"
+        required
+        id="force"
+        min="-30"
+      />
+    </fieldset>
+    <fieldset class="d-flex align-items-center">
+      <label for="springConst">Constante da Mola (N/m)</label>
+      <input
+        type="number"
+        value="1"
+        class="form-control"
+        required
+        id="springConst"
+        min="1"
+      />
+    </fieldset>
+    <!-- <fieldset>
+        <label for="position">Posição da deformação (X)</label>
+        <input type="number" value="0" disabled />
+      </fieldset> -->
+    <div class="controllers ms-2 d-flex pt-3">
+      <input
+        type="button"
+        value="aplicar"
+        onclick="applyForce()"
+        class="btn btn-success"
+        id="btnApplyForce"
+      />
+      <input
+        type="button"
+        value="Soltar"
+        class="btn btn-secondary"
+        onclick="leftSpring()"
+        id="btnLeftSpring"
+      />
+      <input
+        type="button"
+        value="Reiniciar"
+        class="btn btn-primary"
+        onclick="restartSimulation()"
+        id="btnRestart"
+      />
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/grade_10/elastic_energy.js"></script>
+<script src="/js/router.js"></script>
