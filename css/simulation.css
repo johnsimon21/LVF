@@ -320,3 +320,7 @@ iframe[seamless] {
     display: flex;
     flex-direction: column;
 }
+
+.topic.active {
+    color: #dbdbdb !important;
+}

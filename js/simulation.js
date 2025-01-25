@@ -1,3 +1,19 @@
+window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const grade = parseInt(urlParams.get('grade')) || 10;
+
+    // Switch to correct grade
+    switchGrade(grade);
+
+    // Get first unit and topic from gradeContent
+    const firstUnit = gradeContent[grade].units[0].id;
+    const firstTopic = gradeContent[grade].topics[firstUnit][0].id;
+
+    // Load first simulation
+    loadSimulation(grade, firstTopic, firstUnit);
+}
+
+
 function handleSidebar() {
     const sidebar = document.querySelector('#sidebar')
     const iconClose = document.querySelector('.icon-close')
@@ -63,7 +79,18 @@ function handleGuidelineCollapse() {
 function loadSimulation(grade, simulationType, category) {
     const simulationFrame = document.querySelector('#simulation-frame');
     const guidelineTitle = document.querySelector('#guideline-title');
-    
+
+    // Remove active class from all topics
+    document.querySelectorAll('.topic').forEach(topic => {
+        topic.classList.remove('active');
+    });
+
+    // Add active class to selected topic
+    const selectedTopic = document.querySelector(`.topic[onclick*="${simulationType}"]`);
+    if (selectedTopic) {
+        selectedTopic.classList.add('active');
+    }
+
     simulationFrame.src = `/pages/simulations/grade_${grade}/${category}/${simulationType}.html`;
     guidelineTitle.textContent = getSimulationTitle(simulationType);
 }
@@ -216,6 +243,14 @@ function switchGrade(grade) {
             </ul>
         </div>
     `).join('');
+
+    const firstDropdownArrow = document.querySelector('#dropdownArrow1');
+    const firstTopicList = document.querySelector('#topicList1');
+
+    if (firstDropdownArrow && firstTopicList) {
+        firstDropdownArrow.classList.add('dropdown-arrow-open');
+        firstTopicList.style.display = 'block';
+    }
 }
 
 switchGrade(10);
