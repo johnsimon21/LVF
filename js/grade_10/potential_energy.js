@@ -160,3 +160,49 @@ function restartSimulation() {
   updateBallHeight();
   intervalStarted = false;
 }
+
+
+// Draggable ruler
+function draggableGraphic() {
+  var draggableElement = document.getElementById("ruler");
+
+  draggableElement.onmousedown = function (event) {
+
+    // Previne o comportamento padrão do navegador
+    event.preventDefault();
+
+    // Obtém a posição inicial do cursor
+    let shiftX = event.clientX - draggableElement.getBoundingClientRect().left;
+    let shiftY = event.clientY - draggableElement.getBoundingClientRect().top;
+
+    // Mova o elemento para as novas coordenadas do cursor
+    function moveAt(pageX, pageY) {
+      draggableElement.style.left = pageX - shiftX + 'px';
+      draggableElement.style.top = pageY - shiftY + 'px';
+    }
+
+    // Movemos o elemento para a posição inicial do cursor
+    moveAt(event.pageX, event.pageY);
+
+    // Move o elemento quando o mouse se move
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+    }
+
+    // Adiciona o ouvinte de eventos de movimento do mouse
+    document.addEventListener('mousemove', onMouseMove);
+
+    // Solta o elemento quando o botão do mouse é liberado
+    draggableElement.onmouseup = function () {
+      document.removeEventListener('mousemove', onMouseMove);
+      draggableElement.onmouseup = null;
+    };
+  };
+
+  // Previne a ação padrão do arrastar e soltar do navegador
+  draggableElement.ondragstart = function () {
+    return false;
+  };
+}
+
+draggableGraphic();

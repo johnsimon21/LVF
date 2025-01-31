@@ -31,3 +31,23 @@ body{
     top: -10px;
 }
 
+
+.result-container{
+    display: flex;
+    align-items: center;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.denominator{
+    border-top: 2px solid black;
+    
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}

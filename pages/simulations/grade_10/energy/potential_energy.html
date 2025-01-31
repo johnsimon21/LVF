@@ -36,32 +36,29 @@
   <div class="controllers-potential">
     <div id="full-controllers" class="controllers d-flex m-3">
       <fieldset class="d-flex align-items-center">
-        <label for="ball-height">Altura (m)</label>
-        <input
-          type="number"
-          id="ball-height"
-          class="form-control"
-          required
-          value="350"
-          min="0"
-          max="350"
-        />
+        <label for="ball-height">Altura (cm)</label>
+        <select id="ball-height" class="form-control" required>
+          <option value="100">100</option>
+          <option value="150">150</option>
+          <option value="200">200</option>
+          <option value="250">250</option>
+          <option value="300">300</option>
+          <option value="350">350</option>
+        </select>
       </fieldset>
       <fieldset class="d-flex align-items-center mx-1">
-        <label for="ball-weight">Massa (kg)</label>
-        <input
-          type="number"
-          class="form-control"
-          required
-          id="ball-weight"
-          value="4"
-        />
+        <label for="ball-weight">Massa (g)</label>
+        <select id="ball-weight" class="form-control" required>
+          <option value="15">15</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+        </select>
       </fieldset>
 
       <div class="buttons ms-2 d-flex pt-3">
         <input
           type="button"
-          value="Iniciar"
+          value="Liberar"
           id="btnStart"
           class="btn btn-success"
           onclick="startSimulation()"
@@ -83,7 +80,18 @@
           onclick="restartSimulation()"
         />
       </div>
+
+      <div class="gravity-accelaration">.</div>
     </div>
+  </div>
+
+  <div class="ruler" id="ruler">
+    <div class="ruler-mark" data-height="350">350 cm</div>
+    <div class="ruler-mark" data-height="300">300 cm</div>
+    <div class="ruler-mark" data-height="250">250 cm</div>
+    <div class="ruler-mark" data-height="200">200 cm</div>
+    <div class="ruler-mark" data-height="150">150 cm</div>
+    <div class="ruler-mark" data-height="100">100 cm</div>
   </div>
 
   <div class="base">

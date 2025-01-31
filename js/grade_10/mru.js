@@ -49,102 +49,43 @@ function updateChart(time, position) {
   positionChart.data.datasets[0].data.push(position);
   positionChart.update();
 }
+
 let verifier = 0;
+
 function startSimulation() {
-  let position = parseInt(window.getComputedStyle(car).marginLeft);
-  let positionValue = parseInt(
-    document.querySelector("#positionInput").value
-  );
+  const initialPosition = parseInt(document.querySelector("#initialPositionInput").value);
+  const finalPosition = parseInt(document.querySelector("#finalPositionInput").value);
+  const totalTime = parseInt(document.querySelector("#timeInput").value);
+
+  // Calculate velocity
+  const velocityValue = (finalPosition - initialPosition) / totalTime;
+
+  let position = initialPosition;
   let time = 0;
-  let velocityValue = parseInt(
-    document.querySelector("#velocityValue").value
-  );
 
-  if (!intervalStarted && velocityValue !== 0) {
+  if (!intervalStarted && totalTime > 0) {
     interval = setInterval(() => {
-      time += 1;
+      time += 0.1; // Smaller time steps for smoother animation
 
-      // if (position % positionValue === 0) {
-      //   let timerDelay = 0;
-      //   let delayInterval = setInterval(() => {
-      //     timerDelay++;
-      //     if (timerDelay === 10) {
-      //       console.log(position % positionValue === 0);
-      //       clearInterval(delayInterval);
-      //       position += velocityValue;
-      //     }
-      //   }, 1000);
-      // } else {
-      // }
-      position += velocityValue;
+      position = initialPosition + (velocityValue * time);
 
-      if (position >= positionValue) {
-        if (position > positionValue) {
-          car.style.transfrom = `${positionValue}px`;
-        } else {
-          car.style.transfrom = `${position}px`;
-        }
+      // Update car position and UI elements
+      car.style.marginLeft = `${position}px`;
+
+      // Update display values
+      document.querySelector("#positionValue").textContent = `${position.toFixed(1)} m`;
+      document.querySelector("#initialPositionValue").textContent = ` ${initialPosition} m`;
+      document.querySelector("#velocityValue").textContent = `v = ${velocityValue.toFixed(1)} m/s`;
+      document.querySelector("#timeValue").textContent = `${time.toFixed(1)} s`;
+
+      updateChart(time.toFixed(1), position.toFixed(1));
+
+      if (time >= totalTime) {
         clearInterval(interval);
       }
-
-      if (velocityValue < 0) {
-        // if (position >= 40) {
-        //   position += (30 * 100) / position;
-        // }
-
-        car.style.transform = "rotateY(180deg)";
-        forward_letter.classList.add("back");
-      } else {
-        forward_letter.classList.add("go");
-        car.style.transform = "rotateY(0deg)";
-      }
-
-      const mainWidth = document.querySelector("main").offsetWidth;
-      const carWidth = car.offsetWidth;
-
-      if (position + carWidth >= mainWidth || position <= 0) {
-        if (velocityValue > 0) {
-          const lastPosition = position + carWidth - mainWidth;
-
-          if (lastPosition >= 0) {
-            car.style.marginLeft = `${mainWidth - carWidth}px`;
-            clearInterval(interval);
-          } else {
-            clearInterval(interval);
-          }
-        } else {
-          car.style.marginLeft = `${0}px`;
-          clearInterval(interval);
-        }
-      } else {
-        car.style.marginLeft = `${position}px`;
-        if (position + carWidth === mainWidth) {
-          clearInterval(interval);
-        }
-      }
-
-      const finalPositionValue = velocityValue * time;
-
-      document.querySelector(
-        "#timeValue"
-      ).textContent = `Tempo = ${time.toFixed(1)} (s)`;
-      document.querySelector(
-        "#initialPositionValue"
-      ).textContent = `Posição Inicial = ${initialPosition} (m)`;
-      document.querySelector(
-        "#finalPositionValue"
-      ).textContent = `Posição Final = ${finalPositionValue.toFixed(
-        1
-      )} (m)`;
-      document.querySelector("#velocityInfo").textContent =
-        velocityValue > 0
-          ? "v > 0 (movimento progressivo)"
-          : "v < 0 (movimento retrógrado)";
-
-      updateChart(time.toFixed(1), finalPositionValue.toFixed(1)); // Atualiza o gráfico
-
-      intervalStarted = true;
     }, 100);
+
+    intervalStarted = true;
   }
 }
 

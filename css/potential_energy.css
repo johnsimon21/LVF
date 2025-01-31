@@ -81,6 +81,9 @@
     top:15px;
     left: 15px;
 
+    display: flex;
+    flex-direction: column;
+
     background-color: rgb(183, 181, 169);
     border-radius: 4px;
     padding: 10px;
@@ -93,4 +96,29 @@
     position: absolute;
     bottom: 0;
     z-index: 2 !important;
+}
+
+.ruler {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 50px;
+  height: 350px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: grab;
+}
+
+.ruler-mark {
+  text-align: center;
+  padding: 5px;
+  background: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.ruler-mark:first-child {
+  border-top: none;
 }

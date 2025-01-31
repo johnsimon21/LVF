@@ -58,71 +58,45 @@ let initialPositionValue = parseInt(
 
 let position = parseInt(window.getComputedStyle(car).marginLeft);
 let time = 0;
+
 function startSimulation() {
-  if (!intervalStarted) {
+  // Get input values correctly
+  const initialPositionValue = parseInt(document.querySelector("#initialPositionValue").value) || 0;
+  const initialVelocityValue = parseInt(document.querySelector("#initialVelocityValue").value) || 0;
+  const accelerationValue = parseInt(document.querySelector("#acelerationValue").value) || 0;
+  const totalTime = parseInt(document.querySelector("#timeInput").value) || 0;
+
+  let position = initialPositionValue;
+  let time = 0;
+
+  if (!intervalStarted && totalTime > 0) {
     interval = setInterval(() => {
-      let acelerationValue = parseInt(
-        document.querySelector("#acelerationValue").value
-      );
-      time++;
-      const finalPosition =
-        initialPosition +
-        initialVelocityValue * time +
-        (acelerationValue * time * time) / 2;
-      position += finalPosition * 0.5;
-      const velocityValue =
-        initialVelocityValue + acelerationValue * time;
+      time += 0.1;
 
-      if (velocityValue < 0) {
-        // forward_arrow.classList.remove("go");
-        // forward_arrow.classList.add("back");
-        car.style.transform = "rotateY(180deg)";
-      } else {
-        // forward_arrow.classList.remove("back");
-        // forward_arrow.classList.add("go");
-        car.style.transform = "rotateY(0deg)";
+      // Calculate position with proper values
+      const finalPosition = initialPositionValue + 
+                          (initialVelocityValue * time) + 
+                          (0.5 * accelerationValue * time * time);
+      
+      position = finalPosition;
+      
+      // Update velocity
+      const velocityValue = initialVelocityValue + (accelerationValue * time);
+
+      // Update displays
+      car.style.marginLeft = `${position}px`;
+      document.querySelector("#timeValue").textContent = `${time.toFixed(1)}`;
+      document.querySelector("#currentPosition").textContent = `x = ${position.toFixed(1)} m`;
+      document.querySelector("#velocityInfo").textContent = `Velocidade final = ${velocityValue.toFixed(1)} (m/s)`;
+
+      updateChart(time.toFixed(1), position.toFixed(1));
+
+      if (time >= totalTime) {
+        clearInterval(interval);
       }
-
-      const mainWidth = document.querySelector("main").offsetWidth;
-      const carWidth = car.offsetWidth;
-
-      if (position + carWidth >= mainWidth || position <= 0) {
-        if (velocityValue > 0) {
-          const lastPosition = position + carWidth - mainWidth;
-          if (lastPosition >= 0) {
-            car.style.marginLeft = `${mainWidth - carWidth}px`;
-            clearInterval(interval);
-          } else {
-            clearInterval(interval);
-          }
-        } else {
-          car.style.marginLeft = `${0}px`;
-          clearInterval(interval);
-        }
-      } else {
-        car.style.marginLeft = `${position}px`;
-        if (position + carWidth === mainWidth) {
-          clearInterval(interval);
-        }
-      }
-
-      document.querySelector(
-        "#timeValue"
-      ).textContent = `Tempo = ${time} (s)`;
-      intervalStarted = true;
-
-      document.querySelector(
-        "#finalPositionValue"
-      ).textContent = `Posição Final = ${position} (m)`;
-
-      document.querySelector(
-        "#velocityInfo"
-      ).textContent = `Velocidade final = ${velocityValue} (m/s)`;
-
-      updateChart(time, finalPosition.toFixed(1)); // Atualiza o gráfico
-
-      intervalStarted = true;
     }, 100);
+
+    intervalStarted = true;
   }
 }
 

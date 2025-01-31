@@ -220,7 +220,7 @@ const gradeContent = {
                 {
                     id: 'potential_energy',
                     title: 'Energia Potencial',
-                    description: 'A energia potencial gravitacional é a energia armazenada devido à posição do corpo em relação a um referencial. É calculada por Ep = m.g.h, onde m é a massa, g é a aceleração da gravidade e h é a altura'
+                    description: '<p>Na simulação podemos ver a tela inicial da simulação Queda Livre. Essa simulação permite o estudo do movimento dequeda livre para alturas de até 100 cm, compatível com equipamentos normalmente utilizados em laboratórios de ensino de física. Há 3 opções de aceleração da gravidade (Terra, Lua e Marte). A altura de queda pode ser regulada pela movimentação de um cursor e pode ser medida com uma régua. Um cronômetro automático, é ligado quando o corpo é liberado e para quando o corpo toca sua superfície. O tempo é registrado em segundos com três casas decimais. Há 3 opções de massas para verificação da influência da massa no tempo de queda.</p><p><h4>PROCEDIMENTO: Estudo do movimento de queda livre na Terra.</h4></p> <ul><li>1 Ajuste a altura em cm, como indicado na caixa de seleção de alturas. Verifique com a régua. </li><li>2 Escolha a massa em gramas.</li><li>3 Pressione “Liberar” e anote o tempo de queda.</li><li>4 Repita o procedimento para as outras alturas indicadas na Tabela.</li></ul>'
                 },
                 {
                     id: 'mechanical_energy',
