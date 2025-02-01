@@ -193,8 +193,8 @@ const gradeContent = {
                 {
                     id: 'inclined_plane',
                     title: 'Plano Inclinado',
-                    description: 'No plano inclinado, a força peso se decompõe em duas componentes: uma paralela e outra perpendicular ao plano. A componente paralela causa o movimento, enquanto a perpendicular é equilibrada pela força normal'
-                },
+                    description: '<h4>DESCRIÇÃO DA SIMULAÇÃO:</h4> <p>Um plano inclinado é uma superfície plana que forma um ângulo com a horizontal. É usado para analisar o movimento de objetos em inclinações, facilitando a compreensão de forças e acelerações.</p>'
+                },  
                 {
                     id: 'newton_second',
                     title: '2ª Lei de Newton ou Lei de Causa e Efeito',

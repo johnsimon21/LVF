@@ -1,115 +1,58 @@
-.plane {
-    /* height: 1px; */
-    background-color: rgb(226, 43, 43);
 
+.potractor {
+    width: 400px;
     position: absolute;
+    bottom: -100px;
+    left: 300px;
 
+    z-index: 9999;
 }
+.container {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px;
+  }
 
-.plane-base {
-    width: 0;
-    height: 0;
-
+  .stick {
+    width: 360px;
+    height: 5px;
+    background-color: black;
     position: absolute;
     bottom: 0;
-    left: 100px;
-}
+    left: 300px;
+    transform-origin: left bottom;
+    transform: rotate(0deg);
+  }
 
-.plane-30deg {
-    width: 506px;
-
-    transform: rotateZ(11.3deg);
-    bottom: -50px;
-    left: -5px;
-}
-
-.plane-base-30deg {
-    border-left: -100px solid transparent;
-    border-right: 500px solid transparent;
-    border-bottom: 100px solid rgb(131, 128, 126);
-}
-
-.plane-45deg {
-    width: 533px;
-
-    transform: rotateZ(19.8deg);
-    bottom: -91px;
-    left: -16px;
-}
-
-.plane-base-45deg {
-    border-left: -100px solid transparent;
-    border-right: 500px solid transparent;
-    border-bottom: 180px solid rgb(131, 128, 126);
-}
-
-.plane-60deg {
-    width: 560px;
-
-    transform: rotateZ(26.5deg);
-    bottom: -126px;
-    left: -30px;
-}
-
-.plane-base-60deg {
-    border-left: -100px solid transparent;
-    border-right: 500px solid transparent;
-    border-bottom: 250px solid rgb(131, 128, 126);
-}
-
-.box {
-    background-image: url('/assets/images/box.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    width: 80px;
-    height: 80px;
-
+  .vertical-stick {
+    width: 5px;
+    background-color: black;
     position: absolute;
-    top: -74.1px;
+    bottom: 0;
     left: 0;
-}
+  }
 
-.restart-box {
+  .slider-container {
+    margin-top: 20px;
+  }
+
+  .base-stick {
+    height: 2px;
+    background-color: rgb(172, 99, 59);
+
+    position: absolute;
     left: 0;
-}
+    right: 0;
+  }
 
-.normal-force-stick {
-    background-color: blueviolet;
-    width: 1.4px;
-    height: 100px;
-
+  .box-inclined-plane {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 174, 0);
     position: absolute;
-    left: 40px;
-    bottom: 40px;
-}
-
-.forward-normal-force {
-    transform: rotateZ(-90deg);
-    left: -4px;
-}
-
-.force-stick {
-    background-color: blueviolet;
-    width: 100px;
-    height: 1.4px;
-
-    position: absolute;
-    top: 40px;
-    left: 40px;
-}
-
-.forward-force {
-    right: -4px;
-}
-
-.force-letter {
-    position: absolute;
-
-    top: -20px;
-    right: 4px;
-}
-
-.forward-letter {
-    right: -4px;
-}
+    bottom: 5px;
+    right: 0;
+  }

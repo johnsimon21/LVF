@@ -94,3 +94,40 @@
     bottom: 0;
     z-index: 2 !important;
 }
+
+.ruler {
+    width: 60px;
+    height: 360px;
+    background: linear-gradient(90deg, #ddd 0%, #fff 50%, #ddd 100%);
+    border: 2px solid #aaa;
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    padding-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 14px;
+}
+.mark {
+    position: absolute;
+    left: 5px;
+    background-color: black;
+}
+.big-mark {
+    width: 15px;
+    height: 2px;
+}
+.normal-mark {
+    width: 10px;
+    height: 2px;
+}
+.little-mark {
+    width: 5px;
+    height: 1px;
+}
+.label {
+    position: absolute;
+    left: 20px;
+    font-size: 12px;
+    color: black;
+    font-family: Arial, sans-serif;
+}

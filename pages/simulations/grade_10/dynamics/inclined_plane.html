@@ -3,100 +3,242 @@
 <link rel="stylesheet" href="/css/simulation.css" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="simulation-content simulation-with-base">
-  <main class="main bg-info">
-    <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inclined Plane</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
 
-    <div class="plane-base plane-base-30deg">
-      <div class="plane plane-30deg">
-        <div class="box">
-          <div class="normal-force-stick">
-            <img
-              src="/assets/images/forward.png"
-              class="forward forward-normal-force"
-            />
-            <div class="force-letter">
-              <div class="arrow-letter">
-                <img
-                  src="/assets/images/forward.png"
-                  class="forward forward-letter"
-                />
-              </div>
-              N
-            </div>
+      .container {
+        position: relative;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .stick {
+        width: 360px;
+        height: 2px;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        left: 300px;
+        transform-origin: left bottom;
+        transform: rotate(0deg);
+      }
+
+      .vertical-stick {
+        width: 2px;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .slider-container {
+        margin-top: 20px;
+      }
+
+      .base-stick {
+        height: 20px;
+        background-color: rgb(92, 61, 45);
+
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+      }
+
+      .box-inclined-plane {
+        width: 40px;
+        height: 40px;
+        background-color: rgb(255, 174, 0);
+        position: absolute;
+        bottom: 2px;
+        right: 0;
+      }
+
+      .ranges-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .potrator {
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        left: 124px;
+        width: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="simulation-content simulation-with-base">
+      <main class="main bg-info">
+        <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+        <div class="ranges-container">
+          <div class="slider-container">
+            <label for="angleRange">Inclinação do plano: </label>
+            <input type="range" id="angleRange" min="0" max="90" value="0" />
+            <span id="angleValue">0°</span>
           </div>
 
-          <div class="force-stick">
-            <img
-              src="/assets/images/forward.png"
-              class="forward forward-force"
-            />
-            <div class="force-letter">
-              <div class="arrow-letter">
-                <img
-                  src="/assets/images/forward.png"
-                  class="forward forward-letter"
-                />
-              </div>
-              F
-            </div>
+          <div class="slider-container">
+            <label for="massRange">Massa da caixa a deslizar: </label>
+            <input type="range" id="massRange" min="10" max="100" value="0" />
+            <span id="massValue">20kg</span>
+          </div>
+
+          <div class="buttons">
+            <button type="button" class="btn-start" id="start">Iniciar</button>
+            <button type="button" class="restart" id="restart">
+              Reiniciar
+            </button>
+            <button type="button" class="toggle-totrator" id="toggle-potrator">
+              Transferidor
+            </button>
           </div>
         </div>
-      </div>
+
+        <div class="container">
+          <div class="vertical-stick" id="verticalStick"></div>
+          <div class="stick" id="stick">
+            <div class="box-inclined-plane" id="box-inclined-plane"></div>
+          </div>
+          <img
+            src="/assets/images/potractor.png"
+            alt="potrator"
+            class="potrator"
+            id="potrator"
+          />
+          <div class="base-stick"></div>
+        </div>
+      </main>
     </div>
-  </main>
 
-  <div class="base">
-    <div
-      id="full-controllers"
-      class="controllers d-flex m-3 align-items-center"
-    >
-      <fieldset class="align-items-center">
-        <label for="frictionalForce">Força de Atrito (N)</label>
-        <input
-          type="number"
-          name="frictionalForce"
-          value="0"
-          class="form-control"
-          id="frictionalForce"
-        />
-      </fieldset>
+    <script>
+      const rangeInput = document.getElementById("angleRange");
+      const angleValue = document.getElementById("angleValue");
+      const massInput = document.getElementById("massRange");
+      const massValue = document.getElementById("massValue");
+      const stick = document.getElementById("stick");
+      const verticalStick = document.getElementById("verticalStick");
+      const togglePotrator = document.getElementById("toggle-potrator");
+      const potrator = document.getElementById("potrator");
 
-      <fieldset class="d-flex align-items-center ms-1">
-        <label for="angle">Ângulo (θ) em graus</label>
-        <select id="angle" name="angle" class="form-control" required>
-          <option value="30">30°</option>
-          <option value="45">45°</option>
-          <option value="60">60°</option>
-        </select>
-      </fieldset>
+      togglePotrator.addEventListener("click", () => {
+        if (potrator.style.display === "none") {
+          potrator.style.display = "block";
+        } else {
+          potrator.style.display = "none";
+        }
+      });
 
-      <div class="buttons ms-2 d-flex pt-3">
-        <input
-          type="button"
-          value="Iniciar"
-          id="btnStart"
-          class="btn btn-success"
-          onclick="startSimulation()"
-        />
-        <input
-          type="button"
-          value="Pausar"
-          id="btnPause"
-          class="btn btn-secondary"
-          onclick="pauseSimulation()"
-        />
-        <input
-          type="button"
-          value="Reiniciar"
-          id="btnRestart"
-          class="btn btn-primary"
-          onclick="restartSimulation()"
-        />
-      </div>
-    </div>
-  </div>
-</div>
+      const stickLength = 360; // Length of the inclined stick (horizontal stick)
+
+      massInput.addEventListener("input", () => {
+        const mass = massInput.value;
+        massValue.textContent = `${mass}kg`;
+      });
+
+      rangeInput.addEventListener("input", () => {
+        const angle = rangeInput.value;
+        angleValue.textContent = `${angle}°`;
+
+        // Update the rotation of the inclined stick
+        stick.style.transform = `rotate(-${angle}deg)`;
+
+        // Calculate the height of the vertical stick based on the angle
+        const radians = (angle * Math.PI) / 180; // Convert angle to radians
+        const height = stickLength * Math.sin(radians); // Calculate the vertical height
+        verticalStick.style.height = `${height}px`;
+
+        // Calculate the horizontal position of the top of the inclined stick
+        const topX = stickLength * Math.cos(radians); // Horizontal position of the top
+        // console.log(`${50 + topX - 10}px`)
+        verticalStick.style.left = `${300 + topX - 2}px`; // Move vertical stick along the horizontal axis
+      });
+
+      const box = document.getElementById("box-inclined-plane");
+      const startButton = document.getElementById("start");
+      const restartButton = document.getElementById("restart");
+      const g = 9.81; // Gravidade (m/s^2)
+      let angle = 0;
+      let mass = 20;
+      let animationFrame;
+
+      rangeInput.addEventListener("input", () => {
+        angle = parseInt(rangeInput.value);
+        angleValue.textContent = `${angle}°`;
+        stick.style.transform = `rotate(-${angle}deg)`;
+      });
+
+      massInput.addEventListener("input", () => {
+        mass = parseInt(massInput.value);
+        massValue.textContent = `${mass}kg`;
+      });
+
+      startButton.addEventListener("click", () => {
+        cancelAnimationFrame(animationFrame);
+        animateBox();
+      });
+
+      restartButton.addEventListener("click", () => {
+        cancelAnimationFrame(animationFrame);
+        box.style.transform = "translateX(0px)";
+        box.style.transform = "translateX(0px)";
+      });
+
+      function animateBox() {
+        let time = 0;
+        let position = 0;
+        const length = 320; // Comprimento do plano inclinado
+        const theta = angle ; // Converter para radianos
+        console.log(theta);
+        const acceleration = g * Math.sin(theta); // Aceleração considerando a gravidade e o ângulo
+
+        function step() {
+          time += 0.05; // Incremento do tempo (simulação de 50ms por frame)
+          position = 0.5 * acceleration * time * time; // Equação do movimento uniformemente acelerado
+          if (position >= length) {
+            position = length;
+          }
+          box.style.transform = `translateX(${-position}px)`;
+
+          if (position < length) {
+            animationFrame = requestAnimationFrame(step);
+          }
+        }
+
+        step();
+      }
+    </script>
+  </body>
+</html>
 
 <script src="/js/main.js"></script>
 <script src="/js/grade_10/inclined_plane.js"></script>
