@@ -86,12 +86,39 @@
   </div>
 
   <div class="ruler" id="ruler">
-    <div class="ruler-mark" data-height="350">350 cm</div>
-    <div class="ruler-mark" data-height="300">300 cm</div>
-    <div class="ruler-mark" data-height="250">250 cm</div>
-    <div class="ruler-mark" data-height="200">200 cm</div>
-    <div class="ruler-mark" data-height="150">150 cm</div>
-    <div class="ruler-mark" data-height="100">100 cm</div>
+    <div class="mark normal-mark" style="top: 320px"></div>
+    <div class="label" style="top: 315px">50cm</div>
+
+    <div class="mark big-mark" style="top: 270px"></div>
+    <div class="label" style="top: 265px">100cm</div>
+
+    <div class="mark normal-mark" style="top: 220px"></div>
+    <div class="label" style="top: 215px">150cm</div>
+
+    <div class="mark big-mark" style="top: 170px"></div>
+    <div class="label" style="top: 165px">200cm</div>
+
+    <div class="mark normal-mark" style="top: 120px"></div>
+    <div class="label" style="top: 115px">250cm</div>
+
+    <div class="mark big-mark" style="top: 70px"></div>
+    <div class="label" style="top: 65px">300cm</div>
+
+    <div class="mark normal-mark" style="top: 20px"></div>
+    <div class="label" style="top: 15px">350cm</div>
+
+    <!-- Little marks -->
+    <script>
+      const ruler = document.getElementById("ruler");
+      for (let i = 10; i < 350; i += 10) {
+        if (i % 50 !== 0) {
+          let mark = document.createElement("div");
+          mark.className = "mark little-mark";
+          mark.style.top = `${370 - i}px`;
+          ruler.appendChild(mark);
+        }
+      }
+    </script>
   </div>
 
   <div class="base">

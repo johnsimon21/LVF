@@ -25,7 +25,7 @@ function updateBallHeight() {
   } else if (heightValue - 20 >= maxHeight) {
     heightValue = maxHeight;
   }
-
+console.log(heightValue)
   ball.style.bottom = `${heightValue}px`;
   getBallHeight();
 
@@ -206,3 +206,55 @@ function draggableGraphic() {
 }
 
 draggableGraphic();
+
+function generateMarkings() {
+  const markingsContainer = document.getElementById("markings");
+  for (let i = 0; i < 60; i++) {
+      let mark = document.createElement("div");
+      mark.classList.add("mark");
+      markingsContainer.appendChild(mark);
+  }
+}
+generateMarkings();
+
+function draggableRuler() {
+  const ruler = document.getElementById("ruler");
+  const container = document.querySelector(".simulation-content");
+  const base = document.querySelector(".base");
+  let isDragging = false;
+  let startX, startY;
+  let startLeft, startTop;
+
+  ruler.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startLeft = ruler.offsetLeft;
+    startTop = ruler.offsetTop;
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  function onMouseMove(e) {
+    if (!isDragging) return;
+    
+    let newLeft = startLeft + (e.clientX - startX);
+    let newTop = startTop + (e.clientY - startY);
+    
+    // Get container boundaries
+    let maxLeft = container.clientWidth - ruler.clientWidth;
+    let maxTop = container.clientHeight - ruler.clientHeight - base.clientHeight;
+    
+    // Apply constraints
+    ruler.style.left = Math.max(0, Math.min(newLeft, maxLeft)) + "px";
+    ruler.style.top = Math.max(0, Math.min(newTop, maxTop)) + "px";
+  }
+
+  function onMouseUp() {
+    isDragging = false;
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  }
+}
+
+draggableRuler()

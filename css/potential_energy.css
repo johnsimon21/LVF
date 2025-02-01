@@ -97,28 +97,39 @@
     bottom: 0;
     z-index: 2 !important;
 }
-
 .ruler {
-  position: absolute;
-  left: 10px;
-  bottom: 0;
-  width: 50px;
-  height: 350px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: grab;
+    width: 60px;
+    height: 360px;
+    background: linear-gradient(90deg, #ddd 0%, #fff 50%, #ddd 100%);
+    border: 2px solid #aaa;
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    padding-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 14px;
 }
-
-.ruler-mark {
-  text-align: center;
-  padding: 5px;
-  background: #fff;
-  border-top: 1px solid #ccc;
+.mark {
+    position: absolute;
+    left: 5px;
+    background-color: black;
 }
-
-.ruler-mark:first-child {
-  border-top: none;
+.big-mark {
+    width: 15px;
+    height: 2px;
+}
+.normal-mark {
+    width: 10px;
+    height: 2px;
+}
+.little-mark {
+    width: 5px;
+    height: 1px;
+}
+.label {
+    position: absolute;
+    left: 20px;
+    font-size: 12px;
+    color: black;
+    font-family: Arial, sans-serif;
 }
