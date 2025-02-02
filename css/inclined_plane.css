@@ -1,58 +1,195 @@
-
-.potractor {
-    width: 400px;
-    position: absolute;
-    bottom: -100px;
-    left: 300px;
-
-    z-index: 9999;
+.main-container {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  margin: 15px 15px 0;
+  overflow: hidden;
 }
 .container {
-    position: relative;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 50px;
-  }
+  position: static;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  bottom: 0;
+}
 
-  .stick {
-    width: 360px;
-    height: 5px;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: 300px;
-    transform-origin: left bottom;
-    transform: rotate(0deg);
-  }
+.stick {
+  width: 400px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: 20px;
+  left: 300px;
+  transform-origin: left bottom;
+  transform: rotate(0deg);
+}
 
-  .vertical-stick {
-    width: 5px;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+.vertical-stick {
+  width: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
 
-  .slider-container {
-    margin-top: 20px;
-  }
+.slider-container {
+  margin-top: 20px;
+  
+}
 
-  .base-stick {
-    height: 2px;
-    background-color: rgb(172, 99, 59);
+.base-stick {
+  height: 20px;
+  background-color: rgb(92, 61, 45);
 
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
-  .box-inclined-plane {
-    width: 40px;
-    height: 40px;
-    background-color: rgb(255, 174, 0);
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-  }
+.box-inclined-plane {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255, 174, 0);
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+}
+
+.horizontal-vector {
+  width: 90px;
+  height: 2px;
+  background-color: blueviolet;
+
+  position: inherit;
+  right: 50%;
+  top: 50%;
+}
+
+.horizontal-vector .letter {
+  position: inherit;
+  left: 0;
+  bottom: 4px;
+}
+.horizontal-vector .letter .px {
+  position: inherit;
+  left: 0;
+}
+.horizontal-vector .letter .vector {
+  position: inherit;
+  top: -12px;
+  left: -3px;
+}
+.vertical-vector {
+  width: 1.5px;
+  height: 180px;
+  background-color: blueviolet;
+
+  position: absolute;
+  right: 50%;
+  top: -70px;
+}
+
+.vertical-vector .letter {
+  position: inherit;
+  left: 0;
+  bottom: 4px;
+}
+.vertical-vector .top-letter {
+  position: absolute;
+  top: -20px;
+  left: 4px;
+}
+.vertical-vector .top-letter .vector {
+  position: inherit;
+  top: -14px;
+  left: -2px;
+}
+.vertical-vector .bottom-letter {
+  position: absolute;
+  top: 170px;
+  left: 10px;
+}
+.vertical-vector .bottom-letter .vector {
+  position: inherit;
+  top: -14px;
+  left: -2px;
+}
+.ranges-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+
+  width: fit-content;
+  padding: 8px;
+  border-radius: 4px;
+
+  background-color: rgb(216, 207, 188);
+  
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.leftArrow {
+  position: absolute;
+  bottom: -8px;
+  left: -3px;
+  color: blueviolet;
+}
+.upArrow {
+  position: absolute;
+  top: -7px;
+  left: -3px;
+  color: blueviolet;
+}
+.downarrow {
+  position: absolute;
+  bottom: -4px;
+  left: -3px;
+  color: blueviolet;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #e4e7eb;
+  color: #171717;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+
+}
+
+button:hover {
+  background-color: #b7b7b7;
+}
+
+.potrator {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 124px;
+  width: 350px;
+}
+
+.stopwatch {
+  width: 100px;
+  height: 50px;
+  background: linear-gradient(180deg,
+      black,
+      rgb(31, 31, 31),
+      rgb(15, 15, 15));
+  color: #ffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+
+  position: absolute;
+  
+}
