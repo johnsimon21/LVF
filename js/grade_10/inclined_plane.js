@@ -117,6 +117,10 @@ function animateBox() {
     }
   }
 
+  if(acceleration < 0) {
+    acceleration = 1;
+  }
+
   function step() {
     time += 0.05; // Simulação de incremento de tempo (50ms por frame)
     position = 0.5 * acceleration * time * time; // Equação corrigida
