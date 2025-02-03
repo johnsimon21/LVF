@@ -47,8 +47,11 @@ function startSimulation() {
     position += tensionForce;
     const mainWidth = document.querySelector("main").offsetWidth;
     const boxWidth = box.offsetWidth;
-    if (position + boxWidth >= mainWidth || mass <= 0 || position <= 0) {
+
+    // Stop if the box reaches the limit
+    if (position + boxWidth >= mainWidth || position <= 0 || mass <= 0) {
       clearInterval(interval);
+      intervalStarted = false;
     } else {
       forceLine.style.display = "block";
 

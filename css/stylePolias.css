@@ -222,3 +222,34 @@ main#tracaoPolias {
     top: 10px;
     right: 10px;
 }
+
+.acceleration-display {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    color: black;
+
+}
+
+.stopwatch-display {
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(180deg,
+        black,
+        rgb(31, 31, 31),
+        rgb(15, 15, 15));
+    color: #ffff;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+  
+    position: absolute;
+    top: 190px;
+    margin-left: 15px;
+  }
+.btn:hover {
+    background-color: rgb(228, 228, 228);
+}

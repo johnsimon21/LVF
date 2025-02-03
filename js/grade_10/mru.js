@@ -57,6 +57,11 @@ function startSimulation() {
   const finalPosition = parseInt(document.querySelector("#finalPositionInput").value);
   const totalTime = parseInt(document.querySelector("#timeInput").value);
 
+  const mainContainer = document.querySelector(".main");
+  const mainWidth = mainContainer.getBoundingClientRect().width;
+  const carWidth = car.getBoundingClientRect().width;
+  const maxPosition = mainWidth - carWidth; // Maximum position before stopping
+
   // Calculate velocity
   const velocityValue = (finalPosition - initialPosition) / totalTime;
 
@@ -69,6 +74,13 @@ function startSimulation() {
 
       position = initialPosition + (velocityValue * time);
 
+      // Stop if the car reaches the limit
+      if (position >= maxPosition) {
+        position = maxPosition; // Set position to limit
+        clearInterval(interval); // Stop movement
+        intervalStarted = false;
+      }
+
       // Update car position and UI elements
       car.style.marginLeft = `${position}px`;
 
@@ -76,12 +88,13 @@ function startSimulation() {
       document.querySelector("#positionValue").textContent = `${position.toFixed(1)} m`;
       document.querySelector("#initialPositionValue").textContent = ` ${initialPosition} m`;
       document.querySelector("#velocityValue").textContent = `v = ${velocityValue.toFixed(1)} m/s`;
-      document.querySelector("#timeValue").textContent = `${time.toFixed(1)} s`;
+      document.querySelector("#timeValue").textContent = `${totalTime.toFixed(1)} s`;
 
       updateChart(time.toFixed(1), position.toFixed(1));
 
       if (time >= totalTime) {
         clearInterval(interval);
+        intervalStarted = false;
       }
     }, 100);
 

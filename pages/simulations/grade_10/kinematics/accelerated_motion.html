@@ -4,7 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="simulation-content simulation-with-base">
-  <main class="bg-info">
+  <main class="main">
     <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
 
     <div class="display-variables">
@@ -21,20 +21,18 @@
         <div class="position">x =</div>
         <div class="result">
           <div class="numerator">
-            x<sub>o</sub> + v<sub>o</sub>.t + (a.t²)/2
+            x<sub>o</sub> + v<sub>o</sub>.t + (a.t<sup>2</sup>)/2 
           </div>
-          <div class="denominator">Δt</div>
         </div>
         =
         <div class="result">
           <div class="numerator">
-            <span id="initialPositionValue">x<sub>o</sub></span> +
-            <span id="initialVelocityValue">v<sub>o</sub></span
-            >. <span id="timeValue">t</span> + (<span id="accelerationValue"
+            <span id="initialPositionDisplay">x<sub>o</sub></span> +
+            <span id="initialVelocitDisplay">v<sub>o</sub></span
+            >. <span class="timeValue">t</span> + (<span id="accelerationValue"
               >a</span
-            >.t²)/2
+            >.<span class="timeValue2">t</span><sup>2</sup>)/2
           </div>
-          <div id="positionValue" class="denominator">x</div>
         </div>
       </div>
       <strong><div id="currentPosition">x = 0 m</div></strong>

@@ -60,7 +60,13 @@ let position = parseInt(window.getComputedStyle(car).marginLeft);
 let time = 0;
 
 function startSimulation() {
-  // Get input values correctly
+  const car = document.querySelector(".car");
+  const mainContainer = document.querySelector(".main");
+
+  const mainWidth = mainContainer.getBoundingClientRect().width;
+  const carWidth = car.getBoundingClientRect().width;
+  const maxPosition = mainWidth - carWidth; // Maximum position before stopping
+
   const initialPositionValue = parseInt(document.querySelector("#initialPositionValue").value) || 0;
   const initialVelocityValue = parseInt(document.querySelector("#initialVelocityValue").value) || 0;
   const accelerationValue = parseInt(document.querySelector("#acelerationValue").value) || 0;
@@ -73,32 +79,40 @@ function startSimulation() {
     interval = setInterval(() => {
       time += 0.1;
 
-      // Calculate position with proper values
-      const finalPosition = initialPositionValue + 
-                          (initialVelocityValue * time) + 
-                          (0.5 * accelerationValue * time * time);
-      
-      position = finalPosition;
-      
-      // Update velocity
-      const velocityValue = initialVelocityValue + (accelerationValue * time);
+      const finalPosition = initialPositionValue +
+        (initialVelocityValue * time) +
+        (0.5 * accelerationValue * time * time);
 
-      // Update displays
+      position = finalPosition;
+
+      // Stop if the car reaches the limit
+      if (position >= maxPosition) {
+        position = maxPosition; // Set position to limit
+        clearInterval(interval); // Stop movement
+        intervalStarted = false;
+      }
+
+      // Update UI elements
       car.style.marginLeft = `${position}px`;
-      document.querySelector("#timeValue").textContent = `${time.toFixed(1)}`;
+      document.querySelector(".timeValue").textContent = `${time.toFixed(1)}`;
+      document.querySelector(".timeValue2").textContent = `${time.toFixed(1)}`;
+      document.querySelector("#accelerationValue").textContent = `${accelerationValue.toFixed(1)}`;
       document.querySelector("#currentPosition").textContent = `x = ${position.toFixed(1)} m`;
-      document.querySelector("#velocityInfo").textContent = `Velocidade final = ${velocityValue.toFixed(1)} (m/s)`;
+      document.querySelector("#initialPositionDisplay").textContent = `${initialPositionValue.toFixed(1)}`;
+      document.querySelector("#initialVelocitDisplay").textContent = `${initialVelocityValue.toFixed(1)} (m/s)`;
 
       updateChart(time.toFixed(1), position.toFixed(1));
 
       if (time >= totalTime) {
         clearInterval(interval);
+        intervalStarted = false;
       }
     }, 100);
 
     intervalStarted = true;
   }
 }
+
 
 function pauseSimulation() {
   clearInterval(interval);
