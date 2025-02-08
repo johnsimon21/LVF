@@ -5,6 +5,19 @@
 
 <div class="simulation-content simulation-with-base">
   <main class="main">
+    <div class="graphics-control">
+      <!-- <div class="switch-graphic">
+        <button type="button" class="position">Posição</button>
+        <button type="button" class="position">Velocidade</button>
+        <button type="button" class="acceleration">Aceleração</button>
+      </div> -->
+      <div class="graphics">
+        <canvas class="chart" id="positionChart"></canvas>
+        <canvas class="chart" id="velocityChart"></canvas>
+        <canvas class="chart" id="accelerationChart"></canvas>
+      </div>
+    </div>
+
     <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
 
     <div class="display-variables">
@@ -21,14 +34,14 @@
         <div class="position">x =</div>
         <div class="result">
           <div class="numerator">
-            x<sub>o</sub> + v<sub>o</sub>.t + (a.t<sup>2</sup>)/2 
+            x<sub>o</sub> + v<sub>o</sub>.t + (a.t<sup>2</sup>)/2
           </div>
         </div>
         =
         <div class="result">
           <div class="numerator">
             <span id="initialPositionDisplay">x<sub>o</sub></span> +
-            <span id="initialVelocitDisplay">v<sub>o</sub></span
+            <span id="initialVelocityDisplay">v<sub>o</sub></span
             >. <span class="timeValue">t</span> + (<span id="accelerationValue"
               >a</span
             >.<span class="timeValue2">t</span><sup>2</sup>)/2
@@ -120,10 +133,6 @@
         />
       </div>
     </div>
-  </div>
-
-  <div id="draggable" class="graphic">
-    <canvas id="positionChart"></canvas>
   </div>
 </div>
 

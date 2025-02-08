@@ -8,6 +8,8 @@ forward_letter.classList.add("go");
 
 let interval = null;
 let intervalStarted = false;
+let currentPosition = 0;
+let currentTime = 0;
 
 // Configuração inicial do gráfico
 const ctx = document.getElementById("positionChart").getContext("2d");
@@ -27,6 +29,9 @@ const positionChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
+    animation: {
+      duration: 0, // Disable animation for smoother updates
+    },
     scales: {
       x: {
         title: {
@@ -61,38 +66,35 @@ function startSimulation() {
   const mainWidth = mainContainer.getBoundingClientRect().width;
   const carWidth = car.getBoundingClientRect().width;
   const maxPosition = mainWidth - carWidth; // Maximum position before stopping
-
   // Calculate velocity
   const velocityValue = (finalPosition - initialPosition) / totalTime;
 
-  let position = initialPosition;
-  let time = 0;
-
   if (!intervalStarted && totalTime > 0) {
     interval = setInterval(() => {
-      time += 0.1; // Smaller time steps for smoother animation
+      currentTime += 0.1; // Smaller time steps for smoother animation
 
-      position = initialPosition + (velocityValue * time);
+      currentPosition = initialPosition + (velocityValue * currentTime);
 
       // Stop if the car reaches the limit
-      if (position >= maxPosition) {
-        position = maxPosition; // Set position to limit
+      if (currentPosition >= finalPosition) {
+        currentPosition = finalPosition; // Set position to limit
         clearInterval(interval); // Stop movement
         intervalStarted = false;
+        
       }
 
       // Update car position and UI elements
-      car.style.marginLeft = `${position}px`;
+      car.style.marginLeft = `${currentPosition}px`;
 
       // Update display values
-      document.querySelector("#positionValue").textContent = `${position.toFixed(1)} m`;
+      document.querySelector("#positionValue").textContent = `${currentPosition.toFixed(1)} m`;
       document.querySelector("#initialPositionValue").textContent = ` ${initialPosition} m`;
       document.querySelector("#velocityValue").textContent = `v = ${velocityValue.toFixed(1)} m/s`;
       document.querySelector("#timeValue").textContent = `${totalTime.toFixed(1)} s`;
 
-      updateChart(time.toFixed(1), position.toFixed(1));
+      updateChart(currentTime.toFixed(1), currentPosition.toFixed(1));
 
-      if (time >= totalTime) {
+      if (currentTime >= totalTime) {
         clearInterval(interval);
         intervalStarted = false;
       }
@@ -110,15 +112,9 @@ function pauseSimulation() {
 function restartSimulation() {
   clearInterval(interval);
   car.style.marginLeft = "0px";
-  document.querySelector("#timeValue").textContent = `Tempo = ${0} (s)`;
-  document.querySelector(
-    "#initialPositionValue"
-  ).textContent = `Posição Inicial = ${initialPosition} (m)`;
-  document.querySelector(
-    "#finalPositionValue"
-  ).textContent = `Posição Final = ${0} (m)`;
-  document.querySelector("#velocityInfo").textContent =
-    "v = 0 (velocidade nula)";
+  document.querySelector("#timeValue").textContent = "Δt";
+  document.querySelector("#initialPositionValue").innerHTML = "S<sub>o</sub>";
+  document.querySelector("#positionValue").innerHTML = "S<sub>f</sub>";
 
   forward_arrow.classList.remove("back");
   forward_letter.classList.add("go");
@@ -130,4 +126,9 @@ function restartSimulation() {
   positionChart.data.labels = [];
   positionChart.data.datasets[0].data = [];
   positionChart.update();
+
+  // Reset current position and time
+  currentPosition = 0;
+  currentTime = 0;
+
 }

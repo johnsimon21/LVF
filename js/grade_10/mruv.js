@@ -10,8 +10,11 @@ let interval = null;
 let intervalStarted = false;
 
 // Configuração inicial do gráfico
-const ctx = document.getElementById("positionChart").getContext("2d");
-const positionChart = new Chart(ctx, {
+const ctxPosition = document.getElementById("positionChart").getContext("2d");
+const ctxVelocity = document.getElementById("velocityChart").getContext("2d");
+const ctxAcceleration = document.getElementById("accelerationChart").getContext("2d");
+
+const positionChart = new Chart(ctxPosition, {
   type: "line",
   data: {
     labels: [], // Labels do eixo x (tempo)
@@ -27,6 +30,9 @@ const positionChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
+    animation: {
+      duration: 0, // Disable animation for smoother updates
+    },
     scales: {
       x: {
         title: {
@@ -43,11 +49,89 @@ const positionChart = new Chart(ctx, {
     },
   },
 });
+const velocityChart = new Chart(ctxVelocity, {
+  type: "line",
+  data: {
+    labels: [], // Labels do eixo x (tempo)
+    datasets: [
+      {
+        label: "Velocidade (m/s)",
+        data: [], // Dados do eixo y (posição)
+        borderColor: "black",
+        borderWidth: 1,
+        fill: false,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+     animation: {
+      duration: 0, // Disable animation for smoother updates
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Tempo (s)",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Velocidade (m/s)",
+        },
+      },
+    },
+  },
+});
+const accelerationChart = new Chart(ctxAcceleration, {
+  type: "line",
+  data: {
+    labels: [], // Labels do eixo x (tempo)
+    datasets: [
+      {
+        label: "Aceleração (m/s²)",
+        data: [], // Dados do eixo y (posição)
+        borderColor: "black",
+        borderWidth: 1,
+        fill: false,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+     animation: {
+      duration: 0, // Disable animation for smoother updates
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Tempo (s)",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Aceleração (m/s²)",
+        },
+      },
+    },
+  },
+});
 
-function updateChart(time, position) {
+function updateChart(time, position, velocity, acceleration) {
   positionChart.data.labels.push(time);
   positionChart.data.datasets[0].data.push(position);
   positionChart.update();
+
+  velocityChart.data.labels.push(time);
+  velocityChart.data.datasets[0].data.push(velocity);
+  velocityChart.update();
+
+  accelerationChart.data.labels.push(time);
+  accelerationChart.data.datasets[0].data.push(acceleration);
+  accelerationChart.update();
 }
 let initialVelocityValue = parseInt(
   document.querySelector("#initialVelocityValue").value
@@ -72,8 +156,6 @@ function startSimulation() {
   const accelerationValue = parseInt(document.querySelector("#acelerationValue").value) || 0;
   const totalTime = parseInt(document.querySelector("#timeInput").value) || 0;
 
-  let position = initialPositionValue;
-  let time = 0;
 
   if (!intervalStarted && totalTime > 0) {
     interval = setInterval(() => {
@@ -99,9 +181,9 @@ function startSimulation() {
       document.querySelector("#accelerationValue").textContent = `${accelerationValue.toFixed(1)}`;
       document.querySelector("#currentPosition").textContent = `x = ${position.toFixed(1)} m`;
       document.querySelector("#initialPositionDisplay").textContent = `${initialPositionValue.toFixed(1)}`;
-      document.querySelector("#initialVelocitDisplay").textContent = `${initialVelocityValue.toFixed(1)} (m/s)`;
+      document.querySelector("#initialVelocityDisplay").textContent = `${initialVelocityValue.toFixed(1)} (m/s)`;
 
-      updateChart(time.toFixed(1), position.toFixed(1));
+      updateChart(time.toFixed(1), position.toFixed(1), initialVelocityValue, accelerationValue.toFixed(1));
 
       if (time >= totalTime) {
         clearInterval(interval);
@@ -122,19 +204,15 @@ function pauseSimulation() {
 function restartSimulation() {
   clearInterval(interval);
   car.style.marginLeft = "0px";
-  document.querySelector("#timeValue").textContent = `Tempo = ${0} (s)`;
-  position = parseInt(window.getComputedStyle(car).marginLeft);
-  initialPositionValue = parseInt(
-    document.querySelector("#initialPositionValue").value
-  );
-  document.querySelector(
-    "#finalPositionValue"
-  ).textContent = `Posição Final = ${0} (m)`;
-  document.querySelector(
-    "#velocityInfo"
-  ).textContent = `Velocidade final = 0 (m/s)`;
+  document.querySelector(".timeValue").innerHTML = 't';
+  document.querySelector(".timeValue2").innerHTML = 't';
+  document.querySelector("#accelerationValue").innerHTML = 'a';
+  document.querySelector("#currentPosition").innerHTML = 'x = 0 m';
+  document.querySelector("#initialPositionDisplay").innerHTML = 'x<sub>o</sub>';
+  document.querySelector("#initialVelocityDisplay").innerHTML = 'v<sub>o</sub>';
 
   time = 0;
+  position = 0
 
   car.style.transform = "rotateY(0deg)";
   intervalStarted = false;
@@ -143,4 +221,12 @@ function restartSimulation() {
   positionChart.data.labels = [];
   positionChart.data.datasets[0].data = [];
   positionChart.update();
+
+  velocityChart.data.labels = [];
+  velocityChart.data.datasets[0].data = [];
+  velocityChart.update();
+  
+  accelerationChart.data.labels = [];
+  accelerationChart.data.datasets[0].data = [];
+  accelerationChart.update();
 }
