@@ -47,6 +47,7 @@ angleInput.addEventListener("input", () => {
 });
 
 const box = document.getElementById("box-inclined-plane");
+const frictionForce = document.querySelector(".friction-force");
 const startButton = document.getElementById("start");
 const restartButton = document.getElementById("restart");
 const g = 9.81; // Gravidade (m/s^2)
@@ -60,6 +61,12 @@ frictionInput.addEventListener("input", () => {
   frictionValue.textContent = `${frictionText}`;
   friction = parseFloat(frictionInput.value);
   stick.style.borderTop = `${friction + 1.5}px dashed red`;
+
+  if (friction > 0) {
+    frictionForce.style.display = "block"
+  } else {
+    frictionForce.style.display = "none"
+  }
 });
 
 angleInput.addEventListener("input", () => {
@@ -114,10 +121,13 @@ function animateBox() {
   } else {
     if (friction > 0) {
       acceleration -= (friction + 2);
+      frictionForce.style.display = "block"
+    } else {
+      frictionForce.style.display = "none"
     }
   }
 
-  if(acceleration < 0) {
+  if (acceleration < 0) {
     acceleration = 1;
   }
 

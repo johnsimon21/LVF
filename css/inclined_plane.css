@@ -83,12 +83,30 @@
 }
 .vertical-vector {
   width: 1.5px;
-  height: 180px;
+  height: 90px;
   background-color: blueviolet;
 
   position: absolute;
   right: 50%;
   top: -70px;
+}
+.friction-force {
+display: none;
+
+  height: 1.5px;
+  width: 90px;
+  background-color: rgb(239, 14, 14);
+
+  position: absolute;
+  left: 50%;
+  top: 40px;
+}
+
+.friction-arrow {
+  color: rgb(239, 14, 14);
+  position: inherit;
+  top: -10px;
+  right: -3px;
 }
 
 .vertical-vector .letter {
