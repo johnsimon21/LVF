@@ -35,6 +35,9 @@ angleInput.addEventListener("input", () => {
   // Update the rotation of the inclined stick
   stick.style.transform = `rotate(-${angle}deg)`;
 
+  const weightForce = document.querySelector('.weight-force');
+  weightForce.style.transform = `rotate(${angle}deg)`;
+
   // Calculate the height of the vertical stick based on the angle
   const radians = (angle * Math.PI) / 180; // Convert angle to radians
   const height = stickLength * Math.sin(radians); // Calculate the vertical height

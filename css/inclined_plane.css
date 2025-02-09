@@ -109,6 +109,27 @@ display: none;
   right: -3px;
 }
 
+.weight-force {
+  width: 1.5px;
+  height: 90px;
+  background-color: rgb(171, 144, 9);
+  
+  transform-origin: top center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1px;
+}
+.weight-force .letter-weight{
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+}
+
+.weight-force .downArrow {
+  color: rgb(171, 144, 9);
+}
+
 .vertical-vector .letter {
   position: inherit;
   left: 0;
