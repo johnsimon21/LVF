@@ -26,10 +26,10 @@ function startSimulation() {
 
     let tensionForce = calculatingForce - frictionalForce;
 
-    document.querySelector("#acelerationValue").innerHTML =
-      mass !== 0
-        ? `Aceleração: ${tensionForce.toFixed(1)} m/s²`
-        : "Aceleração: 0 m/s²";
+    // document.querySelector("#acelerationValue").innerHTML =
+    //   mass !== 0
+    //     ? `Aceleração: ${tensionForce.toFixed(1)} m/s²`
+    //     : "Aceleração: 0 m/s²";
 
     position += tensionForce;
     const mainWidth = document.querySelector("main").offsetWidth;

@@ -129,8 +129,8 @@ main#tracaoPolias {
 
 .letter-g {
     position: absolute;
-    top: 140px;
-    left: 490px;
+    top: 240px;
+    left: 550px;
 }
 
 .gravity>span {
@@ -145,7 +145,7 @@ main#tracaoPolias {
     font-size: .9rem;
 
     position: relative;
-    top: -22px;
+    top: -14px;
     left: 12px;
 }
 

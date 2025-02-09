@@ -18,23 +18,25 @@
           f = μmg
         </p>
       </div>
-      <div class="separator"></div>
-      <div id="acelerationValue">Aceleração: 0 m/s²</div>
+      <!-- <div class="separator"></div> -->
+      <!-- <div id="acelerationValue">Aceleração: 0 m/s²</div> -->
     </div>
 
     <div class="box">
       <span class="mass">m</span>
-      <div class="normalForce">
+      <!-- <div class="normalForce">
         <img src="/assets/images/arrow.svg" alt="Vetor da força normal" />
         <div class="letter">
           <img src="/assets/images/arrow.svg" class="arrowLetter" />
           <div class="tension">N</div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="horizontalLine goBackDirection">
-        <img src="/assets/images/arrow.svg" class="tensionArrow" />
-        <div class="tension">T</div>
+      <div class="boy-container goBackDirection">
+        <div class="tension">
+          <img src="/assets/images/arrow.svg" class="tensionArrow" />
+          T
+        </div>
         <div class="hand"></div>
       </div>
 
@@ -51,9 +53,12 @@
       </div>
     </div>
   </main>
-  
+
   <div class="base">
-    <div id="full-controllers" class="inputDatas controllers d-flex m-3 align-items-center">
+    <div
+      id="full-controllers"
+      class="inputDatas controllers d-flex m-3 align-items-center"
+    >
       <fieldset class="d-flex align-items-center">
         <label for="tensionValue">Força de Tensão (N)</label>
         <input
