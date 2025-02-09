@@ -208,3 +208,11 @@ background-color: rgb(233, 214, 175);
     top: 20px;
     right: 15px;
 }
+
+.man-who-pushes {
+    display: none;
+    position: inherit;
+    left: 40px;
+    width: 200px;
+    transform: rotateX(30deg) !important;
+}
