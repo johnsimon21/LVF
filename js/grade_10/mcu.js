@@ -77,23 +77,29 @@ function startAnimation() {
 }
 
 function startSimulation() {
-  if (animationInterval === null)
+  btnStart.disabled = true;
+  btnPause.disabled = false;
+  if (animationInterval === null) {
     animationInterval = setInterval(startAnimation, 100);
+  }
 }
 
 function pauseSimulation() {
   btnPause.disabled = true;
   btnStart.disabled = false;
   clearInterval(animationInterval); // Limpar o intervalo de animação
+  animationInterval = null; // Set animationInterval to null
 }
 
 function restartSimulation() {
-  btnStart.disabled = false;
+  btnStart.disabled = true;
   btnPause.disabled = false;
   angle = 0;
   completedTurns = 0;
+  frames = 0;
 
   if (animationInterval) {
     clearInterval(animationInterval); // Limpar o intervalo de animação, se existir
   }
+  animationInterval = setInterval(startAnimation, 100); // Reiniciar a animação
 }

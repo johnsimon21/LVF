@@ -56,7 +56,7 @@ main {
 .trajectory {
     width: 2px;
     height: 182px;
-    background-color: rgb(22, 36, 113);
+    background-color: blue;
     transform-origin: top center;
 
     color: #ccc;
@@ -81,7 +81,24 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.centripetal-acceleration {
+    transform: rotate(-90deg);
+position: absolute;
+    left: -15px;
+    top: -2;
+    stroke-width: 4px;    
+    width: 2rem;
+}
 
+.letter-ac {
+    color: rgb(255, 0, 0);
+    font-size: 1.6rem;
+    font: bolder;
+    margin-left: 18px;
+    margin-top: -12px;
+
+    transform: rotate(90deg);
+}
 .angular-velocity-stick {
     width: 50px;
     height: 50px;

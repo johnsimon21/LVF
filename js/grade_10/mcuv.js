@@ -1,179 +1,115 @@
-let car = document.querySelector(".car");
-let initialPosition = parseInt(window.getComputedStyle(car).marginLeft);
-let forward_arrow = document.querySelector(".forward-car");
-let forward_letter = document.querySelector(".forward-letter");
+var orbit = document.querySelector(".orbit");
+var trajectory = document.querySelector(".trajectory");
+var angularVelocity = document.querySelector("#angularVelocity");
+var sattelite = document.querySelector("#sattelite");
+var frequency = document.querySelector("#frequency");
+var timeElement = document.querySelector("#time");
+var btnStart = document.querySelector("#btnStart");
+var btnPause = document.querySelector("#btnPause");
+var btnRestart = document.querySelector("#btnRestart");
+var angularVelocityStick = document.querySelector(
+  ".angular-velocity-stick"
+);
+var acelerationStick = document.querySelector(".aceleration-letter");
+// let initialPositionValue = parseInt(
+//   document.querySelector("#initialPositionValue").value
+// );
 
-forward_arrow.classList.add("go");
-forward_letter.classList.add("go");
+var orbitRadius = orbit.offsetWidth / 2;
+var angle = 0;
+var animationId;
+var completedTurns = 0;
+var frames = 0;
+var time = 0;
+var position = 0;
+var animationInterval = null;
 
-let interval = null;
-let intervalStarted = false;
 
-// Configuração inicial do gráfico
-const ctx = document.getElementById("positionChart").getContext("2d");
-const positionChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: [], // Labels do eixo x (tempo)
-    datasets: [
-      {
-        label: "Posição (m)",
-        data: [], // Dados do eixo y (posição)
-        borderColor: "black",
-        borderWidth: 1,
-        fill: false,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Tempo (s)",
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: "Posição (m)",
-        },
-      },
-    },
-  },
-});
-
-function updateChart(time, position) {
-  positionChart.data.labels.push(time);
-  positionChart.data.datasets[0].data.push(position);
-  positionChart.update();
-}
-let verifier = 0;
-function startSimulation() {
-  let position = parseInt(window.getComputedStyle(car).marginLeft);
-  let positionValue = parseInt(
-    document.querySelector("#positionInput").value
-  );
-  let time = 0;
-  let velocityValue = parseInt(
-    document.querySelector("#velocityValue").value
+function startAnimation() {
+  let initialVelocity = document.querySelector("#initialVelocityValue");
+  let acelerationValue = parseInt(
+    document.querySelector("#acelerationValue").value
   );
 
-  if (!intervalStarted && velocityValue !== 0) {
-    interval = setInterval(() => {
-      time += 1;
-
-      // if (position % positionValue === 0) {
-      //   let timerDelay = 0;
-      //   let delayInterval = setInterval(() => {
-      //     timerDelay++;
-      //     if (timerDelay === 10) {
-      //       console.log(position % positionValue === 0);
-      //       clearInterval(delayInterval);
-      //       position += velocityValue;
-      //     }
-      //   }, 1000);
-      // } else {
-      // }
-      position += velocityValue;
-
-      if (position >= positionValue) {
-        if (position > positionValue) {
-          car.style.transfrom = `${positionValue}px`;
-        } else {
-          car.style.transfrom = `${position}px`;
-        }
-        clearInterval(interval);
-      }
-
-      if (velocityValue < 0) {
-        // if (position >= 40) {
-        //   position += (30 * 100) / position;
-        // }
-
-        car.style.transform = "rotateY(180deg)";
-        forward_letter.classList.add("back");
-      } else {
-        forward_letter.classList.add("go");
-        car.style.transform = "rotateY(0deg)";
-      }
-
-      const mainWidth = document.querySelector("main").offsetWidth;
-      const carWidth = car.offsetWidth;
-
-      if (position + carWidth >= mainWidth || position <= 0) {
-        if (velocityValue > 0) {
-          const lastPosition = position + carWidth - mainWidth;
-
-          if (lastPosition >= 0) {
-            car.style.marginLeft = `${mainWidth - carWidth}px`;
-            clearInterval(interval);
-          } else {
-            clearInterval(interval);
-          }
-        } else {
-          car.style.marginLeft = `${0}px`;
-          clearInterval(interval);
-        }
-      } else {
-        car.style.marginLeft = `${position}px`;
-        if (position + carWidth === mainWidth) {
-          clearInterval(interval);
-        }
-      }
-
-      const finalPositionValue = velocityValue * time;
-
-      document.querySelector(
-        "#timeValue"
-      ).textContent = `Tempo = ${time.toFixed(1)} (s)`;
-      document.querySelector(
-        "#initialPositionValue"
-      ).textContent = `Posição Inicial = ${initialPosition} (m)`;
-      document.querySelector(
-        "#finalPositionValue"
-      ).textContent = `Posição Final = ${finalPositionValue.toFixed(
-        1
-      )} (m)`;
-      document.querySelector("#velocityInfo").textContent =
-        velocityValue > 0
-          ? "v > 0 (movimento progressivo)"
-          : "v < 0 (movimento retrógrado)";
-
-      updateChart(time.toFixed(1), finalPositionValue.toFixed(1)); // Atualiza o gráfico
-
-      intervalStarted = true;
-    }, 100);
+  btnStart.disabled = true;
+  if (btnPause.disabled) {
+    btnPause.disabled = false;
   }
+
+  var initialVelocityValue = parseInt(initialVelocity.value)
+    ? parseInt(initialVelocity.value)
+    : 0;
+
+  const finalPosition =
+    initialVelocityValue * time + (acelerationValue * time * time) / 2;
+  position = finalPosition * 0.5;
+
+  const angularVelocityValue =
+    (initialVelocityValue + acelerationValue) / orbitRadius;
+  var speed = angularVelocityValue;
+  if (speed < 0) {
+    sattelite.style.transform = "rotateX(-180deg) rotate(-312deg)";
+    acelerationStick.classList.add("velocity-letter-rotate");
+    angularVelocityStick.classList.add("angular-velocity-letter-rotate");
+  } else {
+    sattelite.style.transform = "rotate(230deg)";
+    angularVelocityStick.classList.remove(
+      "angular-velocity-letter-rotate"
+    );
+  }
+  const angleValue = (angle * 180) / Math.PI;
+  trajectory.style.transform = "rotate(" + angleValue + "deg)";
+  frames = 0;
+  frames++;
+
+  // Verificar se uma volta completa foi feita
+  if (angle >= 2 * Math.PI) {
+    // Incrementar o contador de voltas completas
+    completedTurns++;
+    // Reduzir o ângulo para garantir que ele permaneça dentro do intervalo de 0 a 2*pi
+    angle -= 2 * Math.PI;
+  }
+
+  // Calcular o tempo decorrido em segundos
+  var elapsedTime = frames / 60; // Assumindo 60 FPS
+
+  // Calcular a frequência (número de voltas completas por segundo)
+  var frequencyValue = completedTurns / elapsedTime;
+
+  // Atualizar o texto com a frequência
+  frequency.innerHTML = `(Frequência): f = ${
+    Math.floor(frequencyValue * 100) / 100
+  } Hz`;
+  angularVelocity.innerHTML = `(velocidade Angular) ω = ${angularVelocityValue.toFixed(
+    2
+  )} (rad/s)`;
+  timeElement.innerHTML = `(Tempo) t = ${time++} (s)`;
+
+  angle += speed;
+
+  return animationId;
+}
+
+function startSimulation() {
+  animationInterval = setInterval(startAnimation, 100); // Executar a animação a cada 1 segundo
 }
 
 function pauseSimulation() {
-  clearInterval(interval);
-  intervalStarted = false;
+  btnPause.disabled = true;
+  btnStart.disabled = false;
+  clearInterval(animationInterval); // Limpar o intervalo de animação
 }
 
 function restartSimulation() {
-  clearInterval(interval);
-  car.style.marginLeft = "0px";
-  document.querySelector("#timeValue").textContent = `Tempo = ${0} (s)`;
-  document.querySelector(
-    "#initialPositionValue"
-  ).textContent = `Posição Inicial = ${initialPosition} (m)`;
-  document.querySelector(
-    "#finalPositionValue"
-  ).textContent = `Posição Final = ${0} (m)`;
-  document.querySelector("#velocityInfo").textContent =
-    "v = 0 (velocidade nula)";
+  btnStart.disabled = false;
+  btnPause.disabled = false;
+  angle = 0;
+  completedTurns = 0;
+  time = 0;
 
-  forward_arrow.classList.remove("back");
-  forward_letter.classList.add("go");
-  car.style.transform = "rotateY(0deg)";
-  forward_arrow.classList.add("go");
-  intervalStarted = false;
+  if (animationInterval) {
+    clearInterval(animationInterval); // Limpar o intervalo de animação, se existir
+  }
 
-  // Resetar o gráfico
-  positionChart.data.labels = [];
-  positionChart.data.datasets[0].data = [];
-  positionChart.update();
+  startSimulation();
 }
