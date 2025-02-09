@@ -1,100 +1,104 @@
 .fulcrum {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid rgb(101, 109, 117);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid rgb(101, 109, 117);
+
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.fulcrum-text {
+  text-wrap: nowrap;
+
+  position: absolute;
+  bottom: -90px;
+  right: 50px;
+}
+
+.lever {
+  width: 600px;
+  height: 10px;
+  background-color: rgb(165, 122, 42);
+
+  position: absolute;
+  bottom: 0px;
+
+  transform-origin: bottom center;
+}
+
+.dp,
+.dr {
+  position: absolute;
+  bottom: 12px;
+}
+
+.dp {
+  left: 220px;
+}
+
+.dr {
+  right: 220px;
+}
+
+
+.appliedForce-arrow {
+  width: 2px;
+  height: 90px;
   
-    position: absolute;
-    bottom: 0;
-    left: 43%;
-  
-    display: flex;
-    justify-content: center;
-  }
-  
-  .fulcrum-text {
-    text-wrap: nowrap;
-  
-    position: absolute;
-    bottom: -90px;
-    right: 50px;
-  }
-  
-  .lever {
-    width: 600px;
-    height: 10px;
-    background-color: rgb(165, 122, 42);
-  
-    position: absolute;
-    bottom: 0px;
-  
-    transform-origin: bottom center;
-  }
-  
-  .dp,
-  .dr {
-    position: absolute;
-    bottom: 12px;
-  }
-  
-  .dp {
-    left: 220px;
-  }
-  
-  .dr {
-    right: 220px;
-  }
-  
-  .appliedForce-arrow {
-    width: 2px;
-    height: 90px;
-    background-color: rgb(132, 0, 255);
-  
-    position: absolute;
-    bottom: 11px;
-    left: 0;
-  }
-  
-  .force-letter {
-    position: absolute;
-    left: 20px;
-  }
-  
-  .appliedForce-letter {
-    position: absolute;
-    top: 120px;
-  }
-  
-  .resultForce {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    width: 100px;
-    height: 100px;
-    background-color: rgb(59, 59, 133);
-    color: #ffff;
-  
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-  }
-  
-  .weightForce {
-    width: 2px;
-    height: 80px;
-    background-color: rgb(68, 159, 11);
-  
-    position: absolute;
-    top: 50px;
-  }
-  
-  .display-none {
-    display: none;
-  }
-  
-  .simple-machine {
-    width: 1080px;
-    min-width: 1000px;
-  }
+  position: absolute;
+  bottom: 11px;
+}
+
+.appliedForce-arrow-left {
+  left: 0;
+}
+.appliedForce-arrow-right {
+  right: 0;
+}
+
+.child-sitting {
+  position: absolute;
+  top: -3px;
+  width: 100px;
+
+  transform: rotate(10deg);
+}
+
+.force-left {
+  left: -25px;
+}
+
+.force-right {
+  right: -25px;
+  top: -12px;
+}
+
+.appliedForce-letter {
+  position: absolute;
+  top: 120px;
+}
+
+
+.weightForce {
+  width: 2px;
+  height: 80px;
+  background-color: rgb(68, 159, 11);
+
+  position: absolute;
+  top: 50px;
+}
+
+.display-none {
+  display: none;
+}
+
+.simple-machine {
+  width: 1080px;
+  min-width: 1000px;
+}
