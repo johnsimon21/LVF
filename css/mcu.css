@@ -19,7 +19,7 @@ main {
 
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
   
     width: 350px;
     height: 350px;
@@ -30,12 +30,17 @@ main {
     transform: rotate(-180deg);
 }
 
-.radius-fixed {
-    top: 175px;
-    width: 1px;
+.radius-fixed {  
+    width: 1;
     height: 175px;
     background-color: rgb(213, 19, 19);
-
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: top center;
+    transform: translate(-50%, 0);
+    
     z-index: 2;
 }
 
@@ -49,15 +54,19 @@ main {
 }
 
 .trajectory {
-    position: absolute;
-    left: 170px;
-    /* bottom: 170px; */
     width: 2px;
-    height: 178px;
+    height: 182px;
     background-color: rgb(22, 36, 113);
     transform-origin: top center;
 
     color: #ccc;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    z-index: 3;
 }
 
 .earth {
@@ -68,8 +77,9 @@ main {
     border-radius: 20px;
 
     position: absolute;
-    left: 130px;
-    top: 130px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .angular-velocity-stick {
@@ -102,15 +112,15 @@ main {
 .sattelite {
     background-image: url('/assets/images/sattelite.png');
     background-size: contain;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 20px;
 
     position: absolute;
-    left: -20px;
-    bottom: -20px;
+    left: -22px;
+    bottom: -23px;
 
-    transform: rotateZ(-132deg);
+    transform: rotateZ(-134deg);
 }
 
 .velocity-stick {
@@ -119,10 +129,10 @@ main {
     height: 1.5px;
 
     position: absolute;
-    top: -10px;
+    top: -6px;
     right: -48px;
 
-    transform: rotateZ(132deg);
+    transform: rotateZ(134deg);
 }
 
 .velocity-letter-rotate {
