@@ -1,5 +1,4 @@
 const box = document.querySelector(".box");
-const horizontalLine = document.querySelector(".horizontalLine");
 
 let interval = null; // Variável para armazenar o intervalo
 
@@ -8,7 +7,6 @@ function startSimulation() {
   document.querySelector("#btnPause");
 
   interval = setInterval(() => {
-    const horizontalLine = document.querySelector(".horizontalLine");
     const frictionalForceDirection = document.querySelector(
       ".frictionForceDirection"
     );
@@ -24,53 +22,53 @@ function startSimulation() {
     );
     let calculatingForce = tensionForceValue / mass;
 
-    let tensionForce = calculatingForce - frictionalForce;
+    if (calculatingForce > frictionalForce) {
+      let tensionForce = calculatingForce - frictionalForce;
 
-    // document.querySelector("#acelerationValue").innerHTML =
-    //   mass !== 0
-    //     ? `Aceleração: ${tensionForce.toFixed(1)} m/s²`
-    //     : "Aceleração: 0 m/s²";
+      // document.querySelector("#acelerationValue").innerHTML =
+      //   mass !== 0
+      //     ? `Aceleração: ${tensionForce.toFixed(1)} m/s²`
+      //     : "Aceleração: 0 m/s²";
 
-    position += tensionForce;
-    const mainWidth = document.querySelector("main").offsetWidth;
-    const boxWidth = box.offsetWidth;
-    if (position + boxWidth >= mainWidth || mass <= 0 || position <= 0) {
-      clearInterval(interval);
-    } else {
-      if (frictionalForce === 0)
-        frictionalForceLine.classList.add("d-none");
-
-      if (
-        tensionForce > 0 &&
-        tensionForceValue > 0 &&
-        frictionalForce > 0
-      ) {
-        horizontalLine.classList.add("goStraightDirection");
-        if (frictionalForce !== 0) {
-          frictionalForceDirection.classList.remove(
-            "backfrictionForceDirection"
-          );
-          frictionalForceDirection.classList.add(
-            "frictionForceDirection"
-          );
-          frictionalForceLine.classList.remove("d-none");
-          frictionalForceLine.classList.remove("goBackLineFrictional");
-        }
+      position += tensionForce;
+      const mainWidth = document.querySelector("main").offsetWidth;
+      const boxWidth = box.offsetWidth;
+      if (position + boxWidth >= mainWidth || mass <= 0 || position <= 0) {
+        clearInterval(interval);
       } else {
-        if (tensionForceValue < 0) {
-          horizontalLine.classList.add("goBackDirection");
+        if (frictionalForce === 0)
+          frictionalForceLine.classList.add("d-none");
 
+        if (
+          tensionForce > 0 &&
+          tensionForceValue > 0 &&
+          frictionalForce > 0
+        ) {
           if (frictionalForce !== 0) {
-            frictionalForceDirection.classList.add(
+            frictionalForceDirection.classList.remove(
               "backfrictionForceDirection"
             );
+            frictionalForceDirection.classList.add(
+              "frictionForceDirection"
+            );
             frictionalForceLine.classList.remove("d-none");
-            frictionalForceLine.classList.add("goBackLineFrictional");
+            frictionalForceLine.classList.remove("goBackLineFrictional");
+          }
+        } else {
+          if (tensionForceValue < 0) {
+
+            if (frictionalForce !== 0) {
+              frictionalForceDirection.classList.add(
+                "backfrictionForceDirection"
+              );
+              frictionalForceLine.classList.remove("d-none");
+              frictionalForceLine.classList.add("goBackLineFrictional");
+            }
           }
         }
-      }
 
-      box.style.marginLeft = `${position}px`;
+        box.style.marginLeft = `${position}px`;
+      }
     }
   }, 100);
 }
