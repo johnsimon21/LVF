@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/linear_expansion.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content relative">
+  <div class="object-container relative">
+    <div class="object">
+      <div class="object-top bg-gray"></div>
+      <div class="object-middle bg-gray"></div>
+      <div class="object-bottom bg-gray"></div>
+    </div>
+    <img
+      src="/assets/images/fire-unscreen.gif"
+      alt="imagem de chama"
+      class="fire"
+    />
+  </div>
+
+  <div class="control">
+    <select name="" id="" class="temp">
+      <option value="0">0 °C</option>
+      <option value="25">25 °C</option>
+      <option value="50">50 °C</option>
+      <option value="75">75 °C</option>
+      <option value="100">100 °C</option>
+    </select>
+
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>ΔL=L0.α.ΔT</span>
+      </div>
+
+      <div class="datas">
+        <li>α = 1,2 × 10 °C</li>
+        <li>L0 = <span> 20.000</span> mm</li>
+        <li>ΔL = <span> 20.000</span> mm</li>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/grade_10/hor_launch.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>

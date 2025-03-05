@@ -1,0 +1,89 @@
+.simulation-content {
+    background-color: #EFDEC4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.object {
+    width: 340px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-inline: 1px dashed #333333;
+    padding-top: 10px;
+}
+
+.bg-gray {
+    background-color: #A3A3A3;
+    border: 1px solid #000000;
+}
+
+.object-middle {
+    width: calc(100% - 20px);
+    height: 30px;
+
+    margin-inline: auto;
+    border-width: 0 1px;
+}
+
+.object-top,
+.object-bottom {
+    height: 12px;
+    width: 100%;
+}
+
+.fire {
+    position: absolute;
+    left: -45px;
+    top: 50px;
+    width: 180px;
+}
+
+.control {
+    width: 200px;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+.temp {
+    width: 100%;
+    padding: 6px 20px;
+
+    background-color: #F2F2F2;
+    color: #686868;
+    border: 1px solid #A5A5A5;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.results {
+    background-color: #F2F2F2;
+    border: 1px solid #A5A5A5;
+
+    width: 100%;
+    border-radius: 9px;
+    color: #686868;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.expression {
+    border-bottom: 1px solid #A5A5A5;
+    padding-bottom: 15px;
+}
+
+.expression span:first-child {
+    font-size: 15px;
+}
+
+.expression span:last-child, .datas {
+    font-size: 16px;
+    list-style: none;
+}
