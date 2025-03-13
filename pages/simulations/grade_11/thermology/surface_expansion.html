@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/css/surface_expansion.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content relative">
+  <div class="object-container">
+    <span class="final-surface">S<sub>f</sub></span>
+    <div class="object-first-plane">
+      <div class="object">S<sub>o</sub></div>
+    </div>
+    <img src="/assets/images/fire-unscreen.gif" alt="" class="fire" />
+  </div>
+
+  <div class="controllers">
+    <div class="input-group">
+      <div class="relative">
+        <div class="placeholder">
+          <div><span class="placeholder-letter">T</span><sub>o</sub></div>
+        </div>
+        <select name="" id="" class="initial-temp ps-3 input">
+          <div class="span"></div>
+          <option value="0">0 °C</option>
+          <option value="25">25 °C</option>
+          <option value="50">50 °C</option>
+          <option value="75">75 °C</option>
+          <option value="100">100 °C</option>
+        </select>
+      </div>
+
+      <div class="relative">
+        <div class="placeholder">
+          <div><span class="placeholder-letter">T</span><sub>f</sub></div>
+        </div>
+        <select name="" id="" class="final-temp ps-3 input relative">
+          <option value="0">0 °C</option>
+          <option value="25">25 °C</option>
+          <option value="50">50 °C</option>
+          <option value="75">75 °C</option>
+          <option value="100">100 °C</option>
+        </select>
+      </div>
+
+      <select name="" id="" class="object-items input">
+        <option value="0">Alumínio (46 x 10⁻⁶)</option>
+        <option value="">Cobre (33.6 × 10⁻⁶)</option>
+        <option value="">Ferro (24 × 10⁻⁶)</option>
+        <option value="">Latão (24 × 10⁻⁶)</option>
+      </select>
+    </div>
+
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>ΔS=S<sub>o</sub>.β.ΔT</span>
+      </div>
+
+      <div class="datas">
+        <li>β = 46 × 10⁻⁶ °C</li>
+        <li>S<sub>o</sub> = <span> 400</span> cm&sup2;</li>
+        <li>S<sub>f</sub> = <span> 500</span> cm&sup2;</li>
+        <li>ΔT = <span> 0</span> °C</li>
+        <li>ΔS = <span> 0</span> cm&sup2;</li>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/grade_11/surface_expansion.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>
