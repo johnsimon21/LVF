@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="/css/hydraulic_press.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content relative">
+  <div class="object-base">
+    <div class="object-a object">
+      <div class="letter">A</div>
+      <div class="mass-value">2.00 kg</div>
+    </div>
+    <div class="aquarium">
+      <div class="aquarium-top"></div>
+      <div class="water">
+        <div class="flex-row">
+          <div class="quantity-value">100.50 L</div>
+          <img src="/assets/images/Polygon.png" alt="" class="polygon" />
+        </div>
+      </div>
+    </div>
+    <div class="object-b object">
+      <div class="letter">A</div>
+      <div class="mass-value">10.00 kg</div>
+    </div>
+  </div>
+
+  <div class="controllers">
+    <div class="input-group mt-28">
+      <div class="object-type-a relative">
+        <span class="type-name">A</span>
+      </div>
+      <select name="" id="" class="object-items input">
+        <option value="wood">Madeira</option>
+        <option value="alum">Alumínio</option>
+        <option value="iron">Ferro</option>
+      </select>
+    </div>
+
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>ρ = m/V</span>
+      </div>
+
+      <div class="datas">
+        <li>Massa</li>
+        <input type="range" name="" id="" />
+        <li>Volume</li>
+        <input type="range" name="" id="" />
+      </div>
+    </div>
+    <div class="input-group mt-28">
+      <div class="object-type-b relative">
+        <span class="type-name">B</span>
+      </div>
+      <select name="" id="" class="object-items input">
+        <option value="alum">Alumínio</option>
+        <option value="wood">Madeira</option>
+        <option value="iron">Ferro</option>
+      </select>
+    </div>
+
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>ρ = m/V</span>
+      </div>
+
+      <div class="datas">
+        <li>Massa</li>
+        <input type="range" name="" id="" />
+        <li>Volume</li>
+        <input type="range" name="" id="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/grade_11/hydraulic_press.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>

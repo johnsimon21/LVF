@@ -1,0 +1,405 @@
+.simulation-content {
+    background-color: #D3EDFD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: cursive;
+}
+
+.relative {
+    position: relative;
+}
+
+.object-base {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+
+    background-image: linear-gradient(180deg, #945922, #45290E);
+}
+
+.object {
+    width: 70px;
+    height: 70px;
+
+    position: absolute;
+
+    cursor: grab;
+}
+
+.object-a {
+    background-image: url('/assets/images/box-1.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+
+    top: -70px;
+    left: 20px;
+}
+
+.object-b {
+    /* background-image: url('/assets/images/box-1.svg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+
+    background-color: #9D9D9D;
+
+    top: -70px;
+    right: 40%;
+}
+
+.object .letter {
+    color: #ffff;
+
+    font-size: 10px;
+    padding: 1px 3px;
+
+    max-width: fit-content;
+    border-radius: 2px;
+
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+.object-a .letter {
+    background-color: #4332A8;
+}
+.object-b .letter {
+    background-color: #A83232;
+}
+
+.object .mass-value {
+    background-color: #ffffff;
+    font-size: 9px;
+    font-weight: bolder;
+    padding: 0 1px;
+
+    position: absolute;
+}
+
+.object .mass-value {
+    right: 8px;
+    bottom: 8px;
+}
+
+.aquarium {
+    width: 300px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: rgba(129, 187, 219, 0.37);
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #3F80CE;
+
+    position: absolute;
+    top: -100px;
+    left: 30%;
+}
+
+.aquarium-top {
+    width: 100%;
+    height: 8px;
+
+    background-color: #f0f0f080;
+    border-radius: 12px;
+    border: 1px solid #3F80CE;
+
+    position: absolute;
+    top: -4px;
+}
+
+.water {
+    width: 100%;
+    height: 60%;
+
+    background-color: #46AAE3;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.flex-row {
+    display: flex;
+
+    position: absolute;
+    right: calc(100% + 10px);
+    top: -10px;
+}
+
+.quantity-value {
+    background-color: #ffffff;
+    padding: 4px 6px;
+
+    text-wrap: nowrap;
+    font-size: 12px;
+    border-radius: 10px 0 0 10px;
+}
+
+.polygon {
+    width: 20px;
+    transform: rotate(-90deg);
+}
+
+.object-container {
+    position: relative;
+}
+
+.stove-base {
+    width: 100px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    left: 30%;
+    top: -80px;
+    z-index: 9999;
+
+    background-color: transparent;
+    border: 15px solid #3E3E3E;
+}
+
+.cooker {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+
+    background-image: linear-gradient(180deg, #999999, #656565, #FD3300);
+    border-radius: 0 0 50px 50px;
+
+    position: absolute;
+    top: -70%;
+    z-index: -2;
+}
+
+.pickup {
+    width: 20px;
+    height: 10px;
+
+    border: 8px solid #999999;
+    border-radius: 50%;
+}
+
+.pickup-left {
+    position: absolute;
+    left: -29px;
+    top: 10px;
+}
+
+.pickup-right {
+    position: absolute;
+    right: -29px;
+    top: 10px;
+}
+
+.cooker-top {
+    width: calc(100% - 2px);
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #EFEFEF;
+    border-radius: 50%;
+    border: 1px solid #3777AF;
+
+    position: absolute;
+    top: -25px;
+}
+
+.liquid {
+    width: 99%;
+    height: 85%;
+
+    background-color: #06378C;
+    box-shadow: inset 0 0 20px #0f2a5a;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.stove {
+    width: 80px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+
+    background-image: linear-gradient(180deg, #5D5C5B, #838383);
+    border-radius: 60px 60px 0 0;
+
+    position: absolute;
+    bottom: 0;
+
+}
+
+.stove::after {
+    content: "";
+    width: 50%;
+    height: 10px;
+    background-color: #4f4e4e;
+    border-radius: 0 0 30px 30px;
+
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.fire {
+    height: 100px;
+
+    position: absolute;
+    top: -70px;
+    z-index: 2;
+}
+
+.current-mass {
+    position: absolute;
+    top: -100px;
+
+    background-color: #ffffff;
+    border: 1px solid #242424;
+    border-radius: 4px;
+    padding: 4px 6px;
+
+    font-size: 10px;
+    font-weight: bolder;
+}
+
+/* Controllers */
+
+.controllers {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+
+    max-width: 200px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-28 {
+    margin-top: 28px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 6px 15px;
+
+    background-color: #F2F2F2;
+    color: #686868;
+    border: 1px solid #A5A5A5;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.object-type-a {
+    width: 100%;
+    height: 4px;
+
+    background-color: #A83232;
+    border-radius: 2px;
+}
+
+.object-type-b {
+    width: 100%;
+    height: 4px;
+
+    background-color: #4332A8;
+    border-radius: 2px;
+}
+
+.object-type-a .type-name {
+    background-color: #A83232;
+    color: #ffff;
+    padding: 0 5px;
+    border-radius: 10px 10px 0 0;
+
+    position: absolute;
+    bottom: 2;
+}
+
+.object-type-b .type-name {
+    background-color: #4332A8;
+    color: #ffff;
+    padding: 0 5px;
+    border-radius: 10px 10px 0 0;
+
+    position: absolute;
+    bottom: 2;
+}
+
+.ps-3 {
+    padding-left: 30px;
+}
+
+.placeholder {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+
+    font-size: .8rem !important;
+    padding-inline: 8px;
+
+    border-right: 1px solid #A5A5A5;
+    display: flex;
+    align-items: center;
+}
+
+.placeholder-letter {
+    font-size: .9rem !important;
+}
+
+.results {
+    background-color: #F2F2F2;
+    border: 1px solid #A5A5A5;
+
+    width: 100%;
+    border-radius: 9px;
+    color: #686868;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.expression {
+    border-bottom: 1px solid #A5A5A5;
+    padding-bottom: 15px;
+}
+
+.expression span:first-child {
+    font-size: 15px;
+}
+
+.expression span:last-child,
+.datas {
+    font-size: 16px;
+    list-style: none;
+}
