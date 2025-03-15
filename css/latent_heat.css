@@ -1,0 +1,116 @@
+.simulation-content {
+    background-color: #D3EDFD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: cursive;
+}
+
+.relative {
+    position: relative;
+}
+
+.object-container {
+    position: relative;
+    text-align: center;
+}
+
+.content {
+    position: absolute;
+    top: -50px;
+    font-weight: bolder;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-y {
+    width: 100%;
+    height: 18px;
+
+    background-image: linear-gradient(180deg, #A5A5A5, #C7C7C7);
+    border: 1px solid #727272;
+}
+
+.flex-x {
+    min-height: 100%;
+    width: 6px;
+
+    background-image: linear-gradient(180deg, #A5A5A5, #C7C7C7);
+    border: 1px solid #727272;
+}
+
+.iron-base {
+    width: 600px;
+    height: 150px;
+
+    background-image: linear-gradient(180deg, #A5A5A5, #C7C7C7);
+    border: 1px solid #727272;
+
+    /* transform: skew(20deg); */
+}
+
+.ice {
+    height: 140px;
+    margin-top: -70px;    
+}
+
+.current-mass {
+    position: absolute;
+    top: -100px;
+
+    background-color: #ffffff;
+    border: 1px solid #242424;
+    border-radius: 4px;
+    padding: 4px 6px;
+
+    font-size: 10px;
+    font-weight: bolder;
+}
+
+.controllers {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+
+    max-width: 200px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.results {
+    background-color: #F2F2F2;
+    border: 1px solid #A5A5A5;
+
+    width: 100%;
+    border-radius: 9px;
+    color: #686868;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.expression {
+    border-bottom: 1px solid #A5A5A5;
+    padding-bottom: 15px;
+}
+
+.expression span:first-child {
+    font-size: 15px;
+}
+
+.expression span:last-child,
+.datas {
+    font-size: 16px;
+    list-style: none;
+}

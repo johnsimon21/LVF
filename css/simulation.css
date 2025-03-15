@@ -324,3 +324,38 @@ iframe[seamless] {
 .topic.active {
     color: #dbdbdb !important;
 }
+
+/* Slider with button */
+
+.slider-contaner{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    width: fit-content;
+    /* height: 40px; */
+    /* background-color: white;  */
+    /* border: 1px solid gray; */
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+
+  .slider {
+    appearance: none;
+    width: 300px;
+    height: 8px;
+    background: linear-gradient(to right, lightblue 50%, lightcoral 50%);
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    cursor: pointer;
+  }

@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/css/latent_heat.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content relative">
+  <div class="object-container">
+    <div class="content">Gelo --> Água (Fusão)</div>
+    <div class="flex-col">
+      <div class="flex-top flex-y"></div>
+      <div class="flex-row">
+        <div class="flex-start flex-x"></div>
+        <div class="iron-base relative">
+          <span class="current-mass">4.00 kg</span>
+          <div class="water-on-foot">
+            <img
+              src="/assets/images/ice-cube.png"
+              alt="Imagem de cubo de gela"
+              class="ice"
+            />
+          </div>
+        </div>
+        <div class="flex-end flex-x"></div>
+      </div>
+      <div class="flex-bottom flex-y"></div>
+    </div>
+  </div>
+
+  <div class="controllers">
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>L<sub>f</sub> = Q/m</span>
+      </div>
+
+      <div class="datas">
+        <li>Quantidade de calor</li>
+        <div class="slider-contaner">
+          <button class="btn" id="decrease">◀️</button>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="slider"
+            id="slider"
+          />
+          <button class="btn" id="increase">▶️</button>
+        </div>
+        
+        <li>Massa</li>
+        <input type="range" name="" id="" />
+
+        <li>L<sub>f</sub> = 0 J/Kg</li>
+      </div>  
+    </div>
+  </div>
+</div>
+
+<script src="/js/grade_11/latent_heat.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>

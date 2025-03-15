@@ -1,11 +1,11 @@
 function handleToggleDropdown(selector) {
   const dropdown = document.querySelector(selector);
-  
+
   if (dropdown) {
-      dropdown.classList.toggle('is-active');
-      console.log(`Toggled dropdown for: ${selector}`);
+    dropdown.classList.toggle('is-active');
+    console.log(`Toggled dropdown for: ${selector}`);
   } else {
-      alert(`Dropdown with selector "${selector}" not found.`);
+    alert(`Dropdown with selector "${selector}" not found.`);
   }
 }
 function handleScreenChange() {
@@ -67,30 +67,61 @@ function resizeAnimationCene() {
     // const controllersElement = document.getElementById('full-controllers');
     // const isFullscreen = mainElement.classList.toggle('fullscreen');
 
-  //   if (isFullscreen) {
-  //     this.textContent = 'Voltar ao Normal';
-  //     headerElement.style.display = 'none';
-  //     sidebarElement.style.display = 'none';
-  //     controllersElement.classList.add("full-controllers")
-  //     if (graphicElement !== null) {
-  //       graphicElement.style.left = "10px";
-  //       graphicElement.style.top = '90px';
-  //     }
-  //   } else {
-  //     this.textContent = 'Tela Cheia';
-  //     if (graphicElement !== null) {
-  //       graphicElement.classList.add("draggable")
-  //       graphicElement.style.left = "290px";
-  //       graphicElement.style.top = '165px';
-  //     }
-  //     controllersElement.classList.remove("full-controllers")
-  //     headerElement.style.display = 'flex';
-  //     sidebarElement.style.display = 'block';
-  //   }
+    //   if (isFullscreen) {
+    //     this.textContent = 'Voltar ao Normal';
+    //     headerElement.style.display = 'none';
+    //     sidebarElement.style.display = 'none';
+    //     controllersElement.classList.add("full-controllers")
+    //     if (graphicElement !== null) {
+    //       graphicElement.style.left = "10px";
+    //       graphicElement.style.top = '90px';
+    //     }
+    //   } else {
+    //     this.textContent = 'Tela Cheia';
+    //     if (graphicElement !== null) {
+    //       graphicElement.classList.add("draggable")
+    //       graphicElement.style.left = "290px";
+    //       graphicElement.style.top = '165px';
+    //     }
+    //     controllersElement.classList.remove("full-controllers")
+    //     headerElement.style.display = 'flex';
+    //     sidebarElement.style.display = 'block';
+    //   }
   });
 
 }
 
+function sliderange() {
+  const slider = document.getElementById('slider');
+  const decreaseBtn = document.getElementById('decrease');
+  const increaseBtn = document.getElementById('increase');
+  const currentValue = document.getElementById('currentValue');
+
+  const step = 10; // Step size
+  const heatValues = ['100 J', '500 J', '1000 J', '2000 J'];
+
+  decreaseBtn.addEventListener('click', () => {
+    slider.value = Math.max(parseInt(slider.value) - step, slider.min);
+    updateValue();
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    slider.value = Math.min(parseInt(slider.value) + step, slider.max);
+    updateValue();
+  });
+
+  slider.addEventListener('input', updateValue);
+
+  function updateValue() {
+    const index = Math.floor(slider.value / 25); // Get index based on slider position
+    currentValue.innerText = heatValues[index];
+  }
+
+  updateValue(); // Initialize the value on load
+}
+
+
+sliderange()
 resizeAnimationCene()
 draggableGraphic()
 
