@@ -1,23 +1,24 @@
-<link rel="stylesheet" href="/css/volume_expansion.css" />
+<link rel="stylesheet" href="/css/sensible_heat.css" />
 <link rel="stylesheet" href="/css/index.css" />
 <link rel="stylesheet" href="/css/simulation.css" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="simulation-content relative">
-  <div class="object-container">
-    <div class="object-first-plane relative">
-      <div class="object-top">
-        <div class="out-vase"></div>
+  <div class="object-base">
+    <div class="object-container">
+      <div class="stove-base">
+        <div class="cooker">
+          <div class="pickup-left pickup"></div>
+          <div class="pickup-right pickup"></div>
+          <div class="cooker-top">
+            <div class="liquid"></div>
+          </div>
+        </div>
+        <div class="stove">
+          <img src="/assets/images/fire-unscreen.gif" alt="" class="fire" />
+        </div>
       </div>
-      <div class="water-falling"></div>
-      <span class="final-volume">V<sub>o</sub></span>
-      <div class="object-bottom"></div>
     </div>
-    <div class="water-on-foot">
-        
-    </div>
-    <span class="final-volume">V<sub>f</sub></span>
-    <img src="/assets/images/fire-unscreen.gif" alt="" class="fire" />
   </div>
 
   <div class="controllers">
@@ -50,30 +51,30 @@
       </div>
 
       <select name="" id="" class="object-items input">
-        <option value="0">Alumínio (46 x 10⁻⁶)</option>
-        <option value="">Cobre (33.6 × 10⁻⁶)</option>
-        <option value="">Ferro (24 × 10⁻⁶)</option>
-        <option value="">Latão (24 × 10⁻⁶)</option>
+        <option value="0">Água (4,186 J/kg)</option>
+        <option value="0">Álcool (2,400 J/kg)</option>
+        <option value="0">Mercúrio (0,140 J/kg)</option>
+        <option value="0">Óleo (1,670 J/kg)</option>
       </select>
     </div>
 
     <div class="results">
       <div class="expression">
         <span>Expressão:</span>
-        <span>ΔS=S<sub>o</sub>.β.ΔT</span>
+        <span>Q = m.c.ΔT</span>
       </div>
 
-      <div class="datas">
-        <li>β = 46 × 10⁻⁶ °C</li>
-        <li>S<sub>o</sub> = <span> 400</span> cm&sup2;</li>
-        <li>S<sub>f</sub> = <span> 500</span> cm&sup2;</li>
-        <li>ΔT = <span> 0</span> °C</li>
-        <li>ΔS = <span> 0</span> cm&sup2;</li>
+      <div class="datas">      
+        <li>Massa</li>
+        <input type="range" name="" id="" />
+
+        <li>L<sub>f</sub> = 4,186 J/Kg</li>
+        <li>Q = 0 J </li>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
 
-<script src="/js/grade_11/volume_expansion.js"></script>
+<script src="/js/grade_11/sensible_heat.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/router.js"></script>
