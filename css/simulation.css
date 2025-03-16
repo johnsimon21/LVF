@@ -1,3 +1,4 @@
+
 .logo-setion {
     position: absolute;
     left: 0;
@@ -417,12 +418,36 @@ iframe[seamless] {
 
 .thermometer-in-vertical {
     width: 14px;
-    height: 100px;
+    height: 50px;
 
     background-image: linear-gradient(90deg, #901717, #C3524F, #901717);
-
+    
     position: absolute;
     bottom: -3px;
+}
+.dashes {
+    list-style: none;    
+    margin-top: 20px;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+}
+.dashes div {
+    list-style: none;
+    
+    width: 10px;
+    height: 2px;
+
+    background-color: #0C0C0C;
+
+    margin-top: 15px;
+}
+
+.thermometer-in-vertical div:last-child {
+    position: absolute;
+    bottom: 0;
 }
 
 .thermometer-in-circle {

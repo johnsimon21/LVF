@@ -78,8 +78,8 @@
 
 .controllers {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 40px;
     z-index: 1;
 
     max-width: 200px;

@@ -6,6 +6,14 @@
 <div class="simulation-content relative">
   <div class="thermometer-container">
     <div class="thermometer-out-vertical relative">
+      <div class="dashes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div class="thermometer-in-vertical"></div>
     </div>
     <div class="thermometer-out-circle">
@@ -13,9 +21,7 @@
         <div class="thermometer-center"></div>
       </div>
     </div>
-    <div class="thermometer-value">
-      0 °C
-    </div>
+    <div class="thermometer-value">0 °C</div>
   </div>
 
   <div class="object-container">
@@ -50,7 +56,7 @@
       <div class="datas">
         <li>Quantidade de calor</li>
         <div class="slider-contaner">
-          <button class="btn" id="decrease">◀️</button>
+          <div class="btn" id="decrease">◀️</div>
           <input
             type="range"
             min="0"
@@ -59,7 +65,7 @@
             class="slider"
             id="slider"
           />
-          <button class="btn" id="increase">▶️</button>
+          <div class="btn" id="increase">▶️</div>
         </div>
 
         <li>Massa</li>
