@@ -5,72 +5,98 @@
 
 <div class="simulation-content relative">
   <div class="object-base">
-    <div class="object-a object">
-      <div class="letter">A</div>
-      <div class="mass-value">2.00 kg</div>
-    </div>
-    <div class="aquarium">
-      <div class="aquarium-top"></div>
-      <div class="water">
-        <div class="flex-row">
-          <div class="quantity-value">100.50 L</div>
-          <img src="/assets/images/Polygon.png" alt="" class="polygon" />
+    <div class="flex-row">
+      <div class="vase-left">
+        <div class="vase-left-top"></div>
+        <div class="vase-left-middle">
+          <div class="vertical-support">
+            <div class="vase-left-middle-top">
+              <div class="object-a object">
+                <div class="letter">1</div>
+                <div class="mass-value">2.00 kg</div>
+              </div>
+              <div class="vase-left-middle-top-0"></div>
+              <div class="vase-left-middle-top-1"></div>
+            </div>
+          </div>
+          <div class="vase-left-middle-top">
+            <div class="vase-left-middle-top-0"></div>
+            <div class="vase-left-middle-top-1"></div>
+          </div>
         </div>
+        <div class="vase-left-bottom"></div>
       </div>
-    </div>
-    <div class="object-b object">
-      <div class="letter">A</div>
-      <div class="mass-value">10.00 kg</div>
-    </div>
+
+      <div class="pressure"></div>
+
+       <div class="vase-right">
+        <div class="vase-right-top"></div>
+        <div class="vase-right-middle">
+          <div class="vertical-support">
+            <div class="vase-right-middle-top">
+              <div class="object-b object">
+                <div class="letter">2</div>
+                <div class="mass-value">2.00 kg</div>
+              </div>
+              <div class="vase-right-middle-top-0"></div>
+              <div class="vase-right-middle-top-1"></div>
+            </div>
+          </div>
+          <div class="vase-right-middle-top">
+            <div class="vase-right-middle-top-0"></div>
+            <div class="vase-right-middle-top-1"></div>
+          </div>
+        </div>
+        <div class="vase-right-bottom"></div>
+      </div>
+    </div>   
   </div>
 
   <div class="controllers">
-    <div class="input-group mt-28">
-      <div class="object-type-a relative">
-        <span class="type-name">A</span>
-      </div>
-      <select name="" id="" class="object-items input">
-        <option value="wood">Madeira</option>
-        <option value="alum">Alumínio</option>
-        <option value="iron">Ferro</option>
-      </select>
+    <div class="object-type-a relative mt-28">
+      <span class="type-name">Caixa 1</span>
     </div>
 
     <div class="results">
       <div class="expression">
         <span>Expressão:</span>
-        <span>ρ = m/V</span>
+        <span>F1/A1 = F2/A2</span>
       </div>
 
       <div class="datas">
-        <li>Massa</li>
+        <div>Massa</div>
         <input type="range" name="" id="" />
-        <li>Volume</li>
+        <div>Raios</div>
         <input type="range" name="" id="" />
+        <strong>
+          <div>g = 9,8 m/s&sup2;</div>
+          <div>S<sub>1</sub> = 7,85 x 10<sup>-3</sup> m<sup>2</sup></div>
+          <div>F<sub>1</sub> = 98N</div>
+        </strong>
       </div>
     </div>
-    <div class="input-group mt-28">
-      <div class="object-type-b relative">
-        <span class="type-name">B</span>
-      </div>
-      <select name="" id="" class="object-items input">
-        <option value="alum">Alumínio</option>
-        <option value="wood">Madeira</option>
-        <option value="iron">Ferro</option>
-      </select>
+
+    <div class="object-type-b relative mt-28">
+      <span class="type-name">Caixa 2</span>
     </div>
 
     <div class="results">
       <div class="expression">
         <span>Expressão:</span>
-        <span>ρ = m/V</span>
+        <span>F1/A1 = F2/A2</span>
       </div>
 
       <div class="datas">
-        <li>Massa</li>
+        <!-- <div>Massa</div>
+        <input type="range" name="" id="" /> -->
+        <div>Raios</div>
         <input type="range" name="" id="" />
-        <li>Volume</li>
-        <input type="range" name="" id="" />
+        <strong>
+          <div>g = 9,8 m/s&sup2;</div>
+          <div>S<sub>2</sub> = 1,28 x 10<sup>-1</sup> m<sup>2</sup></div>
+          <div>m<sub>2</sub> = 98N</div>
+          <div>F<sub>2</sub> = 98N</div>
+        </strong>
       </div>
     </div>
   </div>

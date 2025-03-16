@@ -1,0 +1,170 @@
+.simulation-content {
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: cursive;
+}
+
+.relative {
+    position: relative;
+}
+
+/* variables */
+
+:root {
+    --flashlight-container-top: -150px;
+    --flashlight-rotate: 45deg;
+}
+
+.object-base {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+
+    background-color: #945922;
+}
+
+
+.mirror {
+    width: 300px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+
+    background-image: linear-gradient(45deg, #81BBDB, #DEECF4, #81BBDB);
+
+    position: absolute;
+    left: 40%;
+    top: -15px;
+
+    /* transform: skew(-20deg); */
+}
+
+.insident-info {
+    position: absolute;
+    left: -120px;
+    top: -180px;
+}
+.reflected-ray-info {
+    position: absolute;
+    right: -120px;
+    top: -180px;
+}
+.mirror-title {
+    position: absolute;
+    right: 0;
+    top: -20px;
+}
+
+.flashlight-container {
+    position: absolute;
+    top: var(--flashlight-container-top);
+    left: 0;
+
+    /* transform: skew(20deg); */
+    transform: rotate(var(--flashlight-rotate));
+}
+
+.flashlight {
+    width: 54px;
+}
+
+.flashlight-container::before {
+    content: "";
+    width: calc(0px - var(--flashlight-container-top));
+    height: 16px;
+
+    background-image: linear-gradient(0deg, #D5F541, #F0FFA8, #D5F541);
+
+    position: absolute;
+    bottom: 20px;
+    left: 52px;
+}
+
+.reflected-ray {
+    content: "";
+    width: calc(0px - var(--flashlight-container-top));
+    height: 16px;
+
+    background-image: linear-gradient(0deg, #D5F541, #F0FFA8, #D5F541);
+
+    position: absolute;
+    bottom: 20px;
+
+    left: 0;
+    transform-origin: right center;
+    transform: rotate(calc(var(--flashlight-rotate)*3));
+
+}
+
+.vertical-line {
+    height: calc(0px - var(--flashlight-container-top));
+    width: 0;
+
+    border: 1px dashed #000;
+
+    position: absolute;
+    top: var(--flashlight-container-top);
+    z-index: 4;
+}
+
+
+.controllers {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+
+    max-width: 200px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.results {
+    font-size: 10px;
+
+    background-color: #F2F2F2;
+    border: 1px solid #A5A5A5;
+
+    width: 100%;
+    border-radius: 9px;
+    color: #686868;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.expression {
+    display: flex;
+    border-bottom: 1px solid #A5A5A5;
+    padding-bottom: 15px;
+}
+
+.expression span:first-child {
+    font-size: 14px;
+}
+
+.expression span:last-child,
+.datas {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+fieldset {
+    margin-top: 3px !important;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+fieldset label {
+    color: #686868 !important;
+}

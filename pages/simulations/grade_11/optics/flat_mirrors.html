@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/css/flat_mirrors.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/simulation.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="simulation-content relative">
+  <div class="object-base">
+    <div class="mirror">
+        <strong class="insident-info">Raio Insidente</strong>
+        <div class="flashlight-container">
+            <img
+            src="/assets/images/flashlight.png"
+            alt="imagem de uma lanterna"
+            class="flashlight"
+            />
+        </div>
+        <div class="vertical-line"></div>
+        <div class="reflected-ray"></div>
+        <strong class="reflected-ray-info">Raio Refletido</strong>
+        <strong class="mirror-title">Espelho plano</strong>
+    </div>
+  </div>
+
+  <div class="controllers">
+    <div class="results">
+      <div class="expression">
+        <span>Expressão:</span>
+        <span>θi = θr</span>
+      </div>
+
+      <div class="datas">
+        <fieldset>
+          <label for="angle">Ângulo θi</label>
+          <input type="range" name="angle" id="angle" />
+        </fieldset>
+
+        <fieldset>
+          <label for="distance">Distância</label>
+          <input type="range" name="distance" id="distance" />
+        </fieldset>
+
+        <fieldset>
+          <label for="mirror_size">Tamanho de Espelho</label>
+          <input type="range" name="mirror_size" id="mirror_size" />
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/grade_11/flat_mirrors.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/router.js"></script>
