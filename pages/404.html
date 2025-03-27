@@ -2,3 +2,143 @@
     <h1>404 Not Found</h1>
     <p>Oh no! It looks like the page you're trying to get to is missing!</p>
 </div>
+
+
+<!-- 
+
+import TransactionsSliderMenu from "@/components/screens/menuSlider";
+import Separator from "@/components/screens/separator";
+import TransactionCard from "@/components/screens/transation-card";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Alert, Platform, Pressable, Text, View } from "react-native";
+import { ScrollView, Swipeable } from "react-native-gesture-handler";
+import tw from "tailwind-react-native-classnames";
+import { useRouter, useLocalSearchParams } from "expo-router";
+import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
+import * as ImagePicker from "expo-image-picker";
+
+const platform = Platform.OS;
+
+const transactions_ = [
+  { id: "1", title: "Depósito Paypal", amount: "-R$15", type: "Transferência", icon: "paypal" },
+  { id: "2", title: "Supermercado", amount: "-R$82,53", type: "Transferência", icon: "shopping-bag" },
+  { id: "3", title: "Saque em Caixa", amount: "-R$100", type: "Transferência", icon: "credit-card" },
+  { id: "4", title: "Salário", amount: "+R$5.000", type: "Depósito", icon: "money-check" },
+  { id: "5", title: "Conta de Luz", amount: "-R$120", type: "Utilitários", icon: "bolt" },
+  { id: "6", title: "Aluguel", amount: "-R$1.500", type: "Moradia", icon: "home" },
+  { id: "7", title: "Restaurante", amount: "-R$250", type: "Alimentação", icon: "utensils" },
+  { id: "8", title: "Streaming", amount: "-R$35", type: "Assinatura", icon: "tv" },
+  { id: "9", title: "Academia", amount: "-R$90", type: "Saúde", icon: "dumbbell" },
+  { id: "10", title: "Transporte", amount: "-R$45", type: "Mobilidade", icon: "bus" },
+];
+
+export default function InvoicesScreen() {
+  const [transactions, setTransactions] = useState(transactions_);
+  const swipeableRef = useRef<Swipeable | null>(null);
+  const router = useRouter();
+  const { action } = useLocalSearchParams();
+  const [facing, setFacing] = useState<CameraType>("back");
+  const [permission, requestPermission] = useCameraPermissions();
+  const [image, setImage] = useState<string | null>(null);
+
+  /**
+   * 📷 Função para abrir a câmera
+   */
+  const openCamera = useCallback(async () => {
+    if (!permission?.granted) {
+      const { granted } = await requestPermission();
+      if (!granted) {
+        Alert.alert("Permissão necessária", "Acesse as configurações para permitir o uso da câmera.");
+        return;
+      }
+    }
+    console.log("Câmera aberta!");
+    // Aqui você pode adicionar a lógica para abrir a câmera se necessário.
+  }, [permission]);
+
+  /**
+   * 🖼 Função para abrir a galeria
+   */
+  const pickImage = useCallback(async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+      console.log("Imagem selecionada:", result.assets[0].uri);
+    }
+  }, []);
+
+  /**
+   * 🎯 Efeito para lidar com ações da rota
+   */
+  useEffect(() => {
+    if (!action) return;
+
+    if (action === "openCamera") {
+      openCamera();
+    } else if (action === "openGallery") {
+      pickImage();
+    }
+
+    // Resetar os parâmetros após a execução
+    router.setParams({ action: null });
+  }, [action, openCamera, pickImage]);
+
+  /**
+   * 🗑 Função para excluir uma transação
+   */
+  const deleteTransaction = (id: string) => {
+    if (platform === "web") {
+      alert("Excluído!");
+      setTransactions((prev) => prev.filter((item) => item.id !== id));
+    } else {
+      Alert.alert("Confirmar", "Tem certeza que deseja excluir?", [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Excluir",
+          style: "destructive",
+          onPress: () => setTransactions((prev) => prev.filter((item) => item.id !== id)),
+        },
+      ]);
+    }
+  };
+
+  /**
+   * 🏗 Renderiza botões de ação no swipe
+   */
+  const renderRightActions = (id: string) => (
+    <View style={tw`flex-row pl-2 justify-end`}>
+      <Pressable
+        onPress={() => deleteTransaction(id)}
+        style={tw`bg-gray-300 justify-center mt-2.5 items-center w-12 h-12 rounded-full`}
+      >
+        <FontAwesome5 name="trash" size={20} color="white" />
+      </Pressable>
+    </View>
+  );
+
+  return (
+    <ScrollView style={tw`flex-1 bg-gray-100 py-4 px-2`}>
+      <TransactionsSliderMenu />
+      {transactions.map((item) => (
+        <Swipeable
+          key={item.id}
+          ref={(ref) => {
+            if (ref) swipeableRef.current = ref;
+          }}
+          onSwipeableWillOpen={() => swipeableRef.current?.close()}
+          renderRightActions={() => renderRightActions(item.id)}
+        >
+          <TransactionCard {...item} />
+        </Swipeable>
+      ))}
+      <Separator />
+    </ScrollView>
+  );
+} -->
