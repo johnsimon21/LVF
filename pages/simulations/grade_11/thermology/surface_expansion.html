@@ -4,48 +4,50 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="simulation-content relative">
+  <div class="thermometer-container">
+    <div class="thermometer-out-vertical relative">
+      <div class="dashes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="thermometer-in-vertical"></div>
+    </div>
+    <div class="thermometer-out-circle">
+      <div class="thermometer-in-circle">
+        <div class="thermometer-center"></div>
+      </div>
+    </div>
+    <div class="thermometer-value">0 °C</div>
+  </div>
+
   <div class="object-container">
     <span class="final-surface">S<sub>f</sub></span>
-    <div class="object-first-plane">
-      <div class="object">S<sub>o</sub></div>
+    <div id="object-first-plane" class="object-first-plane">
+      <div id="object" class="object">S<sub>o</sub></div>
     </div>
-    <img src="/assets/images/fire-unscreen.gif" alt="" class="fire" />
+    <img src="/assets/images/fire-unscreen.gif" alt="" id="fire" class="fire" />
   </div>
 
   <div class="controllers">
     <div class="input-group">
-      <div class="relative">
-        <div class="placeholder">
-          <div><span class="placeholder-letter">T</span><sub>o</sub></div>
-        </div>
-        <select name="" id="" class="initial-temp ps-3 input">
-          <div class="span"></div>
-          <option value="0">0 °C</option>
-          <option value="25">25 °C</option>
-          <option value="50">50 °C</option>
-          <option value="75">75 °C</option>
-          <option value="100">100 °C</option>
-        </select>
-      </div>
+      <select name="" id="temp" class="input">
+        <option value="0">0 °C</option>
+        <option value="20">20 °C</option>
+        <option value="40">40 °C</option>
+        <option value="60">60 °C</option>
+        <option value="80">80 °C</option>
+        <option value="100">100 °C</option>
+      </select>
 
-      <div class="relative">
-        <div class="placeholder">
-          <div><span class="placeholder-letter">T</span><sub>f</sub></div>
-        </div>
-        <select name="" id="" class="final-temp ps-3 input relative">
-          <option value="0">0 °C</option>
-          <option value="25">25 °C</option>
-          <option value="50">50 °C</option>
-          <option value="75">75 °C</option>
-          <option value="100">100 °C</option>
-        </select>
-      </div>
-
-      <select name="" id="" class="object-items input">
-        <option value="0">Alumínio (46 x 10⁻⁶)</option>
-        <option value="">Cobre (33.6 × 10⁻⁶)</option>
-        <option value="">Ferro (24 × 10⁻⁶)</option>
-        <option value="">Latão (24 × 10⁻⁶)</option>
+      <select name="object-type" id="object-type" class="object-items input">
+        <option value="aluminum">Alumínio (46 x 10⁻⁶)</option>
+        <option value="copper">Cobre (33.6 × 10⁻⁶)</option>
+        <option value="iron">Ferro (24 × 10⁻⁶)</option>
+        <option value="brass">Latão (24 × 10⁻⁶)</option>
       </select>
     </div>
 
@@ -56,11 +58,20 @@
       </div>
 
       <div class="datas">
-        <li>β = 46 × 10⁻⁶ °C</li>
-        <li>S<sub>o</sub> = <span> 400</span> cm&sup2;</li>
-        <li>S<sub>f</sub> = <span> 500</span> cm&sup2;</li>
-        <li>ΔT = <span> 0</span> °C</li>
-        <li>ΔS = <span> 0</span> cm&sup2;</li>
+        <li>β = <span id="object-type-label"> 46 × 10⁻⁶</span> °C</li>
+        <li>
+          S<sub>o</sub> = <span id="initial-surface"> 400</span> cm&sup2;
+        </li>
+        <li>
+          S<sub>f</sub> = <span id="final-surface"> 500</span> cm&sup2;
+        </li>
+        <li>ΔT = <span id="total-temp"> 0</span> °C</li>
+        <li>ΔS = <span id="total-surface-value"> 0</span> cm&sup2;</li>
+      </div>
+
+      <div class="flex">
+        <button id="start-button" class="start-button">Começar</button>
+        <button id="reset-button" class="reset-button">Resetar</button>
       </div>
     </div>
   </div>
