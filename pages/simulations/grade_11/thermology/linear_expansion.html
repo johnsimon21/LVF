@@ -4,8 +4,29 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="simulation-content relative">
+  <div class="thermometer-container">
+    <div class="thermometer-out-vertical relative">
+      <div class="dashes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="thermometer-in-vertical"></div>
+    </div>
+    <div class="thermometer-out-circle">
+      <div class="thermometer-in-circle">
+        <div class="thermometer-center"></div>
+      </div>
+    </div>
+    <div class="thermometer-value">0 °C</div>
+  </div>
+
   <div class="object-container relative">
-    <div class="object">
+    <div id="linear-value" class="linear-value"></div>
+    <div id="object" class="object">
       <div class="object-top bg-gray"></div>
       <div class="object-middle bg-gray"></div>
       <div class="object-bottom bg-gray"></div>
@@ -13,34 +34,41 @@
     <img
       src="/assets/images/fire-unscreen.gif"
       alt="imagem de chama"
+      id="fire"
       class="fire"
     />
   </div>
 
   <div class="control">
-    <select name="" id="" class="temp">
+    <select name="" id="temp" class="temp">
       <option value="0">0 °C</option>
-      <option value="25">25 °C</option>
-      <option value="50">50 °C</option>
-      <option value="75">75 °C</option>
+      <option value="20">20 °C</option>
+      <option value="40">40 °C</option>
+      <option value="60">60 °C</option>
+      <option value="80">80 °C</option>
       <option value="100">100 °C</option>
     </select>
 
     <div class="results">
       <div class="expression">
         <span>Expressão:</span>
-        <span>ΔL=L0.α.ΔT</span>
+        <span>ΔL=L<sub>0</sub>.α.ΔT</span>
       </div>
 
       <div class="datas">
-        <li>α = 1,2 × 10 °C</li>
-        <li>L0 = <span> 20.000</span> mm</li>
-        <li>ΔL = <span> 20.000</span> mm</li>
+        <li>α = 1,2 × 10 <sup>-5</sup> (°C)</li>
+        <li>L<sub>0</sub> = <span id="initial-linear"> 20.000</span></li>
+        <li>ΔL = <span id="total-linear-value"></span></li>
+      </div>
+
+      <div class="flex">
+        <button id="start-button" class="start-button">Começar</button>
+        <button id="reset-button" class="reset-button">Resetar</button>
       </div>
     </div>
   </div>
 </div>
 
-<script src="/js/grade_10/hor_launch.js"></script>
+<script src="/js/grade_10/linear_expansion.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/router.js"></script>

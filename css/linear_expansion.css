@@ -41,7 +41,7 @@
 .fire {
     position: absolute;
     left: -45px;
-    top: 50px;
+    top: 70px;
     width: 180px;
 }
 
@@ -86,4 +86,34 @@
 .expression span:last-child, .datas {
     font-size: 16px;
     list-style: none;
+}
+
+.linear-value {
+    background-color: #ffffff;
+    padding: 8px;
+    width: fit-content;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.start-button {
+    background-color: #51b9df;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 9px;
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.reset-button {
+    background-color: #c4bfbf;
+    color: #474747;
+    border: 1px solid #A5A5A5;
+    border-radius: 9px;
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-top: 10px;
+    cursor: pointer;
 }
