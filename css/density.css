@@ -1,3 +1,5 @@
+
+
 .simulation-content {
     background-color: #D3EDFD;
     display: flex;
@@ -59,7 +61,7 @@
 .object .letter {
     color: #ffff;
 
-    font-size: 10px;
+    font-size: 8px;
     padding: 1px 3px;
 
     max-width: fit-content;
@@ -79,7 +81,7 @@
 
 .object .mass-value {
     background-color: #ffffff;
-    font-size: 9px;
+    font-size: 7px;
     font-weight: bolder;
     padding: 0 1px;
 
@@ -146,7 +148,7 @@
     padding: 4px 6px;
 
     text-wrap: nowrap;
-    font-size: 12px;
+    font-size: 10px;
     border-radius: 10px 0 0 10px;
 }
 
@@ -281,7 +283,7 @@
     border-radius: 4px;
     padding: 4px 6px;
 
-    font-size: 10px;
+    font-size: 8px;
     font-weight: bolder;
 }
 
@@ -320,7 +322,7 @@
     color: #686868;
     border: 1px solid #A5A5A5;
     border-radius: 9px;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .object-type-a {
@@ -398,11 +400,141 @@
 }
 
 .expression span:first-child {
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .expression span:last-child,
 .datas {
-    font-size: 16px;
+    font-size: 14px;
     list-style: none;
 }
+  .material-wood {
+      background-color: #A67C52 !important;
+      background-image: url('/assets/images/box-1.svg');
+  }
+
+  .material-alum {
+      background-color: #D9D9D9 !important;
+      background-image: none;
+  }
+
+  .material-iron {
+      background-color: #8C8C8C !important;
+      background-image: none;
+  }
+
+  .density-result {
+      font-size: 12px;
+      font-weight: bold;
+      color: #4a4a4a;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding: 5px;
+      background-color: #f8f8f8;
+      border-radius: 4px;
+      text-align: center;
+  }
+
+  @media (max-width: 768px) {
+      .simulation-content {
+          flex-direction: column;
+          height: auto;
+          min-height: 500px;
+      }
+    
+      .controllers {
+          position: relative;
+          top: auto;
+          right: auto;
+          max-width: 100%;
+          margin-top: 120px;
+          padding: 20px;
+      }
+    
+      .object-base {
+          height: 100px;
+      }
+    
+      .aquarium {
+          width: 250px;
+          height: 80px;
+          left: 50%;
+          transform: translateX(-50%);
+      }
+    
+      .object {
+          width: 60px;
+          height: 60px;
+      }
+    
+      .reset-button {
+          bottom: 10px;
+          left: 10px;
+          padding: 6px 12px;
+          font-size: 12px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .simulation-content {
+          min-height: 400px;
+      }
+    
+      .controllers {
+          margin-top: 100px;
+      }
+    
+      .aquarium {
+          width: 200px;
+          height: 70px;
+      }
+    
+      .object {
+          width: 50px;
+          height: 50px;
+      }
+    
+      .object .letter {
+          font-size: 6px;
+          left: 5px;
+          top: 5px;
+      }
+    
+      .object .mass-value {
+          font-size: 7px;
+          right: 5px;
+          bottom: 5px;
+      }
+    
+      .input-group, .results {
+          margin-top: 15px;
+      }
+    
+      .expression span:first-child,
+      .expression span:last-child {
+          font-size: 12px;
+      }
+    
+      .datas li {
+          font-size: 9px;
+      }
+    
+      .range-value, .density-result {
+          font-size: 10px;
+      }
+  }
+
+  @media (hover: none) {
+      input[type="range"] {
+          height: 25px;
+      }
+    
+      .input, select {
+          padding: 8px 15px;
+          font-size: 14px;
+      }
+    
+      .object {
+          cursor: move;
+      }
+  }
