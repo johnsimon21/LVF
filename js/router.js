@@ -9,7 +9,7 @@ const routes = {
     404: "/pages/404.html",
     "/": "/pages/index.html",
     "/about": "/pages/about.html",
-    "/lorem": "/pages/lorem.html",
+    "/contact": "/pages/contact.html",
     
     // Grade 10 routes
     // Kinematics
