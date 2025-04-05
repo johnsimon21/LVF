@@ -135,6 +135,8 @@
 
     position: absolute;
     bottom: 0;
+
+    transition: all 0.5s ease-in-out;
 }
 
 .vertical-support {
@@ -256,6 +258,8 @@
 
     position: absolute;
     bottom: 0;
+
+    transition: all 0.5s ease-in-out;
 }
 
 .vertical-support {
@@ -360,7 +364,7 @@
 
     position: absolute;
     left: var(--vase-left-width);
-    bottom: -180px;
+    bottom: -200px;
 }
 
 .current-mass {
@@ -467,4 +471,225 @@
 
 .datas div {
     margin-top: 2px;
+}
+
+/* Animações suaves */
+.object, .vase-left, .vase-right {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Estilos para os sliders */
+input[type="range"] {
+  width: 100%;
+  margin: 8px 0;
+}
+
+/* Estilos para os valores exibidos */
+.datas span {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Ajuste para visualização da pressão */
+.pressure {
+  transition: height 0.5s ease-in-out;
+}
+
+.buttons {
+    position: absolute;
+    top: 20px;
+}
+
+.start-simulation {
+    background-color: #acacac;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: black 1px solid;
+}
+
+.start-simulation:hover {
+    background-color: #8c8c8c;
+    color: white;
+    transition: 0.3s;
+    border-color: white;
+}
+.reset-simulation {
+    background-color: #fd7a7a;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: black 1px solid;
+}
+
+.reset-simulation:hover {
+    background-color: #5c2323;
+    color: white;
+    transition: 0.3s;
+    border-color: white;
+}
+/* Add these styles to the CSS file */
+.real-time-data {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed #A5A5A5;
+}
+
+.real-time-data div {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.real-time-data span {
+  font-weight: bold;
+  color: #4332A8;
+}
+
+/* Improve animation smoothness */
+.object {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Add a pulsing effect to the pressure tube */
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.pressure {
+  transition: height 0.5s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+.buttons {
+    position: absolute;
+    top: 20px;
+}
+
+.start-simulation {
+    background-color: #acacac;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: black 1px solid;
+}
+
+.start-simulation:hover {
+    background-color: #8c8c8c;
+    color: white;
+    transition: 0.3s;
+    border-color: white;
+}
+.reset-simulation {
+    background-color: #fd7a7a;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: black 1px solid;
+}
+
+.reset-simulation:hover {
+    background-color: #5c2323;
+    color: white;
+    transition: 0.3s;
+    border-color: white;
+}
+
+/* Water pressure animation with direction */
+@keyframes waterPressure {
+    0% { background-color: rgba(112, 208, 247, 0.7); }
+    50% { background-color: rgba(1, 188, 243, 0.9); }
+    100% { background-color: rgba(112, 208, 247, 0.7); }
+}
+
+/* Left to right animation */
+@keyframes moveRippleLTR {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 0; }
+}
+
+/* Right to left animation */
+@keyframes moveRippleRTL {
+    0% { background-position: 0 0; }
+    100% { background-position: -40px 0; }
+}
+
+/* Left to right bubbles */
+@keyframes bubbleFloatLTR {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translate(calc(80vw - 100px), -30px) scale(0.5); opacity: 0; }
+}
+
+/* Right to left bubbles */
+@keyframes bubbleFloatRTL {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translate(calc(-80vw + 100px), -30px) scale(0.5); opacity: 0; }
+}
+
+.pressure.active-ltr, .pressure.active-rtl {
+    animation: waterPressure 1s infinite, pulse 2s infinite;
+    box-shadow: 0 0 10px rgba(1, 188, 243, 0.7);
+}
+
+/* Left to right flow */
+.pressure.active-ltr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 20px
+    );
+    animation: moveRippleLTR 2s linear infinite;
+}
+
+/* Right to left flow */
+.pressure.active-rtl::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 20px
+    );
+    animation: moveRippleRTL 2s linear infinite;
+}
+
+/* Bubble styling */
+.bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    bottom: 0;
 }

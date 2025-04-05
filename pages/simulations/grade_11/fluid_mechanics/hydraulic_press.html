@@ -8,12 +8,12 @@
     <div class="flex-row">
       <div class="vase-left">
         <div class="vase-left-top"></div>
-        <div class="vase-left-middle">
+        <div id="vase-left-middle" class="vase-left-middle">
           <div class="vertical-support">
             <div class="vase-left-middle-top">
               <div class="object-a object">
                 <div class="letter">1</div>
-                <div class="mass-value">2.00 kg</div>
+                <div id="mass-value-a" class="mass-value">5.00 kg</div>
               </div>
               <div class="vase-left-middle-top-0"></div>
               <div class="vase-left-middle-top-1"></div>
@@ -29,14 +29,14 @@
 
       <div class="pressure"></div>
 
-       <div class="vase-right">
+      <div class="vase-right">
         <div class="vase-right-top"></div>
-        <div class="vase-right-middle">
+        <div id="vase-right-middle" class="vase-right-middle">
           <div class="vertical-support">
             <div class="vase-right-middle-top">
               <div class="object-b object">
                 <div class="letter">2</div>
-                <div class="mass-value">2.00 kg</div>
+                <div id="" class="mass-value">10.00 kg</div>
               </div>
               <div class="vase-right-middle-top-0"></div>
               <div class="vase-right-middle-top-1"></div>
@@ -49,7 +49,11 @@
         </div>
         <div class="vase-right-bottom"></div>
       </div>
-    </div>   
+    </div>
+    <div class="buttons">
+      <button  id="start-simulation" class="start-simulation">Começar</button>
+      <button id="reset-simulation" class="reset-simulation">Resetar</button>
+    </div>
   </div>
 
   <div class="controllers">
@@ -65,9 +69,9 @@
 
       <div class="datas">
         <div>Massa</div>
-        <input type="range" name="" id="" />
-        <div>Raios</div>
-        <input type="range" name="" id="" />
+        <input type="range" name="" id="mass-input-a" />
+        <!-- <div>Raios</div>
+        <input type="range" name="" id="radius-input-a" /> -->
         <strong>
           <div>g = 9,8 m/s&sup2;</div>
           <div>S<sub>1</sub> = 7,85 x 10<sup>-3</sup> m<sup>2</sup></div>
@@ -89,12 +93,12 @@
       <div class="datas">
         <!-- <div>Massa</div>
         <input type="range" name="" id="" /> -->
-        <div>Raios</div>
-        <input type="range" name="" id="" />
+        <!-- <div>Raios</div> -->
+        <!-- <input type="range" name="radius-input-b" id="radius-input-b" /> -->
         <strong>
           <div>g = 9,8 m/s&sup2;</div>
           <div>S<sub>2</sub> = 1,28 x 10<sup>-1</sup> m<sup>2</sup></div>
-          <div>m<sub>2</sub> = 98N</div>
+          <div>m<sub>2</sub> = 10.00 kg</div>
           <div>F<sub>2</sub> = 98N</div>
         </strong>
       </div>
