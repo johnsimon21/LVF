@@ -1,0 +1,437 @@
+/* About Page Styles */
+.about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.about-hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/physics-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 4rem;
+}
+
+.about-title {
+    font-size: 4.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.about-section {
+    margin-bottom: 2rem;
+}
+
+.about-section h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #51b9df;
+}
+
+.about-section p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.about-columns {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.about-column {
+    flex: 1;
+}
+
+.about-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(81, 185, 223, 0.1);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+}
+
+.feature-card h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.feature-card p {
+    font-size: 1.5rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-photo {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover .member-img {
+    transform: scale(1.05);
+}
+
+.team-member h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 2rem 0 0.5rem;
+    color: #333;
+}
+
+.member-role {
+    font-size: 1.4rem;
+    color: #51b9df;
+    margin-bottom: 1.5rem;
+}
+
+.member-bio {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 0 2rem 2rem;
+    line-height: 1.5;
+}
+
+/* Social Links */
+.social-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.facebook-icon {
+    background-color: #3b5998;
+    color: white;
+}
+
+.linkedin-icon {
+    background-color: #0077b5;
+    color: white;
+}
+
+.instagram-icon {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+}
+
+.whatsapp-icon {
+    background-color: #25d366;
+    color: white;
+}
+
+.social-link span {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f9f9f9;
+    padding: 3rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(81, 185, 223, 0.1);
+    border-radius: 50%;
+}
+
+.contact-item p {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .about-container {
+        max-width: 100%;
+    }
+
+    .about-title {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-hero {
+        padding: 5rem 2rem;
+    }
+
+    .about-title {
+        font-size: 3.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .about-section h2 {
+        font-size: 2.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-columns {
+        flex-direction: column;
+    }
+
+    .about-hero {
+        padding: 4rem 1.5rem;
+    }
+
+    .about-title {
+        font-size: 3rem;
+    }
+
+    .about-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .social-container {
+        gap: 1.5rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero {
+        padding: 3rem 1rem;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .about-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-section {
+        padding: 2rem;
+    }
+}
+
+/* Animation effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-section {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.about-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.about-section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.about-section:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.about-section:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.about-section:nth-child(6) {
+    animation-delay: 1s;
+}
