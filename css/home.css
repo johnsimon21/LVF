@@ -252,3 +252,347 @@ ul.sm-icons li {
     }
 
 }
+
+/* Replace the current footer styles in home.css with these improved styles */
+
+.footer {
+    width: 100%;
+    background-color: #0B0B0B;
+    color: #ffffff;
+    padding: 4.5rem 5rem 3.5rem;
+    margin-top: 6rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.footer-logo, .footer-links, .footer-simulations, .footer-social {
+    flex: 1 1 20%;
+    min-width: 200px;
+}
+
+.footer-logo .abbreviation_logo {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.footer-logo .extension_logo {
+    font-size: 1.6rem;
+    color: #c4c4c4;
+}
+
+.footer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 1.5rem;
+}
+
+.footer ul li a {
+    color: #c4c4c4;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.sm-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.sm-icons li {
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 100%;
+    background-color: rgba(196, 196, 196, 0.37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.sm-icons li:hover {
+    background-color: rgba(196, 196, 196, 0.5);
+    transform: translateY(-3px);
+}
+
+.sm-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+
+.footer-bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.owner {
+    margin-bottom: 1.5rem;
+}
+
+.owner-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.copyright {
+    font-size: 1.4rem;
+    color: #888;
+}
+
+/* Responsive footer adjustments */
+@media (max-width: 992px) {
+    .footer {
+        padding: 3.5rem 3rem 2.5rem;
+    }
+    
+    .footer-content {
+        gap: 2.5rem;
+    }
+    
+    .footer-logo, .footer-links, .footer-simulations, .footer-social {
+        flex: 1 1 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 2rem 2rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .footer-logo, .footer-links, .footer-simulations, .footer-social {
+        flex: 1 1 100%;
+    }
+    
+    .sm-icons {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 2.5rem 1.5rem 1.5rem;
+        margin-top: 4rem;
+    }
+    
+    .footer h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 3rem;
+    }
+    
+    .owner-name {
+        font-size: 1.5rem;
+    }
+    
+    .copyright {
+        font-size: 1.2rem;
+    }
+}
+
+/* Enhanced card styling */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.card-body .card-img {
+    transition: transform 0.5s;
+}
+
+.card:hover .card-body .card-img {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .home-background-img {
+        padding: 3rem;
+    }
+    
+    h1.title {
+        font-size: 5.6rem;
+    }
+    
+    .home-content {
+        padding: 4rem;
+    }
+    
+    .content-title {
+        font-size: 3.6rem;
+    }
+    
+    h3 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .home-background-img {
+        height: calc(100vh - 4.5rem);
+        padding: 2rem;
+    }
+    
+    h1.title {
+        font-size: 4.8rem;
+        max-width: 100%;
+    }
+    
+    p.motto {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+    
+    .home-content {
+        padding: 3rem;
+    }
+    
+    .content-title {
+        font-size: 3.2rem;
+    }
+    
+    .cards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    .card {
+        flex: 0 0 calc(50% - 2rem);
+        margin-left: 0 !important;
+    }
+    
+    .footer {
+        padding: 3rem 2rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-background-img {
+        padding: 1.5rem;
+    }
+    
+    h1.title {
+        font-size: 3.6rem;
+    }
+    
+    p.motto {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+    
+    .developer-container {
+        font-size: 1.3rem;
+    }
+    
+    .home-content {
+        padding: 2rem;
+    }
+    
+    .content-title {
+        font-size: 2.8rem;
+    }
+    
+    h3 {
+        font-size: 2.4rem;
+    }
+    
+    .card {
+        flex: 0 0 100%;
+        height: auto;
+        min-height: 40rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-logo, .footer-links, .footer-simulations {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-background-img {
+        padding: 1rem;
+    }
+    
+    h1.title {
+        font-size: 3rem;
+    }
+    
+    p.motto {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+    
+    .home-content {
+        padding: 1.5rem;
+    }
+    
+    .content-title {
+        font-size: 2.4rem;
+    }
+    
+    h3 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 1.5rem 2rem;
+    }
+    
+    .footer {
+        padding: 2rem 1.5rem 1.5rem;
+        margin-top: 3rem;
+    }
+}

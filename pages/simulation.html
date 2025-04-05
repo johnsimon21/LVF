@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/images/icon.png" type="image/png" />
-    <title>Laboratório Virtual de Física</title>
+    <title>Laboratório Virtual de Física - Simulações</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/simulation.css" />
     <link rel="stylesheet" href="../css/home.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -28,7 +29,7 @@
         </div>
 
         <div class="dropdown-setion" onclick="handleSidebar()">
-          <div class="simulation-humburger">
+          <button class="simulation-humburger" aria-label="Toggle Sidebar">
             <img
               src="../assets/images/close.svg"
               alt="ícone de fechar"
@@ -41,14 +42,14 @@
               viewBox="0 0 48 48"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title />
+              <title>Menu</title>
               <line class="cls-1" x1="1" x2="47" y1="10" y2="10" />
               <line class="cls-1" x1="1" x2="47" y1="24" y2="24" />
               <line class="cls-1" x1="1" x2="47" y1="38" y2="38" />
             </svg>
-          </div>
+          </button>
         </div>
-        <a href="/" class="home">Home</a>
+        <a href="/" class="home"><i class="fa-solid fa-house"></i> Home</a>
       </header>
       <div class="section-container">
         <div id="sidebar" class="sidebar">
@@ -87,23 +88,28 @@
                   Movimento Retilíneo Uniforme (MRU)
                 </h2>
               </div>
-              <svg
-                class="guideline-icon-collapse"
-                height="15px"
-                id="Layer_1"
-                style="enable-background: new 0 0 512 512"
-                version="1.1"
-                viewBox="0 0 512 512"
-                width="15px"
-                xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                onclick="handleGuidelineCollapse()"
+              <button 
+                class="guideline-collapse-btn" 
+                onclick="handleGuidelineCollapse()" 
+                aria-label="Toggle guideline"
               >
-                <polygon
-                  points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "
-                />
-              </svg>
+                <svg
+                  class="guideline-icon-collapse"
+                  height="15px"
+                  id="Layer_1"
+                  style="enable-background: new 0 0 512 512"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                  width="15px"
+                  xml:space="preserve"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <polygon
+                    points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "
+                  />
+                </svg>
+              </button>
             </div>
             <div id="guideline-content" class="guideline-content">
               <p>
@@ -124,14 +130,34 @@
               allowfullscreen="true"
               mozallowfullscreen="true"
               webkitallowfullscreen="true"
+              title="Simulation"
             ></iframe>
           </div>
         </section>
+      </div>
+      
+      <div class="mobile-controls">
+        <button id="toggle-sidebar-mobile" class="mobile-btn" aria-label="Toggle Sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button id="toggle-guideline-mobile" class="mobile-btn" aria-label="Toggle Guidelines">
+          <i class="fa-solid fa-info-circle"></i>
+        </button>
       </div>
     </div>
 
     <script src="../js/main.js" defer type="module"></script>
     <script src="../js/router.js"></script>
     <script src="../js/simulation.js"></script>
+    <script>
+      // Mobile controls
+      document.getElementById('toggle-sidebar-mobile').addEventListener('click', function() {
+        handleSidebar();
+      });
+      
+      document.getElementById('toggle-guideline-mobile').addEventListener('click', function() {
+        handleGuidelineCollapse();
+      });
+    </script>
   </body>
 </html>
