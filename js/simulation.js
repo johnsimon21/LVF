@@ -77,6 +77,7 @@ function handleGuidelineCollapse() {
 }
 
 function loadSimulation(grade, simulationType, category) {
+    handleSidebar()
     const simulationFrame = document.querySelector('#simulation-frame');
     const guidelineTitle = document.querySelector('#guideline-title');
     const guidelineContent = document.querySelector('#guideline-content');
