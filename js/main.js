@@ -120,6 +120,14 @@ function sliderange() {
   updateValue(); // Initialize the value on load
 }
 
+ // Mobile controls
+ document.getElementById('toggle-sidebar-mobile').addEventListener('click', function() {
+  handleSidebar();
+});
+
+document.getElementById('toggle-guideline-mobile').addEventListener('click', function() {
+  handleGuidelineCollapse();
+});
 
 sliderange()
 resizeAnimationCene()

@@ -347,4 +347,83 @@ button {
     padding: 0;
 }
 
+.mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    gap: 10px;
+    z-index: 100;
+}
 
+.mobile-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #51b9df;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.mobile-btn:hover {
+    background-color: #3da8ce;
+}
+
+.mobile-btn:active {
+    transform: scale(0.95);
+}
+
+.mobile-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 992px) {
+    header.header {
+        padding: 1.5rem;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    header.header {
+        padding: 1rem;
+    }
+    
+    .abbreviation_logo {
+        font-size: 2.8rem;
+    }
+    
+    .extension_logo {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header.header {
+        padding: 0.8rem;
+    }
+    
+    .abbreviation_logo {
+        font-size: 2.4rem;
+    }
+    
+    .home {
+        font-size: 1.4rem;
+    }
+    
+    .mobile-btn {
+        width: 45px;
+        height: 45px;
+    }
+}

@@ -6,7 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const linearValue = document.getElementById('linear-value');
     const totalLinearValue = document.getElementById('total-linear-value');
-    const initialLinear = object.computedStyleMap().get('width').value;
+    
+    // Get initial width in a responsive way
+    let initialLinear;
+    if (window.getComputedStyle) {
+        initialLinear = parseFloat(window.getComputedStyle(object).width);
+    } else {
+        initialLinear = object.offsetWidth;
+    }
+    
+    // Adjust for mobile screens
+    const isMobile = window.innerWidth <= 768;
+    const scaleFactor = isMobile ? 0.8 : 1;
+    initialLinear = initialLinear * scaleFactor;
     
     // Thermometer elements
     const thermometerInVertical = document.querySelector('.thermometer-in-vertical');
@@ -15,7 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const α = 1.2 * Math.pow(10, -5);
     const initialTemp = parseInt(temp.value); // °C
     let ΔL = initialLinear * α * initialTemp;
-    let initialFireSize = fire.computedStyleMap().get("width").value;
+    
+    // Get fire size in a responsive way
+    let initialFireSize;
+    if (window.getComputedStyle) {
+        initialFireSize = parseFloat(window.getComputedStyle(fire).width);
+    } else {
+        initialFireSize = fire.offsetWidth;
+    }
 
     let animationInterval = null;
     let isAnimating = false;
@@ -23,9 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize thermometer
     updateThermometer(initialTemp);
 
-    linearValue.textContent = ΔL + initialLinear + " mm";
-    totalLinearValue.textContent = ΔL + " mm";
-    displayInitialLinear.textContent = initialLinear + " mm";
+    // Update display values
+    linearValue.textContent = (ΔL + initialLinear).toFixed(2) + " mm";
+    totalLinearValue.textContent = ΔL.toFixed(4) + " mm";
+    displayInitialLinear.textContent = initialLinear.toFixed(2) + " mm";
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Only update if not currently animating
+        if (!isAnimating) {
+            // Recalculate based on new screen size
+            const newIsMobile = window.innerWidth <= 768;
+            const newScaleFactor = newIsMobile ? 0.8 : 1;
+            
+            // Reset object to initial size adjusted for screen
+            if (window.getComputedStyle) {
+                const currentWidth = parseFloat(window.getComputedStyle(object).width);
+                if (Math.abs(currentWidth - initialLinear) > 5) {
+                    object.style.width = (initialLinear * newScaleFactor) + "px";
+                }
+            }
+        }
+    });
 
     temp.addEventListener('change', () => {
         const newTemp = parseInt(temp.value);
@@ -33,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ΔL = newΔL > ΔL ? newΔL : ΔL;
         
         // Update display values but don't change width yet
-        linearValue.textContent = (initialLinear + parseFloat(ΔL)) + " mm";
+        linearValue.textContent = (initialLinear + parseFloat(ΔL)).toFixed(2) + " mm";
         totalLinearValue.textContent = ΔL + " mm";
-        displayInitialLinear.textContent = initialLinear + " mm";
+        displayInitialLinear.textContent = initialLinear.toFixed(2) + " mm";
         
         // Update fire size based on temperature
         const newFireSize = initialFireSize + (newTemp - initialTemp) * 0.2;
@@ -60,7 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetWidth = initialLinear + targetΔL * 100;
         
         // Get current width
-        const currentWidth = parseFloat(object.style.width || initialLinear);
+        let currentWidth;
+        if (object.style.width) {
+            currentWidth = parseFloat(object.style.width);
+        } else if (window.getComputedStyle) {
+            currentWidth = parseFloat(window.getComputedStyle(object).width);
+        } else {
+            currentWidth = initialLinear;
+        }
         
         // Calculate steps for smooth animation
         const totalSteps = 100;
@@ -106,9 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         fire.style.width = initialFireSize + "px";
         object.style.width = initialLinear + "px";
-        linearValue.textContent = ΔL + initialLinear + " mm";
-        totalLinearValue.textContent = ΔL + " mm";
-        displayInitialLinear.textContent = initialLinear + " mm";
+        linearValue.textContent = (ΔL + initialLinear).toFixed(2) + " mm";
+        totalLinearValue.textContent = ΔL.toFixed(4) + " mm";
+        displayInitialLinear.textContent = initialLinear.toFixed(2) + " mm";
         
         // Reset thermometer
         updateThermometer(initialTemp);

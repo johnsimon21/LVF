@@ -3,6 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    min-height: 500px;
+    padding: 2rem 0;
 }
 
 .relative {
@@ -17,6 +20,7 @@
     flex-direction: column;
     border-inline: 1px dashed #333333;
     padding-top: 10px;
+    transition: width 0.3s ease;
 }
 
 .bg-gray {
@@ -27,7 +31,6 @@
 .object-middle {
     width: calc(100% - 20px);
     height: 30px;
-
     margin-inline: auto;
     border-width: 0 1px;
 }
@@ -43,6 +46,7 @@
     left: -45px;
     top: 70px;
     width: 180px;
+    max-width: 50%;
 }
 
 .control {
@@ -50,12 +54,12 @@
     position: absolute;
     top: 50px;
     right: 20px;
+    z-index: 10;
 }
 
 .temp {
     width: 100%;
     padding: 6px 20px;
-
     background-color: #F2F2F2;
     color: #686868;
     border: 1px solid #A5A5A5;
@@ -66,7 +70,6 @@
 .results {
     background-color: #F2F2F2;
     border: 1px solid #A5A5A5;
-
     width: 100%;
     border-radius: 9px;
     color: #686868;
@@ -94,6 +97,11 @@
     width: fit-content;
     border-radius: 8px;
     border: 1px solid black;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
 }
 
 .start-button {
@@ -105,6 +113,11 @@
     padding: 6px 10px;
     margin-top: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #3da8ce;
 }
 
 .reset-button {
@@ -116,4 +129,140 @@
     padding: 6px 10px;
     margin-top: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #b0abab;
+}
+
+.flex {
+    display: flex;
+    gap: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .object {
+        width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .object {
+        width: 280px;
+    }
+    
+    .fire {
+        width: 150px;
+        left: -35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .simulation-content {
+        flex-direction: column;
+        padding: 60px 20px 20px;
+    }
+    
+    .object-container {
+        margin-top: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .object {
+        width: 260px;
+    }
+    
+    .control {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 30px auto 0;
+    }
+    
+    .fire {
+        left: -30px;
+        width: 120px;
+    }
+    
+    .thermometer-container {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10px;
+        bottom: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .object {
+        width: 220px;
+        height: 80px;
+    }
+    
+    .object-middle {
+        height: 25px;
+    }
+    
+    .object-top,
+    .object-bottom {
+        height: 10px;
+    }
+    
+    .fire {
+        width: 100px;
+        left: -25px;
+        top: 60px;
+    }
+    
+    .linear-value {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    .expression span:first-child,
+    .expression span:last-child, 
+    .datas {
+        font-size: 14px;
+    }
+    
+    .start-button,
+    .reset-button {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+    
+    .thermometer-container {
+        transform: translateX(-50%) scale(0.9);
+    }
+}
+
+@media (max-width: 400px) {
+    .object {
+        width: 180px;
+        height: 70px;
+    }
+    
+    .fire {
+        width: 80px;
+        left: -20px;
+    }
+    
+    .thermometer-container {
+        transform: translateX(-50%) scale(0.8);
+    }
+    
+    .flex {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .start-button,
+    .reset-button {
+        width: 100%;
+    }
 }

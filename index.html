@@ -12,12 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v6.4.0/css/all.css"
-      integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0"
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <div id="root">
@@ -51,7 +45,9 @@
             <div class="dropdown-content">
               <a href="/" onclick="route()" class="menu-item">Home</a>
               <a href="/about" onclick="route()" class="menu-item">Sobre</a>
-              <a href="/contact" onclick="route()" class="menu-item">Contacto</a>
+              <a href="/contact" onclick="route()" class="menu-item"
+                >Contacto</a
+              >
             </div>
           </div>
         </div>
@@ -75,7 +71,19 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Simulações <i class="fa-solid fa-chevron-down"></i>
+                Simulações
+                <!-- Chevron down SVG -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  width="12"
+                  height="12"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                  />
+                </svg>
               </span>
               <div id="dropdown2" class="dropdown dropdown-simulations">
                 <div class="dropdown-content">
